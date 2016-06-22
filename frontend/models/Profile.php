@@ -84,6 +84,21 @@ class Profile extends \yii\db\ActiveRecord
      * @param Profile $profile
      * @return Profile|null
      */
+    public function initProfile($profile)
+    {
+        if (!$this->validate()) {
+            return null;
+        }
+
+        $profile->name = $this->name;
+
+        return $profile->save() ? $profile : false;
+    }
+
+    /**
+     * @param Profile $profile
+     * @return Profile|null
+     */
 
     public function updateProfile ($profile)
     {
@@ -97,8 +112,8 @@ class Profile extends \yii\db\ActiveRecord
         $profile->birthday = $this->birthday;
         $profile->avatar = $this->avatar;
         $profile->info = $this->info;
-        $profile->created_at;
-        $profile->updated_at;
+//        $profile->created_at;
+//        $profile->updated_at;
 
         return $profile->save() ? $profile : false;
     }

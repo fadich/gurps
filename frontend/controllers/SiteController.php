@@ -74,9 +74,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        if (!isset(User::findOne(Yii::$app->user->id)->getProfile()->one()->name)) {
-            return $this->redirect('index.php/site/profile');
-        }
         return $this->render('index');
     }
 
@@ -154,16 +151,21 @@ class SiteController extends Controller
     public function actionSignup()
     {
         $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
+        $profile = new Profile();
+        if ($model->load(Yii::$app->request->post()) && $profile->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
+                $profile->user_id = $user->id;
+                if ($profile->initProfile($profile)) {
+                    if (Yii::$app->getUser()->login($user)) {
+                        return $this->goHome();
+                    }
                 }
             }
         }
 
         return $this->render('signup', [
             'model' => $model,
+            'profile' => $profile,
         ]);
     }
 
@@ -182,7 +184,8 @@ class SiteController extends Controller
             $model->file = UploadedFile::getInstance($model, 'file');
             if (isset($model->file)) {
                 if ($model->file->extension != 'jpg' && $model->file->extension != 'jpeg' &&
-                    $model->file->extension != 'png') {
+                    $model->file->extension != 'png'
+                ) {
                     Yii::$app->session->setFlash('error', 'Файл должен иметь расширение *.jpg, *.jpeg или *.png .');
                     return $this->render('profile', [
                         'model' => $model
@@ -212,6 +215,11 @@ class SiteController extends Controller
         return $this->render('profile', [
             'model' => $model
         ]);
+    }
+
+    public function actionUser()
+    {
+
     }
 
     /**

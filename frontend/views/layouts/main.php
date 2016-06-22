@@ -43,11 +43,7 @@ AppAsset::register($this);
 //        ['label' => 'Contact', 'url' => ['/site/contact']],
     ];
     if (!Yii::$app->user->isGuest) {
-        isset(User::findOne(Yii::$app->user->id)->getProfile()->one()->name) ?
-            $username = User::findOne(Yii::$app->user->id)->getProfile()->one()->name
-        : $username = User::findOne(Yii::$app->user->id)->email;
-
-//                User::findOne(Yii::$app->user->id)->email
+            $username = User::findOne(Yii::$app->user->id)->getProfile()->one()->name;
         $menuItems[] = [
             'label' => 'Пользователь (' .
                 $username
