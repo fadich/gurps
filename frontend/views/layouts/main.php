@@ -39,7 +39,8 @@ AppAsset::register($this);
     ]);
     $menuItems = [
 //        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
+        ['label' => 'О "GURPS"', 'url' => ['/site/about']],
+        ['label' => 'Пользователи', 'url' => ['/user/index']],
 //        ['label' => 'Contact', 'url' => ['/site/contact']],
     ];
     if (!Yii::$app->user->isGuest) {
@@ -56,7 +57,7 @@ AppAsset::register($this);
         ];
     } else {
 //        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-//        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => 'Войти', 'url' => ['/site/login']];
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],

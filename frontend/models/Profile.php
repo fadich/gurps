@@ -112,8 +112,6 @@ class Profile extends \yii\db\ActiveRecord
         $profile->birthday = $this->birthday;
         $profile->avatar = $this->avatar;
         $profile->info = $this->info;
-//        $profile->created_at;
-//        $profile->updated_at;
 
         return $profile->save() ? $profile : false;
     }
