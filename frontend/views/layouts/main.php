@@ -29,7 +29,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'Главная',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -39,7 +39,7 @@ AppAsset::register($this);
     ]);
     $menuItems = [
 //        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'О "GURPS"', 'url' => ['/site/about']],
+        ['label' => 'О "gurps"', 'url' => ['/site/about']],
         ['label' => 'Пользователи', 'url' => ['/user/index']],
 //        ['label' => 'Contact', 'url' => ['/site/contact']],
     ];

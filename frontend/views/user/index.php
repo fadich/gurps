@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <br> <br>
                                 <?php if (isset($item->getProfile()->one()->avatar)) {
                                     echo '<img src="' . '/gurps/frontend/web/' . $item->getProfile()->one()->avatar .
-                                        '" width="308px">&nbsp;&nbsp;&nbsp;';
+                                        '" width="248px">&nbsp;&nbsp;&nbsp;';
                                 } ?>
                             </p>
                         </h4>
