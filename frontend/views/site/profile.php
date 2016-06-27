@@ -2,12 +2,12 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use frontend\models\Profile;
 use kartik\date\DatePicker;
 use yii\bootstrap\Modal;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Profile */
+/* @var $file frontend\models\Files */
 /* @var $form ActiveForm */
 
 $this->title = 'Профиль';
@@ -48,10 +48,10 @@ $this->title = 'Профиль';
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-3">
-                <?= $form->field($model, 'file')->fileInput() ?>
+                <?= $form->field($file, 'file')->fileInput() ?>
                 <?php
-                if (isset($model->avatar)) {
-                    echo '<img src="' . '/gurps/frontend/web/' . $model->avatar .
+                if (isset($model->getAvatar()->one()->path)) {
+                    echo '<img src="' . '/gurps/frontend/web/' . $model->getAvatar()->one()->path .
                         '" width="308px">&nbsp;&nbsp;&nbsp;';
                 } ?>
 

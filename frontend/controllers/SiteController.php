@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use common\models\User;
+use frontend\models\Files;
 use frontend\models\Profile;
 use frontend\models\World;
 use Yii;
@@ -75,7 +76,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        if (Yii::$app->request->post('create_world') &&  Yii::$app->request->post('create_world') == 1) {
+        if (Yii::$app->request->post('create_world') && Yii::$app->request->post('create_world') == 1) {
             return $this->redirect('index.php/site/world');
         }
 
@@ -161,7 +162,7 @@ class SiteController extends Controller
             if ($user = $model->signup()) {
                 $profile->user_id = $user->id;
                 if ($profile->initProfile($profile)) {
-                    if (Yii::$app->getUser()->login($user)) {
+                    if (Yii::$app->user->login($user, 3600 * 10)) {
                         return $this->goHome();
                     }
                 }
@@ -176,7 +177,7 @@ class SiteController extends Controller
 
     /**
      * Display
-     * }s profile.
+     * profile.
      *
      * @return mixed
      */
@@ -184,24 +185,33 @@ class SiteController extends Controller
     {
         $model = ($model = Profile::findOne(['user_id' => Yii::$app->user->id]))
             ? $model : new Profile();
-
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            $model->file = UploadedFile::getInstance($model, 'file');
-            if (isset($model->file)) {
-                if ($model->file->extension != 'png'
-//                    && $model->file->extension != 'jpg' && $model->file->extension != 'jpeg'
+        $file = ($file = Files::findOne(['id' => $model->avatar]))
+            ? $file : new Files();
+        if ($model->load(Yii::$app->request->post()) && $model->validate() &&
+            $file->load(Yii::$app->request->post()) && $file->validate()
+        ) {
+            $file->file = UploadedFile::getInstance($file, 'file');
+            if (isset($file->file)) {
+                if ($file->file->extension != 'png'
+                    && $file->file->extension != 'jpg' && $file->file->extension != 'jpeg'
                 ) {
                     Yii::$app->session->setFlash('error', 'Файл должен иметь расширение *.png .');
                     return $this->render('profile', [
-                        'model' => $model
+                        'model' => $model,
+                        'file' => $file,
                     ]);
                 } else {
-                    $model->file->saveAs('uploads/pictures/avatars/' . $model->id . '_' .
+                    if (isset($model->avatar)){
+                        unlink($model->getAvatar()->one()->path);
+                    }
+                    $file->file->saveAs('uploads/pictures/avatars/' .
                         str_replace('\'', '', (str_replace('"', '', str_replace(' ', '_', $model->name)))) .
-                        '.' . $model->file->extension);
-                    $model->avatar = 'uploads/pictures/avatars/' . $model->id . '_' .
+                        '.' . $file->file->extension);
+                    $file->path = 'uploads/pictures/avatars/' .
                         str_replace('\'', '', (str_replace('"', '', str_replace(' ', '_', $model->name)))) .
-                        '.' . $model->file->extension;
+                        '.' . $file->file->extension;
+                    $file->updateFile($file);
+                    $model->avatar = $file->id;
                 }
             }
             if ($model->updateProfile($model)) {
@@ -218,7 +228,8 @@ class SiteController extends Controller
         }
 
         return $this->render('profile', [
-            'model' => $model
+            'model' => $model,
+            'file' => $file,
         ]);
     }
 

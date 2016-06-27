@@ -8,7 +8,7 @@ use yii\bootstrap\ActiveForm;
 
 $this->title = 'My Yii Application';
 ?>
-<div class="site-index">
+<div class="site-index" id="create">
     <?php $form = ActiveForm::begin(); ?>
 
     <?= Html::submitButton('Создать', [
@@ -18,6 +18,70 @@ $this->title = 'My Yii Application';
     ]); ?>
 
     <?php $form = ActiveForm::end(); ?>
+
+    <?= Html::button('Hello + 1', [
+        'class' => 'btn btn-primary',
+        'onClick' => 'hello()'
+    ]); ?>
+    <?= Html::button('Hello + 5', [
+        'class' => 'btn btn-primary',
+        'onClick' => 'helloFive()'
+    ]); ?>
+    <br>
+    <?= Html::button('Hello  - 1', [
+        'class' => 'btn btn-primary',
+        'onClick' => 'helloMinus()'
+    ]); ?>
+    <?= Html::button('Hello - 5', [
+        'class' => 'btn btn-primary',
+        'onClick' => 'helloMinusFive()'
+    ]); ?>
+
+    <div id="text-hello">Value of "Hello" = 0.</div>
+
+    <script>
+        var i = 0;
+        function hello() {
+            if (i + 1 <= 100) {
+                i++;
+                document.getElementById("text-hello").innerHTML = 'Value of \"Hello\" = ' + i + '.';
+            }
+            else {
+                document.getElementById("text-hello").innerHTML =
+                    'Value of \"Hello\" = ' + i + '.<br>Value of \"Hello\" cannot be greater than 100';
+            }
+        }
+        function helloFive() {
+            if (i + 5 <= 100) {
+                i += 5;
+                document.getElementById("text-hello").innerHTML = 'Value of \"Hello\" = ' + i + '.';
+            }
+            else {
+                document.getElementById("text-hello").innerHTML =
+                    'Value of \"Hello\" = ' + i + '.<br>Value of \"Hello\" cannot be greater than 100';
+            }
+        }
+        function helloMinus() {
+            if (i - 1 >= 0) {
+                i--;
+                document.getElementById("text-hello").innerHTML = 'Value of \"Hello\" = ' + i + '.';
+            }
+            else {
+                document.getElementById("text-hello").innerHTML =
+                    'Value of \"Hello\" = ' + i + '.<br>Value of \"Hello\" cannot be less than 0';
+            }
+        }
+        function helloMinusFive() {
+            if (i - 5 >= 0) {
+                i -= 5;
+                document.getElementById("text-hello").innerHTML = 'Value of \"Hello\" = ' + i + '.';
+            }
+            else {
+                document.getElementById("text-hello").innerHTML =
+                    'Value of \"Hello\" = ' + i + '.<br>Value of \"Hello\" cannot be less than 0';
+            }
+        }
+    </script>
     <!--    -->
     <!--    <div class="jumbotron">-->
     <!--        <h1>Congratulations!</h1>-->

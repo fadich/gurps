@@ -51,22 +51,33 @@ class Files extends \yii\db\ActiveRecord
             'id' => 'ID',
             'path' => 'Path',
             'status' => 'Status',
+            'file' => 'Файл',
         ];
+    }
+
+    /**
+     * @param Files $file
+     * @return Files|null
+     */
+    public function updateFile($file)
+    {
+        if (!$this->validate()) {
+            return false;
+        }
+
+        $file->path = $this->path;
+        return $file->save() ? $file : false;
+
     }
 
     /**
      * @return bool
      */
-    public function updateFile ()
+    public function deleteFile()
     {
-        if(!$this->validate()) {
-            return false;
-        }
-
-        $file = new Files();
-
-        $file->path = $this->path;
+        unlink($this->path);
+        $this->status = self::STATUS_DELETED;
+        $this->path = null;
         return $this->save() ? true : false;
-
     }
 }

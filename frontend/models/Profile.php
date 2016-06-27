@@ -22,7 +22,7 @@ use yii\behaviors\TimestampBehavior;
  */
 class Profile extends \yii\db\ActiveRecord
 {
-    public $file;
+//    public $file;
 
     /**
      * @inheritdoc
@@ -50,17 +50,17 @@ class Profile extends \yii\db\ActiveRecord
         return [
             ['name', 'required'],
             ['name', 'trim'],
-            ['name', 'string', 'max' => 255, 'min' => 3],
+            ['name', 'string', 'max' => 24, 'min' => 3],
 
             ['user_id', 'integer'],
             ['sex', 'string', 'max' => 10],
             ['birthday', 'string', 'max' => 16],
-            ['avatar', 'string', 'max' => 128],
+            ['avatar', 'integer'],
             ['info', 'trim'],
             ['info', 'string', 'max' => 1024],
-
-            ['file', 'safe'],
-            [['file'], 'file', 'skipOnEmpty' => true],
+//
+//            ['file', 'safe'],
+//            [['file'], 'file', 'skipOnEmpty' => true],
         ];
     }
 
@@ -75,7 +75,7 @@ class Profile extends \yii\db\ActiveRecord
             'sex' => 'Пол',
             'birthday' => 'Дата рождения',
             'avatar' => '',
-            'file' => 'Аватар',
+//            'file' => 'Аватар',
             'info' => 'Дополнительная информация'
         ];
     }
@@ -121,8 +121,19 @@ class Profile extends \yii\db\ActiveRecord
         if (!isset($this->avatar)) {
             return false;
         }
-        unlink($this->avatar);
+        if (!Files::findOne(['id' => $this->avatar])->deleteFile()){
+            return false;
+        }
         $this->avatar = null;
         return $this->save() ? true : false;
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+
+    public function getAvatar ()
+    {
+        return $this->hasOne(Files::className(), ['id' => 'avatar']);
     }
 }

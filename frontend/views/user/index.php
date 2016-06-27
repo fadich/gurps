@@ -14,37 +14,41 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
     <div class="row">
-        <div class="col-lg-10">
+        <div class="col-lg-13">
             <?php
             $model = $model->findAll(['status' => $model::STATUS_ACTIVE]);
-            $form = ActiveForm::begin();
-            foreach ($model as $item): ?>
+            foreach ($model as $item):
+                $form = ActiveForm::begin(); ?>
                 <div class="row">
                     <div class="col-lg-5">
-                        <h4>
-                            <p>
-                                <a><?php echo $item->getProfile()->one()->name; ?></a>
-                                <br> <br>
-                                <?php if (isset($item->getProfile()->one()->avatar)) {
-                                    echo '<img src="' . '/gurps/frontend/web/' . $item->getProfile()->one()->avatar .
-                                        '" width="248px">&nbsp;&nbsp;&nbsp;';
-                                } ?>
-                            </p>
-                        </h4>
+                        <?= Html::submitButton('<h4>' . $item->getProfile()->one()->name . '</h4>', [
+                            'class' => 'btn btn-link',
+                            'name' => 'id',
+                            'value' => $item->id,
+                        ]) ?>
+                        <br>
+                        <?php $avatar = $item->getProfile()->one()->getAvatar()->one();
+                        if (isset($avatar->path)) {
+                            echo '<img src="' . '/gurps/frontend/web/' . $avatar->path .
+                                '" width="208px">&nbsp;&nbsp;&nbsp;';
+                        } ?>
+
                     </div>
                     <div class="col-lg-5">
-                        <h4><b>Информация</b></h4>
-                        <b>Дата рождения:</b>
-                        <?php echo $item->getProfile()->one()->birthday; ?>
-                        <br><b>Пол:</b>
-                        <?php echo $item->getProfile()->one()->sex; ?>
-                        <br><b>Доп. информация:</b>
-                        <?php echo mb_substr($item->getProfile()->one()->info, 0, 150); ?>
+                        <h3>Информация</h3>
+                        <h5>
+                            <p>Дата рождения: <?php echo $item->getProfile()->one()->birthday ?> </p>
+                            <p>Доп. информация: <?php (strlen($item->getProfile()->one()->info) > 150) ?
+                                $str = trim(mb_substr($item->getProfile()->one()->info, 0, 150, "UTF-8")) . '...' :
+                                $str = $item->getProfile()->one()->info;
+                            echo $str;
+                            ?> </p>
+                        </h5>
                     </div>
                 </div>
                 <hr>
-            <?php endforeach;
-            ActiveForm::end(); ?>
+                <?php ActiveForm::end();
+            endforeach; ?>
         </div>
     </div>
 </div>
