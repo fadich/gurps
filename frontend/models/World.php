@@ -3,6 +3,7 @@
 namespace frontend\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "world".
@@ -21,6 +22,16 @@ class World extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public static function tableName()
     {
         return 'world';
@@ -32,10 +43,10 @@ class World extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'name', 'created_at', 'updated_at'], 'required'],
-            [['user_id', 'file_id', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['name'], 'required'],
+            [['file_id'], 'integer'],
             [['description'], 'string'],
-            [['name'], 'string', 'max' => 64],
+            [['name'], 'string', 'max' => 64, 'min' => 4],
             [['name'], 'unique'],
         ];
     }
@@ -46,14 +57,51 @@ class World extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'user_id' => 'User ID',
-            'name' => 'Name',
-            'description' => 'Description',
-            'file_id' => 'File ID',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'name' => 'Название',
+            'description' => 'Описание',
         ];
+    }
+
+    /**
+     * @param World $world
+     * @return World|null
+     */
+
+    public function updateWorld($world)
+    {
+        if (!$this->validate()) {
+            return null;
+        }
+
+        $world->user_id = Yii::$app->user->id;
+        $world->name = $this->name;
+        $world->file_id = $this->file_id;
+        $world->description = $this->description;
+
+        return $world->save() ? $world : false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function deleteAvatar()
+    {
+        if (!isset($this->file_id)) {
+            return false;
+        }
+        if (!Files::findOne(['id' => $this->file_id])->deleteFile()) {
+            return false;
+        }
+        $this->file_id = null;
+        return $this->save() ? true : false;
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+
+    public function getAvatar()
+    {
+        return $this->hasOne(Files::className(), ['id' => 'file_id']);
     }
 }

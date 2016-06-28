@@ -22,8 +22,6 @@ use yii\behaviors\TimestampBehavior;
  */
 class Profile extends \yii\db\ActiveRecord
 {
-//    public $file;
-
     /**
      * @inheritdoc
      */

@@ -4,7 +4,6 @@ namespace frontend\controllers;
 use common\models\User;
 use frontend\models\Files;
 use frontend\models\Profile;
-use frontend\models\World;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -38,7 +37,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'profile', 'world'],
+                        'actions' => ['logout', 'index', 'profile'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -77,7 +76,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         if (Yii::$app->request->post('create_world') && Yii::$app->request->post('create_world') == 1) {
-            return $this->redirect('index.php/site/world');
+            return $this->redirect('index.php/world/edit');
         }
 
         return $this->render('index');
@@ -195,7 +194,7 @@ class SiteController extends Controller
                 if ($file->file->extension != 'png'
                     && $file->file->extension != 'jpg' && $file->file->extension != 'jpeg'
                 ) {
-                    Yii::$app->session->setFlash('error', 'Файл должен иметь расширение *.png .');
+                    Yii::$app->session->setFlash('error', 'Файл должен иметь расширение *.png, *.jpg или *.jpeg .');
                     return $this->render('profile', [
                         'model' => $model,
                         'file' => $file,
@@ -231,24 +230,6 @@ class SiteController extends Controller
             'model' => $model,
             'file' => $file,
         ]);
-    }
-
-    public function actionUser()
-    {
-
-    }
-
-    /**
-     * @return mixed
-     */
-    public function actionWorld()
-    {
-        $model = new World();
-
-        return $this->render('world',
-            [
-                'model' => $model,
-            ]);
     }
 
     /**

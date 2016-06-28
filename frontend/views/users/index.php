@@ -7,6 +7,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
 /* @var $form ActiveForm */
+/* @var $session \yii\web\Session */
 
 
 $this->title = 'Пользователи';
@@ -30,7 +31,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?php $avatar = $item->getProfile()->one()->getAvatar()->one();
                         if (isset($avatar->path)) {
                             echo '<img src="' . '/gurps/frontend/web/' . $avatar->path .
-                                '" width="208px">&nbsp;&nbsp;&nbsp;';
+                                '" width="160px">&nbsp;&nbsp;&nbsp;';
+                        } else {
+                            echo '<img src="' . '/gurps/frontend/web/uploads/pictures/avatars/no_avatar.png"
+                            width="160px">&nbsp;&nbsp;&nbsp;';
                         } ?>
 
                     </div>

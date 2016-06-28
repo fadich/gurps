@@ -11,6 +11,7 @@ use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use common\models\User;
 
+$this->title = 'Миры';
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -40,7 +41,7 @@ AppAsset::register($this);
     $menuItems = [
 //        ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'О "gurps"', 'url' => ['/site/about']],
-        ['label' => 'Пользователи', 'url' => ['/user/index']],
+        ['label' => 'Пользователи', 'url' => ['/users/index']],
 //        ['label' => 'Contact', 'url' => ['/site/contact']],
     ];
     if (!Yii::$app->user->isGuest) {

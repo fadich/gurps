@@ -8,6 +8,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 $this->title = 'Восстановление пароля';
+$this->params['breadcrumbs'][] = ['label' => 'Вход', 'url' => 'login'];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-request-password-reset">

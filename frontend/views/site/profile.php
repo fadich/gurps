@@ -11,11 +11,12 @@ use yii\bootstrap\Modal;
 /* @var $form ActiveForm */
 
 $this->title = 'Профиль';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-login">
+<div class="site-profile">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Информация о пользователе:</p>
+    <p>Информация о пользователе <i><?php echo $model->name; ?></i>:</p>
 
     <div class="profile">
         <div class="row">
@@ -53,6 +54,9 @@ $this->title = 'Профиль';
                 if (isset($model->getAvatar()->one()->path)) {
                     echo '<img src="' . '/gurps/frontend/web/' . $model->getAvatar()->one()->path .
                         '" width="308px">&nbsp;&nbsp;&nbsp;';
+                } else {
+                    echo '<img src="' . '/gurps/frontend/web/uploads/pictures/avatars/no_avatar.png"
+                            width="308px">&nbsp;&nbsp;&nbsp;';
                 } ?>
 
                 <?php ActiveForm::end(); ?>
