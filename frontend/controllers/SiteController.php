@@ -203,10 +203,10 @@ class SiteController extends Controller
                     if (isset($model->avatar)){
                         unlink($model->getAvatar()->one()->path);
                     }
-                    $file->file->saveAs('uploads/pictures/avatars/' .
+                    $file->file->saveAs('uploads/pictures/avatars/' . time() .
                         str_replace('\'', '', (str_replace('"', '', str_replace(' ', '_', $model->name)))) .
                         '.' . $file->file->extension);
-                    $file->path = 'uploads/pictures/avatars/' .
+                    $file->path = 'uploads/pictures/avatars/' . time() .
                         str_replace('\'', '', (str_replace('"', '', str_replace(' ', '_', $model->name)))) .
                         '.' . $file->file->extension;
                     $file->updateFile($file);

@@ -2,6 +2,7 @@
 
 namespace frontend\models;
 
+use common\models\User;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 
@@ -103,5 +104,14 @@ class World extends \yii\db\ActiveRecord
     public function getAvatar()
     {
         return $this->hasOne(Files::className(), ['id' => 'file_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+
+    public function getOwner()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id'])->one()->getProfile();
     }
 }

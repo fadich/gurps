@@ -67,10 +67,10 @@ class WorldController extends Controller
                     if (isset($model->file_id)){
                         unlink($model->getAvatar()->one()->path);
                     }
-                    $file->file->saveAs('uploads/pictures/worlds/avatars/' .
+                    $file->file->saveAs('uploads/pictures/worlds/avatars/' . time() .
                         str_replace('\'', '', (str_replace('"', '', str_replace(' ', '_', $model->name)))) .
                         '.' . $file->file->extension);
-                    $file->path = 'uploads/pictures/worlds/avatars/' .
+                    $file->path = 'uploads/pictures/worlds/avatars/' . time() .
                         str_replace('\'', '', (str_replace('"', '', str_replace(' ', '_', $model->name)))) .
                         '.' . $file->file->extension;
                     $file->updateFile($file);

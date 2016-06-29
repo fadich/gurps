@@ -61,14 +61,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?php ActiveForm::end(); ?>
 
-                <?php ActiveForm::begin(); ?>
-
-                <?= Html::submitButton('Удалить изображение', [
-                    'name' => 'delete_avatar',
-                    'class' => 'btn btn-warning btn-sm',
-                    'value' => '1',
-                ]) ?>
-                <?php ActiveForm::end(); ?>
+                <?php ActiveForm::begin();
+                if ($model->avatar != null): ?>
+                    <?= Html::submitButton('Удалить изображение', [
+                        'name' => 'delete_avatar',
+                        'class' => 'btn btn-warning btn-sm',
+                        'value' => '1',
+                    ]) ?>
+                <?php endif;
+                ActiveForm::end(); ?>
             </div>
         </div>
     </div>
