@@ -64,7 +64,7 @@ class WorldController extends Controller
                         'file' => $file,
                     ]);
                 } else {
-                    if (isset($model->file_id)){
+                    if (isset($model->file_id)) {
                         unlink($model->getAvatar()->one()->path);
                     }
                     $file->file->saveAs('uploads/pictures/worlds/avatars/' . time() .
@@ -79,6 +79,11 @@ class WorldController extends Controller
             }
             if ($model->updateWorld($model)) {
                 Yii::$app->session->setFlash('success', 'Редактирование произведено успешно.');
+                if (!Yii::$app->request->get('id')) {
+                    return $this->redirect(['edit',
+                        'id' => $model->id
+                    ]);
+                }
             } else {
                 Yii::$app->session->setFlash('error', 'Ошибка при редактировании.');
             }
