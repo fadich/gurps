@@ -11,6 +11,7 @@ use yii\web\Controller;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
+use common\models\User;
 
 class WorldController extends Controller
 {
@@ -45,6 +46,11 @@ class WorldController extends Controller
      */
     public function actionEdit()
     {
+        if (!Yii::$app->user->isGuest) {
+            $user = User::findIdentity(Yii::$app->user->id);
+            $user->setOnline();
+        }
+
         $model = ($model = World::findOne(['id' => Yii::$app->request->get('id')]))
             ? $model : new World();
         $file = ($file = Files::findOne(['id' => $model->file_id]))

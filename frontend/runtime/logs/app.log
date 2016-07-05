@@ -62306,3 +62306,3135 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1467567433.087
     'REQUEST_TIME' => 1467567433
 ]
+2016-07-04 13:21:00 [127.0.0.1][-][7auk5m6b54chmo99r7fvf9keb1][error][Error] Error: Call to undefined function yii\helpers\mb_strlen() in /var/www/html/gurps/vendor/yiisoft/yii2/helpers/BaseStringHelper.php:31
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/base/Security.php(412): yii\helpers\BaseStringHelper::byteLength('b613679a0814d9e...')
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/web/Request.php(1238): yii\base\Security->validateData('7auk5m6b54chmo9...', 'eac375ea0bda27f...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/web/Request.php(1214): yii\web\Request->loadCookies()
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(563): yii\web\Request->getCookies()
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(294): yii\web\User->getIdentityAndDurationFromCookie()
+#5 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(682): yii\web\User->loginByCookie()
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(188): yii\web\User->renewAuthStatus()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(340): yii\web\User->getIdentity()
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php(130): yii\web\User->getIsGuest()
+#9 /var/www/html/gurps/frontend/controllers/SiteController.php(92): yii\base\Component->__get('isGuest')
+#10 [internal function]: frontend\controllers\SiteController->actionLogin()
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#12 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#13 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#14 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#15 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#17 {main}
+2016-07-04 13:21:00 [127.0.0.1][-][7auk5m6b54chmo99r7fvf9keb1][error][yii\base\ErrorException:1] yii\base\ErrorException: Uncaught Error: Call to undefined function yii\web\mb_strlen() in /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php:404
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->argumentsToString(Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php(241): yii\base\View->renderFile('/var/www/html/g...', Array, Object(yii\web\ErrorHandler))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php(295): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#5 /var/www/html/gurps/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem('/var/www/html/g...', 411, 'yii\\helpers\\Bas...', 'byteLength', Array, 2)
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/base/ in /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php:404
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-07-04 13:21:00 [127.0.0.1][-][7auk5m6b54chmo99r7fvf9keb1][info][application] $_COOKIE = [
+    'PHPSESSID' => '7auk5m6b54chmo99r7fvf9keb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/html/gurps/frontend/web/'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/html/gurps/frontend/'
+    'HTTP_COOKIE' => 'PHPSESSID=7auk5m6b54chmo99r7fvf9keb1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48350'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/html/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/html/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/site/login'
+    'PHP_SELF' => '/html/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467638460.097
+    'REQUEST_TIME' => 1467638460
+]
+2016-07-04 20:17:58 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][Error] Error: Call to undefined function yii\helpers\mb_strlen() in /var/www/html/gurps/vendor/yiisoft/yii2/helpers/BaseStringHelper.php:31
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/base/Security.php(412): yii\helpers\BaseStringHelper::byteLength('b613679a0814d9e...')
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/web/Request.php(1238): yii\base\Security->validateData('3hr3tcqbleakd1d...', 'eac375ea0bda27f...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/web/Request.php(1214): yii\web\Request->loadCookies()
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(563): yii\web\Request->getCookies()
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(294): yii\web\User->getIdentityAndDurationFromCookie()
+#5 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(682): yii\web\User->loginByCookie()
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(188): yii\web\User->renewAuthStatus()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(340): yii\web\User->getIdentity()
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php(130): yii\web\User->getIsGuest()
+#9 /var/www/html/gurps/frontend/controllers/SiteController.php(92): yii\base\Component->__get('isGuest')
+#10 [internal function]: frontend\controllers\SiteController->actionLogin()
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#12 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#13 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#14 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#15 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#17 {main}
+2016-07-04 20:17:58 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][yii\base\ErrorException:1] yii\base\ErrorException: Uncaught Error: Call to undefined function yii\web\mb_strlen() in /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php:404
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->argumentsToString(Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php(241): yii\base\View->renderFile('/var/www/html/g...', Array, Object(yii\web\ErrorHandler))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php(295): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#5 /var/www/html/gurps/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem('/var/www/html/g...', 411, 'yii\\helpers\\Bas...', 'byteLength', Array, 2)
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/base/ in /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php:404
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-07-04 20:17:58 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/html/gurps/frontend/web/'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48886'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/html/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/html/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/site/login'
+    'PHP_SELF' => '/html/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467663478.288
+    'REQUEST_TIME' => 1467663478
+]
+2016-07-04 20:18:46 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][Error] Error: Call to undefined function yii\helpers\mb_strlen() in /var/www/html/gurps/vendor/yiisoft/yii2/helpers/BaseStringHelper.php:31
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/base/Security.php(412): yii\helpers\BaseStringHelper::byteLength('b613679a0814d9e...')
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/web/Request.php(1238): yii\base\Security->validateData('3hr3tcqbleakd1d...', 'eac375ea0bda27f...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/web/Request.php(1214): yii\web\Request->loadCookies()
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(563): yii\web\Request->getCookies()
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(294): yii\web\User->getIdentityAndDurationFromCookie()
+#5 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(682): yii\web\User->loginByCookie()
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(188): yii\web\User->renewAuthStatus()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(340): yii\web\User->getIdentity()
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php(130): yii\web\User->getIsGuest()
+#9 /var/www/html/gurps/frontend/controllers/SiteController.php(92): yii\base\Component->__get('isGuest')
+#10 [internal function]: frontend\controllers\SiteController->actionLogin()
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#12 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#13 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#14 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#15 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#17 {main}
+2016-07-04 20:18:46 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][yii\base\ErrorException:1] yii\base\ErrorException: Uncaught Error: Call to undefined function yii\web\mb_strlen() in /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php:404
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->argumentsToString(Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php(241): yii\base\View->renderFile('/var/www/html/g...', Array, Object(yii\web\ErrorHandler))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php(295): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#5 /var/www/html/gurps/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem('/var/www/html/g...', 411, 'yii\\helpers\\Bas...', 'byteLength', Array, 2)
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/base/ in /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php:404
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-07-04 20:18:46 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/html/gurps/frontend/web/'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48902'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/html/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/html/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/site/login'
+    'PHP_SELF' => '/html/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467663526.712
+    'REQUEST_TIME' => 1467663526
+]
+2016-07-04 20:20:52 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][Error] Error: Call to undefined function yii\helpers\mb_strlen() in /var/www/html/gurps/vendor/yiisoft/yii2/helpers/BaseStringHelper.php:31
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/base/Security.php(412): yii\helpers\BaseStringHelper::byteLength('b613679a0814d9e...')
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/web/Request.php(1238): yii\base\Security->validateData('3hr3tcqbleakd1d...', 'eac375ea0bda27f...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/web/Request.php(1214): yii\web\Request->loadCookies()
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(563): yii\web\Request->getCookies()
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(294): yii\web\User->getIdentityAndDurationFromCookie()
+#5 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(682): yii\web\User->loginByCookie()
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(188): yii\web\User->renewAuthStatus()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(340): yii\web\User->getIdentity()
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php(130): yii\web\User->getIsGuest()
+#9 /var/www/html/gurps/frontend/controllers/SiteController.php(92): yii\base\Component->__get('isGuest')
+#10 [internal function]: frontend\controllers\SiteController->actionLogin()
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#12 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#13 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#14 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#15 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#17 {main}
+2016-07-04 20:20:52 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][yii\base\ErrorException:1] yii\base\ErrorException: Uncaught Error: Call to undefined function yii\web\mb_strlen() in /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php:404
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->argumentsToString(Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php(241): yii\base\View->renderFile('/var/www/html/g...', Array, Object(yii\web\ErrorHandler))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php(295): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#5 /var/www/html/gurps/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem('/var/www/html/g...', 411, 'yii\\helpers\\Bas...', 'byteLength', Array, 2)
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/base/ in /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php:404
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-07-04 20:20:52 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/html/gurps/frontend/web/'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48911'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/html/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/html/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/site/login'
+    'PHP_SELF' => '/html/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467663652.484
+    'REQUEST_TIME' => 1467663652
+]
+2016-07-04 20:20:53 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][Error] Error: Call to undefined function yii\helpers\mb_strlen() in /var/www/html/gurps/vendor/yiisoft/yii2/helpers/BaseStringHelper.php:31
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/base/Security.php(412): yii\helpers\BaseStringHelper::byteLength('b613679a0814d9e...')
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/web/Request.php(1238): yii\base\Security->validateData('3hr3tcqbleakd1d...', 'eac375ea0bda27f...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/web/Request.php(1214): yii\web\Request->loadCookies()
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(563): yii\web\Request->getCookies()
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(294): yii\web\User->getIdentityAndDurationFromCookie()
+#5 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(682): yii\web\User->loginByCookie()
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(188): yii\web\User->renewAuthStatus()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(340): yii\web\User->getIdentity()
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php(130): yii\web\User->getIsGuest()
+#9 /var/www/html/gurps/frontend/controllers/SiteController.php(92): yii\base\Component->__get('isGuest')
+#10 [internal function]: frontend\controllers\SiteController->actionLogin()
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#12 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#13 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#14 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#15 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#17 {main}
+2016-07-04 20:20:53 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][yii\base\ErrorException:1] yii\base\ErrorException: Uncaught Error: Call to undefined function yii\web\mb_strlen() in /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php:404
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->argumentsToString(Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php(241): yii\base\View->renderFile('/var/www/html/g...', Array, Object(yii\web\ErrorHandler))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php(295): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#5 /var/www/html/gurps/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem('/var/www/html/g...', 411, 'yii\\helpers\\Bas...', 'byteLength', Array, 2)
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/base/ in /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php:404
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-07-04 20:20:53 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/html/gurps/frontend/web/'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48912'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/html/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/html/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/site/login'
+    'PHP_SELF' => '/html/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467663653.614
+    'REQUEST_TIME' => 1467663653
+]
+2016-07-04 20:20:56 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][Error] Error: Call to undefined function yii\helpers\mb_strlen() in /var/www/html/gurps/vendor/yiisoft/yii2/helpers/BaseStringHelper.php:31
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/base/Security.php(412): yii\helpers\BaseStringHelper::byteLength('b613679a0814d9e...')
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/web/Request.php(1238): yii\base\Security->validateData('3hr3tcqbleakd1d...', 'eac375ea0bda27f...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/web/Request.php(1214): yii\web\Request->loadCookies()
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(563): yii\web\Request->getCookies()
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(294): yii\web\User->getIdentityAndDurationFromCookie()
+#5 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(682): yii\web\User->loginByCookie()
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(188): yii\web\User->renewAuthStatus()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(340): yii\web\User->getIdentity()
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php(130): yii\web\User->getIsGuest()
+#9 /var/www/html/gurps/frontend/controllers/SiteController.php(92): yii\base\Component->__get('isGuest')
+#10 [internal function]: frontend\controllers\SiteController->actionLogin()
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#12 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#13 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#14 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#15 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#17 {main}
+2016-07-04 20:20:56 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][yii\base\ErrorException:1] yii\base\ErrorException: Uncaught Error: Call to undefined function yii\web\mb_strlen() in /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php:404
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->argumentsToString(Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php(241): yii\base\View->renderFile('/var/www/html/g...', Array, Object(yii\web\ErrorHandler))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php(295): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#5 /var/www/html/gurps/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem('/var/www/html/g...', 411, 'yii\\helpers\\Bas...', 'byteLength', Array, 2)
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/base/ in /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php:404
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-07-04 20:20:56 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/html/gurps/frontend/web/'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48913'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/html/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/html/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/site/login'
+    'PHP_SELF' => '/html/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467663656.453
+    'REQUEST_TIME' => 1467663656
+]
+2016-07-04 20:31:54 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: yii\web\User::all() in /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php:285
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/site/login.php(41): yii\base\Component->__call('all', Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\SiteController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(frontend\controllers\SiteController))
+#5 /var/www/html/gurps/frontend/controllers/SiteController.php(101): yii\base\Controller->render('login', Array)
+#6 [internal function]: frontend\controllers\SiteController->actionLogin()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 20:31:54 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+    '_csrf' => '0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/gurps/frontend/web/index.php/users/index'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5; _csrf=0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48955'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467664314.328
+    'REQUEST_TIME' => 1467664314
+]
+2016-07-04 20:31:56 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: yii\web\User::all() in /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php:285
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/site/login.php(41): yii\base\Component->__call('all', Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\SiteController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(frontend\controllers\SiteController))
+#5 /var/www/html/gurps/frontend/controllers/SiteController.php(101): yii\base\Controller->render('login', Array)
+#6 [internal function]: frontend\controllers\SiteController->actionLogin()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 20:31:56 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+    '_csrf' => '0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5; _csrf=0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48956'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467664316.949
+    'REQUEST_TIME' => 1467664316
+]
+2016-07-04 20:31:57 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: yii\web\User::all() in /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php:285
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/site/login.php(41): yii\base\Component->__call('all', Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\SiteController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(frontend\controllers\SiteController))
+#5 /var/www/html/gurps/frontend/controllers/SiteController.php(101): yii\base\Controller->render('login', Array)
+#6 [internal function]: frontend\controllers\SiteController->actionLogin()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 20:31:57 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+    '_csrf' => '0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5; _csrf=0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48957'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467664317.902
+    'REQUEST_TIME' => 1467664317
+]
+2016-07-04 20:31:58 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: yii\web\User::all() in /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php:285
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/site/login.php(41): yii\base\Component->__call('all', Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\SiteController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(frontend\controllers\SiteController))
+#5 /var/www/html/gurps/frontend/controllers/SiteController.php(101): yii\base\Controller->render('login', Array)
+#6 [internal function]: frontend\controllers\SiteController->actionLogin()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 20:31:58 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+    '_csrf' => '0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5; _csrf=0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48958'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467664318.702
+    'REQUEST_TIME' => 1467664318
+]
+2016-07-04 20:32:12 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: yii\web\User::all() in /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php:285
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/site/login.php(41): yii\base\Component->__call('all', Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\SiteController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(frontend\controllers\SiteController))
+#5 /var/www/html/gurps/frontend/controllers/SiteController.php(101): yii\base\Controller->render('login', Array)
+#6 [internal function]: frontend\controllers\SiteController->actionLogin()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 20:32:12 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+    '_csrf' => '0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5; _csrf=0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48960'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467664332.128
+    'REQUEST_TIME' => 1467664332
+]
+2016-07-04 20:32:12 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: yii\web\User::all() in /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php:285
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/site/login.php(41): yii\base\Component->__call('all', Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\SiteController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(frontend\controllers\SiteController))
+#5 /var/www/html/gurps/frontend/controllers/SiteController.php(101): yii\base\Controller->render('login', Array)
+#6 [internal function]: frontend\controllers\SiteController->actionLogin()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 20:32:12 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+    '_csrf' => '0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5; _csrf=0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48961'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467664332.828
+    'REQUEST_TIME' => 1467664332
+]
+2016-07-04 20:32:13 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: yii\web\User::all() in /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php:285
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/site/login.php(41): yii\base\Component->__call('all', Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\SiteController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(frontend\controllers\SiteController))
+#5 /var/www/html/gurps/frontend/controllers/SiteController.php(101): yii\base\Controller->render('login', Array)
+#6 [internal function]: frontend\controllers\SiteController->actionLogin()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 20:32:13 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+    '_csrf' => '0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5; _csrf=0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48965'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467664333.451
+    'REQUEST_TIME' => 1467664333
+]
+2016-07-04 20:32:13 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: yii\web\User::all() in /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php:285
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/site/login.php(41): yii\base\Component->__call('all', Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\SiteController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(frontend\controllers\SiteController))
+#5 /var/www/html/gurps/frontend/controllers/SiteController.php(101): yii\base\Controller->render('login', Array)
+#6 [internal function]: frontend\controllers\SiteController->actionLogin()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 20:32:13 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+    '_csrf' => '0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5; _csrf=0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48963'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467664333.92
+    'REQUEST_TIME' => 1467664333
+]
+2016-07-04 20:32:14 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: yii\web\User::all() in /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php:285
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/site/login.php(41): yii\base\Component->__call('all', Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\SiteController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(frontend\controllers\SiteController))
+#5 /var/www/html/gurps/frontend/controllers/SiteController.php(101): yii\base\Controller->render('login', Array)
+#6 [internal function]: frontend\controllers\SiteController->actionLogin()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 20:32:14 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+    '_csrf' => '0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5; _csrf=0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48962'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467664334.184
+    'REQUEST_TIME' => 1467664334
+]
+2016-07-04 20:32:14 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: yii\web\User::all() in /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php:285
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/site/login.php(41): yii\base\Component->__call('all', Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\SiteController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(frontend\controllers\SiteController))
+#5 /var/www/html/gurps/frontend/controllers/SiteController.php(101): yii\base\Controller->render('login', Array)
+#6 [internal function]: frontend\controllers\SiteController->actionLogin()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 20:32:14 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+    '_csrf' => '0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5; _csrf=0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48964'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467664334.411
+    'REQUEST_TIME' => 1467664334
+]
+2016-07-04 20:32:14 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: yii\web\User::all() in /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php:285
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/site/login.php(41): yii\base\Component->__call('all', Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\SiteController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(frontend\controllers\SiteController))
+#5 /var/www/html/gurps/frontend/controllers/SiteController.php(101): yii\base\Controller->render('login', Array)
+#6 [internal function]: frontend\controllers\SiteController->actionLogin()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 20:32:14 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+    '_csrf' => '0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5; _csrf=0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48966'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467664334.588
+    'REQUEST_TIME' => 1467664334
+]
+2016-07-04 20:32:14 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: yii\web\User::all() in /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php:285
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/site/login.php(41): yii\base\Component->__call('all', Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\SiteController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(frontend\controllers\SiteController))
+#5 /var/www/html/gurps/frontend/controllers/SiteController.php(101): yii\base\Controller->render('login', Array)
+#6 [internal function]: frontend\controllers\SiteController->actionLogin()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 20:32:14 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+    '_csrf' => '0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5; _csrf=0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48968'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467664334.81
+    'REQUEST_TIME' => 1467664334
+]
+2016-07-04 20:36:32 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][Error] Error: Call to a member function getAuthKey() on null in /var/www/html/gurps/frontend/views/site/login.php:41
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require()
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\SiteController))
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(frontend\controllers\SiteController))
+#4 /var/www/html/gurps/frontend/controllers/SiteController.php(101): yii\base\Controller->render('login', Array)
+#5 [internal function]: frontend\controllers\SiteController->actionLogin()
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#12 {main}
+2016-07-04 20:36:32 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+    '_csrf' => '0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5; _csrf=0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48992'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467664592.163
+    'REQUEST_TIME' => 1467664592
+]
+2016-07-04 20:36:32 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][Error] Error: Call to a member function getAuthKey() on null in /var/www/html/gurps/frontend/views/site/login.php:41
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require()
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\SiteController))
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(frontend\controllers\SiteController))
+#4 /var/www/html/gurps/frontend/controllers/SiteController.php(101): yii\base\Controller->render('login', Array)
+#5 [internal function]: frontend\controllers\SiteController->actionLogin()
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#12 {main}
+2016-07-04 20:36:32 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+    '_csrf' => '0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5; _csrf=0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48993'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467664592.761
+    'REQUEST_TIME' => 1467664592
+]
+2016-07-04 20:36:33 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][Error] Error: Call to a member function getAuthKey() on null in /var/www/html/gurps/frontend/views/site/login.php:41
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require()
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\SiteController))
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(frontend\controllers\SiteController))
+#4 /var/www/html/gurps/frontend/controllers/SiteController.php(101): yii\base\Controller->render('login', Array)
+#5 [internal function]: frontend\controllers\SiteController->actionLogin()
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#12 {main}
+2016-07-04 20:36:33 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+    '_csrf' => '0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5; _csrf=0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48994'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467664593.651
+    'REQUEST_TIME' => 1467664593
+]
+2016-07-04 20:36:34 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][Error] Error: Call to a member function getAuthKey() on null in /var/www/html/gurps/frontend/views/site/login.php:41
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require()
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\SiteController))
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(frontend\controllers\SiteController))
+#4 /var/www/html/gurps/frontend/controllers/SiteController.php(101): yii\base\Controller->render('login', Array)
+#5 [internal function]: frontend\controllers\SiteController->actionLogin()
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#12 {main}
+2016-07-04 20:36:34 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+    '_csrf' => '0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5; _csrf=0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48995'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467664594.176
+    'REQUEST_TIME' => 1467664594
+]
+2016-07-04 20:36:34 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][error][Error] Error: Call to a member function getAuthKey() on null in /var/www/html/gurps/frontend/views/site/login.php:41
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require()
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\SiteController))
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(frontend\controllers\SiteController))
+#4 /var/www/html/gurps/frontend/controllers/SiteController.php(101): yii\base\Controller->render('login', Array)
+#5 [internal function]: frontend\controllers\SiteController->actionLogin()
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#12 {main}
+2016-07-04 20:36:34 [127.0.0.1][-][3hr3tcqbleakd1dlagm1953tl5][info][application] $_COOKIE = [
+    'PHPSESSID' => '3hr3tcqbleakd1dlagm1953tl5'
+    '_csrf' => '0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=3hr3tcqbleakd1dlagm1953tl5; _csrf=0df259196ee5a0d051e2578330cfd6bbc216062938c3b834ee58839a6383b81ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22fs-JleHxeNjx1lYHvcFbs4H_jXmWmrf_%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '48996'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467664594.704
+    'REQUEST_TIME' => 1467664594
+]
+2016-07-04 21:42:52 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][error][yii\base\ErrorException:8] yii\base\ErrorException: Trying to get property of non-object in /var/www/html/gurps/frontend/views/users/index.php:30
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/users/index.php(30): yii\base\ErrorHandler->handleError(8, 'Trying to get p...', '/var/www/html/g...', 30, Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\UsersController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(frontend\controllers\UsersController))
+#5 /var/www/html/gurps/frontend/controllers/UsersController.php(65): yii\base\Controller->render('index', Array)
+#6 [internal function]: frontend\controllers\UsersController->actionIndex()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('index', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('users/index', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 21:42:52 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][info][application] $_COOKIE = [
+    'PHPSESSID' => 'h479t3qhpmtci56390mdiuu6o7'
+    '_csrf' => 'cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"PgIMdNPQtHvh95sduvb1s69dIuV0uB13\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=h479t3qhpmtci56390mdiuu6o7; _csrf=cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22PgIMdNPQtHvh95sduvb1s69dIuV0uB13%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49096'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/users/index'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/users/index'
+    'PATH_TRANSLATED' => '/var/www/html/users/index'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/users/index'
+    'REQUEST_TIME_FLOAT' => 1467668572.859
+    'REQUEST_TIME' => 1467668572
+]
+2016-07-04 21:42:54 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][error][yii\base\ErrorException:8] yii\base\ErrorException: Trying to get property of non-object in /var/www/html/gurps/frontend/views/users/index.php:30
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/users/index.php(30): yii\base\ErrorHandler->handleError(8, 'Trying to get p...', '/var/www/html/g...', 30, Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\UsersController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(frontend\controllers\UsersController))
+#5 /var/www/html/gurps/frontend/controllers/UsersController.php(65): yii\base\Controller->render('index', Array)
+#6 [internal function]: frontend\controllers\UsersController->actionIndex()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('index', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('users/index', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 21:42:54 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][info][application] $_COOKIE = [
+    'PHPSESSID' => 'h479t3qhpmtci56390mdiuu6o7'
+    '_csrf' => 'cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"PgIMdNPQtHvh95sduvb1s69dIuV0uB13\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=h479t3qhpmtci56390mdiuu6o7; _csrf=cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22PgIMdNPQtHvh95sduvb1s69dIuV0uB13%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49097'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/users/index'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/users/index'
+    'PATH_TRANSLATED' => '/var/www/html/users/index'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/users/index'
+    'REQUEST_TIME_FLOAT' => 1467668574.222
+    'REQUEST_TIME' => 1467668574
+]
+2016-07-04 21:42:55 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][error][yii\base\ErrorException:8] yii\base\ErrorException: Trying to get property of non-object in /var/www/html/gurps/frontend/views/users/index.php:30
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/users/index.php(30): yii\base\ErrorHandler->handleError(8, 'Trying to get p...', '/var/www/html/g...', 30, Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\UsersController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(frontend\controllers\UsersController))
+#5 /var/www/html/gurps/frontend/controllers/UsersController.php(65): yii\base\Controller->render('index', Array)
+#6 [internal function]: frontend\controllers\UsersController->actionIndex()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('index', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('users/index', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 21:42:55 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][info][application] $_COOKIE = [
+    'PHPSESSID' => 'h479t3qhpmtci56390mdiuu6o7'
+    '_csrf' => 'cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"PgIMdNPQtHvh95sduvb1s69dIuV0uB13\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=h479t3qhpmtci56390mdiuu6o7; _csrf=cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22PgIMdNPQtHvh95sduvb1s69dIuV0uB13%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49098'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/users/index'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/users/index'
+    'PATH_TRANSLATED' => '/var/www/html/users/index'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/users/index'
+    'REQUEST_TIME_FLOAT' => 1467668575.042
+    'REQUEST_TIME' => 1467668575
+]
+2016-07-04 21:44:08 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][error][yii\base\ErrorException:8] yii\base\ErrorException: Trying to get property of non-object in /var/www/html/gurps/frontend/views/users/index.php:30
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/users/index.php(30): yii\base\ErrorHandler->handleError(8, 'Trying to get p...', '/var/www/html/g...', 30, Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\UsersController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(frontend\controllers\UsersController))
+#5 /var/www/html/gurps/frontend/controllers/UsersController.php(65): yii\base\Controller->render('index', Array)
+#6 [internal function]: frontend\controllers\UsersController->actionIndex()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('index', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('users/index', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 21:44:08 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][info][application] $_COOKIE = [
+    'PHPSESSID' => 'h479t3qhpmtci56390mdiuu6o7'
+    '_csrf' => 'cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"PgIMdNPQtHvh95sduvb1s69dIuV0uB13\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=h479t3qhpmtci56390mdiuu6o7; _csrf=cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22PgIMdNPQtHvh95sduvb1s69dIuV0uB13%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49099'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/users/index'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/users/index'
+    'PATH_TRANSLATED' => '/var/www/html/users/index'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/users/index'
+    'REQUEST_TIME_FLOAT' => 1467668648.936
+    'REQUEST_TIME' => 1467668648
+]
+2016-07-04 21:44:10 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][error][yii\base\ErrorException:8] yii\base\ErrorException: Trying to get property of non-object in /var/www/html/gurps/frontend/views/users/index.php:30
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/users/index.php(30): yii\base\ErrorHandler->handleError(8, 'Trying to get p...', '/var/www/html/g...', 30, Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\UsersController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(frontend\controllers\UsersController))
+#5 /var/www/html/gurps/frontend/controllers/UsersController.php(65): yii\base\Controller->render('index', Array)
+#6 [internal function]: frontend\controllers\UsersController->actionIndex()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('index', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('users/index', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 21:44:10 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][info][application] $_COOKIE = [
+    'PHPSESSID' => 'h479t3qhpmtci56390mdiuu6o7'
+    '_csrf' => 'cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"PgIMdNPQtHvh95sduvb1s69dIuV0uB13\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=h479t3qhpmtci56390mdiuu6o7; _csrf=cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22PgIMdNPQtHvh95sduvb1s69dIuV0uB13%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49100'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/users/index'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/users/index'
+    'PATH_TRANSLATED' => '/var/www/html/users/index'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/users/index'
+    'REQUEST_TIME_FLOAT' => 1467668650.763
+    'REQUEST_TIME' => 1467668650
+]
+2016-07-04 21:45:17 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: status in /var/www/html/gurps/frontend/views/users/index.php:30
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/users/index.php(30): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/var/www/html/g...', 30, Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\UsersController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(frontend\controllers\UsersController))
+#5 /var/www/html/gurps/frontend/controllers/UsersController.php(65): yii\base\Controller->render('index', Array)
+#6 [internal function]: frontend\controllers\UsersController->actionIndex()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('index', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('users/index', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 21:45:17 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][info][application] $_COOKIE = [
+    'PHPSESSID' => 'h479t3qhpmtci56390mdiuu6o7'
+    '_csrf' => 'cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"PgIMdNPQtHvh95sduvb1s69dIuV0uB13\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=h479t3qhpmtci56390mdiuu6o7; _csrf=cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22PgIMdNPQtHvh95sduvb1s69dIuV0uB13%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49102'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/users/index'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/users/index'
+    'PATH_TRANSLATED' => '/var/www/html/users/index'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/users/index'
+    'REQUEST_TIME_FLOAT' => 1467668717.878
+    'REQUEST_TIME' => 1467668717
+]
+2016-07-04 21:45:19 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: status in /var/www/html/gurps/frontend/views/users/index.php:30
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/users/index.php(30): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/var/www/html/g...', 30, Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\UsersController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(frontend\controllers\UsersController))
+#5 /var/www/html/gurps/frontend/controllers/UsersController.php(65): yii\base\Controller->render('index', Array)
+#6 [internal function]: frontend\controllers\UsersController->actionIndex()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('index', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('users/index', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 21:45:19 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][info][application] $_COOKIE = [
+    'PHPSESSID' => 'h479t3qhpmtci56390mdiuu6o7'
+    '_csrf' => 'cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"PgIMdNPQtHvh95sduvb1s69dIuV0uB13\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=h479t3qhpmtci56390mdiuu6o7; _csrf=cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22PgIMdNPQtHvh95sduvb1s69dIuV0uB13%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49103'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/users/index'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/users/index'
+    'PATH_TRANSLATED' => '/var/www/html/users/index'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/users/index'
+    'REQUEST_TIME_FLOAT' => 1467668719.161
+    'REQUEST_TIME' => 1467668719
+]
+2016-07-04 21:46:15 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: status in /var/www/html/gurps/frontend/views/users/index.php:30
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/users/index.php(30): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/var/www/html/g...', 30, Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\UsersController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(frontend\controllers\UsersController))
+#5 /var/www/html/gurps/frontend/controllers/UsersController.php(65): yii\base\Controller->render('index', Array)
+#6 [internal function]: frontend\controllers\UsersController->actionIndex()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('index', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('users/index', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 21:46:15 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][info][application] $_COOKIE = [
+    'PHPSESSID' => 'h479t3qhpmtci56390mdiuu6o7'
+    '_csrf' => 'cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"PgIMdNPQtHvh95sduvb1s69dIuV0uB13\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=h479t3qhpmtci56390mdiuu6o7; _csrf=cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22PgIMdNPQtHvh95sduvb1s69dIuV0uB13%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49105'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/users/index'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/users/index'
+    'PATH_TRANSLATED' => '/var/www/html/users/index'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/users/index'
+    'REQUEST_TIME_FLOAT' => 1467668775.725
+    'REQUEST_TIME' => 1467668775
+]
+2016-07-04 21:46:16 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: status in /var/www/html/gurps/frontend/views/users/index.php:30
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/users/index.php(30): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/var/www/html/g...', 30, Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\UsersController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(frontend\controllers\UsersController))
+#5 /var/www/html/gurps/frontend/controllers/UsersController.php(65): yii\base\Controller->render('index', Array)
+#6 [internal function]: frontend\controllers\UsersController->actionIndex()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('index', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('users/index', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 21:46:16 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][info][application] $_COOKIE = [
+    'PHPSESSID' => 'h479t3qhpmtci56390mdiuu6o7'
+    '_csrf' => 'cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"PgIMdNPQtHvh95sduvb1s69dIuV0uB13\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=h479t3qhpmtci56390mdiuu6o7; _csrf=cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22PgIMdNPQtHvh95sduvb1s69dIuV0uB13%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49106'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/users/index'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/users/index'
+    'PATH_TRANSLATED' => '/var/www/html/users/index'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/users/index'
+    'REQUEST_TIME_FLOAT' => 1467668776.553
+    'REQUEST_TIME' => 1467668776
+]
+2016-07-04 21:46:17 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: status in /var/www/html/gurps/frontend/views/users/index.php:30
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/users/index.php(30): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/var/www/html/g...', 30, Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\UsersController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(frontend\controllers\UsersController))
+#5 /var/www/html/gurps/frontend/controllers/UsersController.php(65): yii\base\Controller->render('index', Array)
+#6 [internal function]: frontend\controllers\UsersController->actionIndex()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('index', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('users/index', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 21:46:17 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][info][application] $_COOKIE = [
+    'PHPSESSID' => 'h479t3qhpmtci56390mdiuu6o7'
+    '_csrf' => 'cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"PgIMdNPQtHvh95sduvb1s69dIuV0uB13\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=h479t3qhpmtci56390mdiuu6o7; _csrf=cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22PgIMdNPQtHvh95sduvb1s69dIuV0uB13%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49107'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/users/index'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/users/index'
+    'PATH_TRANSLATED' => '/var/www/html/users/index'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/users/index'
+    'REQUEST_TIME_FLOAT' => 1467668777.22
+    'REQUEST_TIME' => 1467668777
+]
+2016-07-04 21:46:28 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][error][yii\base\ErrorException:8] yii\base\ErrorException: Trying to get property of non-object in /var/www/html/gurps/frontend/views/users/index.php:30
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/users/index.php(30): yii\base\ErrorHandler->handleError(8, 'Trying to get p...', '/var/www/html/g...', 30, Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\UsersController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(frontend\controllers\UsersController))
+#5 /var/www/html/gurps/frontend/controllers/UsersController.php(65): yii\base\Controller->render('index', Array)
+#6 [internal function]: frontend\controllers\UsersController->actionIndex()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('index', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('users/index', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 21:46:28 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][info][application] $_COOKIE = [
+    'PHPSESSID' => 'h479t3qhpmtci56390mdiuu6o7'
+    '_csrf' => 'cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"PgIMdNPQtHvh95sduvb1s69dIuV0uB13\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=h479t3qhpmtci56390mdiuu6o7; _csrf=cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22PgIMdNPQtHvh95sduvb1s69dIuV0uB13%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49108'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/users/index'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/users/index'
+    'PATH_TRANSLATED' => '/var/www/html/users/index'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/users/index'
+    'REQUEST_TIME_FLOAT' => 1467668788.628
+    'REQUEST_TIME' => 1467668788
+]
+2016-07-04 21:46:29 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][error][yii\base\ErrorException:8] yii\base\ErrorException: Trying to get property of non-object in /var/www/html/gurps/frontend/views/users/index.php:30
+Stack trace:
+#0 /var/www/html/gurps/frontend/views/users/index.php(30): yii\base\ErrorHandler->handleError(8, 'Trying to get p...', '/var/www/html/g...', 30, Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\UsersController))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(frontend\controllers\UsersController))
+#5 /var/www/html/gurps/frontend/controllers/UsersController.php(65): yii\base\Controller->render('index', Array)
+#6 [internal function]: frontend\controllers\UsersController->actionIndex()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('index', Array)
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('users/index', Array)
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#13 {main}
+2016-07-04 21:46:29 [127.0.0.1][1][h479t3qhpmtci56390mdiuu6o7][info][application] $_COOKIE = [
+    'PHPSESSID' => 'h479t3qhpmtci56390mdiuu6o7'
+    '_csrf' => 'cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"PgIMdNPQtHvh95sduvb1s69dIuV0uB13\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=h479t3qhpmtci56390mdiuu6o7; _csrf=cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22PgIMdNPQtHvh95sduvb1s69dIuV0uB13%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49109'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/users/index'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/users/index'
+    'PATH_TRANSLATED' => '/var/www/html/users/index'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/users/index'
+    'REQUEST_TIME_FLOAT' => 1467668789.409
+    'REQUEST_TIME' => 1467668789
+]
+2016-07-04 21:52:41 [127.0.0.1][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Trying to get property of non-object in /var/www/html/gurps/frontend/controllers/SiteController.php:127
+Stack trace:
+#0 /var/www/html/gurps/frontend/controllers/SiteController.php(127): yii\base\ErrorHandler->handleError(8, 'Trying to get p...', '/var/www/html/g...', 127, Array)
+#1 [internal function]: frontend\controllers\SiteController->actionLogout()
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('logout', Array)
+#5 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/logout', Array)
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#8 {main}
+2016-07-04 21:52:41 [127.0.0.1][-][-][info][application] $_POST = [
+    '_csrf' => 'Sk50WldpNE8aKT0XMydkHj4GAjJuXEcrPzgWayRfDSsDOyJqIisFfA=='
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'mpagrga2tk3vo80rrod29v7dr5'
+    '_csrf' => 'cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"PgIMdNPQtHvh95sduvb1s69dIuV0uB13\";}'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/gurps/frontend/web/index.php'
+    'HTTP_COOKIE' => 'PHPSESSID=mpagrga2tk3vo80rrod29v7dr5; _csrf=cb9da047b558ad78697ac8938c1843cc3735ddc46f2998ff3fa8c367717024d9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22PgIMdNPQtHvh95sduvb1s69dIuV0uB13%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '66'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49118'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/logout'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/logout'
+    'PATH_TRANSLATED' => '/var/www/html/site/logout'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/logout'
+    'REQUEST_TIME_FLOAT' => 1467669161.051
+    'REQUEST_TIME' => 1467669161
+]
+2016-07-04 21:55:49 [192.168.0.103][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 192.168.0.103
+    in /var/www/html/gurps/frontend/views/layouts/main.php:87
+    in /var/www/html/gurps/frontend/controllers/SiteController.php:112
+2016-07-04 21:55:49 [192.168.0.103][-][-][info][application] $_COOKIE = [
+    'PHPSESSID' => '4v154kck8orgdgaj8iivtrhud6'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => '192.168.0.102'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://192.168.0.102/gurps/frontend/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,fr;q=0.4'
+    'HTTP_COOKIE' => 'PHPSESSID=4v154kck8orgdgaj8iivtrhud6'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at 192.168.0.102 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => '192.168.0.102'
+    'SERVER_ADDR' => '192.168.0.102'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.0.103'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '65317'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467669349.475
+    'REQUEST_TIME' => 1467669349
+]
+2016-07-04 21:55:53 [192.168.0.103][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 192.168.0.103
+    in /var/www/html/gurps/frontend/views/layouts/main.php:87
+    in /var/www/html/gurps/frontend/controllers/UsersController.php:65
+2016-07-04 21:55:53 [192.168.0.103][-][-][info][application] $_COOKIE = [
+    'PHPSESSID' => '4v154kck8orgdgaj8iivtrhud6'
+    '_csrf' => 'c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => '192.168.0.102'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://192.168.0.102/gurps/frontend/web/index.php/site/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,fr;q=0.4'
+    'HTTP_COOKIE' => 'PHPSESSID=4v154kck8orgdgaj8iivtrhud6; _csrf=c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax%22%3B%7D'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at 192.168.0.102 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => '192.168.0.102'
+    'SERVER_ADDR' => '192.168.0.102'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.0.103'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '65411'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/users/index'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/users/index'
+    'PATH_TRANSLATED' => '/var/www/html/users/index'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/users/index'
+    'REQUEST_TIME_FLOAT' => 1467669353.029
+    'REQUEST_TIME' => 1467669353
+]
+2016-07-04 21:56:00 [192.168.0.103][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 192.168.0.103
+    in /var/www/html/gurps/frontend/views/layouts/main.php:87
+    in /var/www/html/gurps/frontend/controllers/SiteController.php:112
+2016-07-04 21:56:00 [192.168.0.103][-][-][info][application] $_COOKIE = [
+    'PHPSESSID' => '4v154kck8orgdgaj8iivtrhud6'
+    '_csrf' => 'c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => '192.168.0.102'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://192.168.0.102/gurps/frontend/web/index.php/users/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,fr;q=0.4'
+    'HTTP_COOKIE' => 'PHPSESSID=4v154kck8orgdgaj8iivtrhud6; _csrf=c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax%22%3B%7D'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at 192.168.0.102 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => '192.168.0.102'
+    'SERVER_ADDR' => '192.168.0.102'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.0.103'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49160'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467669360.446
+    'REQUEST_TIME' => 1467669360
+]
+2016-07-04 21:56:10 [192.168.0.103][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 192.168.0.103
+    in /var/www/html/gurps/frontend/views/layouts/main.php:87
+    in /var/www/html/gurps/frontend/controllers/SiteController.php:112
+2016-07-04 21:56:10 [192.168.0.103][-][-][info][application] $_POST = [
+    '_csrf' => 'TGNWU0N5LWE7LB4jHEpKVgcpCT4pDF8TLwUlBm5MFTEuFw4pERZMGQ=='
+    'LoginForm' => [
+        'email' => 'w010299@gmail.com'
+        'password' => 'qwertyuiopivan54321'
+    ]
+    'login-button' => ''
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '4v154kck8orgdgaj8iivtrhud6'
+    '_csrf' => 'c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => '192.168.0.102'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '165'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://192.168.0.102'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://192.168.0.102/gurps/frontend/web/index.php/site/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,fr;q=0.4'
+    'HTTP_COOKIE' => 'PHPSESSID=4v154kck8orgdgaj8iivtrhud6; _csrf=c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax%22%3B%7D'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at 192.168.0.102 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => '192.168.0.102'
+    'SERVER_ADDR' => '192.168.0.102'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.0.103'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49276'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467669370.185
+    'REQUEST_TIME' => 1467669370
+]
+2016-07-04 21:56:14 [192.168.0.103][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 192.168.0.103
+    in /var/www/html/gurps/frontend/views/layouts/main.php:87
+    in /var/www/html/gurps/frontend/controllers/SiteController.php:112
+2016-07-04 21:56:13 [192.168.0.103][-][-][info][application] $_POST = [
+    '_csrf' => 'MWxDZnE1UkZGIwsWLgY1cXomHAsbQCA0UgowM1wAahZTGBscI1ozPg=='
+    'LoginForm' => [
+        'email' => 'w010299@gmail.com'
+        'password' => 'qwertyuiopivan5432'
+    ]
+    'login-button' => ''
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '4v154kck8orgdgaj8iivtrhud6'
+    '_csrf' => 'c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => '192.168.0.102'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '164'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://192.168.0.102'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://192.168.0.102/gurps/frontend/web/index.php/site/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,fr;q=0.4'
+    'HTTP_COOKIE' => 'PHPSESSID=4v154kck8orgdgaj8iivtrhud6; _csrf=c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax%22%3B%7D'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at 192.168.0.102 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => '192.168.0.102'
+    'SERVER_ADDR' => '192.168.0.102'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.0.103'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49276'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467669373.85
+    'REQUEST_TIME' => 1467669373
+]
+2016-07-04 21:56:19 [192.168.0.103][13][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 192.168.0.103
+    in /var/www/html/gurps/frontend/views/layouts/main.php:87
+    in /var/www/html/gurps/frontend/controllers/SiteController.php:83
+2016-07-04 21:56:19 [192.168.0.103][13][-][info][application] $_COOKIE = [
+    '_csrf' => 'c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax\";}'
+    'PHPSESSID' => 'dc93qbbgqud6pelhs44n4vcgr5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 13
+]
+
+$_SERVER = [
+    'HTTP_HOST' => '192.168.0.102'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://192.168.0.102/gurps/frontend/web/index.php/site/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,fr;q=0.4'
+    'HTTP_COOKIE' => '_csrf=c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax%22%3B%7D; PHPSESSID=dc93qbbgqud6pelhs44n4vcgr5'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at 192.168.0.102 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => '192.168.0.102'
+    'SERVER_ADDR' => '192.168.0.102'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.0.103'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49276'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PHP_SELF' => '/gurps/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1467669379.928
+    'REQUEST_TIME' => 1467669379
+]
+2016-07-04 21:56:22 [192.168.0.103][13][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 192.168.0.103
+    in /var/www/html/gurps/frontend/views/layouts/main.php:87
+    in /var/www/html/gurps/frontend/controllers/UsersController.php:65
+2016-07-04 21:56:22 [192.168.0.103][13][-][info][application] $_COOKIE = [
+    '_csrf' => 'c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax\";}'
+    'PHPSESSID' => 'dc93qbbgqud6pelhs44n4vcgr5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 13
+]
+
+$_SERVER = [
+    'HTTP_HOST' => '192.168.0.102'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://192.168.0.102/gurps/frontend/web/index.php'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,fr;q=0.4'
+    'HTTP_COOKIE' => '_csrf=c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax%22%3B%7D; PHPSESSID=dc93qbbgqud6pelhs44n4vcgr5'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at 192.168.0.102 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => '192.168.0.102'
+    'SERVER_ADDR' => '192.168.0.102'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.0.103'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49276'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/users/index'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/users/index'
+    'PATH_TRANSLATED' => '/var/www/html/users/index'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/users/index'
+    'REQUEST_TIME_FLOAT' => 1467669382.759
+    'REQUEST_TIME' => 1467669382
+]
+2016-07-04 21:56:37 [192.168.0.103][13][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 192.168.0.103
+    in /var/www/html/gurps/frontend/views/layouts/main.php:87
+    in /var/www/html/gurps/frontend/controllers/SiteController.php:83
+2016-07-04 21:56:37 [192.168.0.103][13][-][info][application] $_COOKIE = [
+    '_csrf' => 'c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax\";}'
+    'PHPSESSID' => 'dc93qbbgqud6pelhs44n4vcgr5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 13
+]
+
+$_SERVER = [
+    'HTTP_HOST' => '192.168.0.102'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://192.168.0.102/gurps/frontend/web/index.php/users/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,fr;q=0.4'
+    'HTTP_COOKIE' => '_csrf=c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax%22%3B%7D; PHPSESSID=dc93qbbgqud6pelhs44n4vcgr5'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at 192.168.0.102 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => '192.168.0.102'
+    'SERVER_ADDR' => '192.168.0.102'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.0.103'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49607'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PHP_SELF' => '/gurps/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1467669397.512
+    'REQUEST_TIME' => 1467669397
+]
+2016-07-04 21:56:43 [192.168.0.103][13][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 192.168.0.103
+    in /var/www/html/gurps/frontend/views/layouts/main.php:87
+    in /var/www/html/gurps/frontend/controllers/SiteController.php:164
+2016-07-04 21:56:43 [192.168.0.103][13][-][info][application] $_COOKIE = [
+    '_csrf' => 'c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax\";}'
+    'PHPSESSID' => 'dc93qbbgqud6pelhs44n4vcgr5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 13
+]
+
+$_SERVER = [
+    'HTTP_HOST' => '192.168.0.102'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://192.168.0.102/gurps/frontend/web/index.php'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,fr;q=0.4'
+    'HTTP_COOKIE' => '_csrf=c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax%22%3B%7D; PHPSESSID=dc93qbbgqud6pelhs44n4vcgr5'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at 192.168.0.102 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => '192.168.0.102'
+    'SERVER_ADDR' => '192.168.0.102'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.0.103'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49672'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/about'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/about'
+    'PATH_TRANSLATED' => '/var/www/html/site/about'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/about'
+    'REQUEST_TIME_FLOAT' => 1467669403.299
+    'REQUEST_TIME' => 1467669403
+]
+2016-07-04 21:56:58 [192.168.0.103][13][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 192.168.0.103
+    in /var/www/html/gurps/frontend/views/layouts/main.php:87
+    in /var/www/html/gurps/frontend/controllers/SiteController.php:83
+2016-07-04 21:56:58 [192.168.0.103][13][-][info][application] $_COOKIE = [
+    '_csrf' => 'c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax\";}'
+    'PHPSESSID' => 'dc93qbbgqud6pelhs44n4vcgr5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 13
+]
+
+$_SERVER = [
+    'HTTP_HOST' => '192.168.0.102'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://192.168.0.102/gurps/frontend/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,fr;q=0.4'
+    'HTTP_COOKIE' => '_csrf=c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax%22%3B%7D; PHPSESSID=dc93qbbgqud6pelhs44n4vcgr5'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at 192.168.0.102 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => '192.168.0.102'
+    'SERVER_ADDR' => '192.168.0.102'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.0.103'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49797'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PHP_SELF' => '/gurps/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1467669418.066
+    'REQUEST_TIME' => 1467669418
+]
+2016-07-04 21:57:01 [192.168.0.103][13][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 192.168.0.103
+    in /var/www/html/gurps/frontend/views/layouts/main.php:87
+    in /var/www/html/gurps/frontend/controllers/UsersController.php:65
+2016-07-04 21:57:01 [192.168.0.103][13][-][info][application] $_COOKIE = [
+    '_csrf' => 'c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax\";}'
+    'PHPSESSID' => 'dc93qbbgqud6pelhs44n4vcgr5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/'
+    '__id' => 13
+]
+
+$_SERVER = [
+    'HTTP_HOST' => '192.168.0.102'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://192.168.0.102/gurps/frontend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,fr;q=0.4'
+    'HTTP_COOKIE' => '_csrf=c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax%22%3B%7D; PHPSESSID=dc93qbbgqud6pelhs44n4vcgr5'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at 192.168.0.102 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => '192.168.0.102'
+    'SERVER_ADDR' => '192.168.0.102'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.0.103'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49797'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/users/index'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/users/index'
+    'PATH_TRANSLATED' => '/var/www/html/users/index'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/users/index'
+    'REQUEST_TIME_FLOAT' => 1467669421.319
+    'REQUEST_TIME' => 1467669421
+]
+2016-07-04 21:57:05 [192.168.0.103][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 192.168.0.103
+    in /var/www/html/gurps/frontend/views/layouts/main.php:87
+    in /var/www/html/gurps/frontend/controllers/SiteController.php:112
+2016-07-04 21:57:05 [192.168.0.103][-][-][info][application] $_COOKIE = [
+    '_csrf' => 'c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax\";}'
+    'PHPSESSID' => 'u6hu6ikqlnnat3g2tkcg97vpd2'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => '192.168.0.102'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://192.168.0.102/gurps/frontend/web/index.php/users/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,fr;q=0.4'
+    'HTTP_COOKIE' => '_csrf=c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax%22%3B%7D; PHPSESSID=u6hu6ikqlnnat3g2tkcg97vpd2'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at 192.168.0.102 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => '192.168.0.102'
+    'SERVER_ADDR' => '192.168.0.102'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.0.103'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49797'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467669425.288
+    'REQUEST_TIME' => 1467669425
+]
+2016-07-04 21:57:06 [192.168.0.103][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 192.168.0.103
+    in /var/www/html/gurps/frontend/views/layouts/main.php:87
+    in /var/www/html/gurps/frontend/controllers/UsersController.php:65
+2016-07-04 21:57:06 [192.168.0.103][-][-][info][application] $_COOKIE = [
+    '_csrf' => 'c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax\";}'
+    'PHPSESSID' => 'u6hu6ikqlnnat3g2tkcg97vpd2'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => '192.168.0.102'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://192.168.0.102/gurps/frontend/web/index.php/site/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,fr;q=0.4'
+    'HTTP_COOKIE' => '_csrf=c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax%22%3B%7D; PHPSESSID=u6hu6ikqlnnat3g2tkcg97vpd2'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at 192.168.0.102 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => '192.168.0.102'
+    'SERVER_ADDR' => '192.168.0.102'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.0.103'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49797'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/users/index'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/users/index'
+    'PATH_TRANSLATED' => '/var/www/html/users/index'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/users/index'
+    'REQUEST_TIME_FLOAT' => 1467669426.269
+    'REQUEST_TIME' => 1467669426
+]
+2016-07-04 21:57:10 [192.168.0.103][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 192.168.0.103
+    in /var/www/html/gurps/frontend/views/layouts/main.php:87
+    in /var/www/html/gurps/frontend/controllers/SiteController.php:112
+2016-07-04 21:57:10 [192.168.0.103][-][-][info][application] $_COOKIE = [
+    '_csrf' => 'c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax\";}'
+    'PHPSESSID' => 'u6hu6ikqlnnat3g2tkcg97vpd2'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => '192.168.0.102'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://192.168.0.102/gurps/frontend/web/index.php/users/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,fr;q=0.4'
+    'HTTP_COOKIE' => '_csrf=c1fe6b27b88b9443721c4ad7bbbf8a6bd0309449b1b2cc57fc4e273037ea134da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wOHp_3g7KJ_mjurrcfsU-58PbtXzRoax%22%3B%7D; PHPSESSID=u6hu6ikqlnnat3g2tkcg97vpd2'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at 192.168.0.102 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => '192.168.0.102'
+    'SERVER_ADDR' => '192.168.0.102'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.0.103'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49797'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467669430.764
+    'REQUEST_TIME' => 1467669430
+]
+2016-07-05 05:08:10 [127.0.0.1][1][m6va00plka9tnqp5dmtmfsp3d1][error][ParseError] ParseError: syntax error, unexpected '>' in /var/www/html/gurps/frontend/views/users/index.php:32
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(frontend\controllers\UsersController))
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(frontend\controllers\UsersController))
+#3 /var/www/html/gurps/frontend/controllers/UsersController.php(65): yii\base\Controller->render('index', Array)
+#4 [internal function]: frontend\controllers\UsersController->actionIndex()
+#5 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('index', Array)
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('users/index', Array)
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /var/www/html/gurps/frontend/web/index.php(18): yii\base\Application->run()
+#11 {main}
+2016-07-05 05:08:10 [127.0.0.1][1][m6va00plka9tnqp5dmtmfsp3d1][info][application] $_COOKIE = [
+    'PHPSESSID' => 'm6va00plka9tnqp5dmtmfsp3d1'
+    '_csrf' => '9c2a46f5dea71087a4ccc98e92c5efc3df5f18ec6404ad1abde3256e3e9e4215a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"M5gAReXmcQQ4LuBVapatVo445WuXq6cw\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/frontend/web/index.php'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/gurps/frontend/web/index.php/users/index'
+    'HTTP_COOKIE' => 'PHPSESSID=m6va00plka9tnqp5dmtmfsp3d1; _csrf=9c2a46f5dea71087a4ccc98e92c5efc3df5f18ec6404ad1abde3256e3e9e4215a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22M5gAReXmcQQ4LuBVapatVo445WuXq6cw%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/frontend/web/index.php'
+    'REMOTE_PORT' => '49148'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/frontend/web/index.php/users/index'
+    'SCRIPT_NAME' => '/gurps/frontend/web/index.php'
+    'PATH_INFO' => '/users/index'
+    'PATH_TRANSLATED' => '/var/www/html/users/index'
+    'PHP_SELF' => '/gurps/frontend/web/index.php/users/index'
+    'REQUEST_TIME_FLOAT' => 1467695290.149
+    'REQUEST_TIME' => 1467695290
+]

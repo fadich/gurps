@@ -4,6 +4,7 @@ namespace frontend\controllers;
 use common\models\User;
 use frontend\models\Files;
 use frontend\models\Profile;
+use frontend\models\Session;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -75,6 +76,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        if (!Yii::$app->user->isGuest) {
+            $user = User::findIdentity(Yii::$app->user->id);
+            $user->setOnline();
+        }
+
         if (Yii::$app->request->post('create_world') && Yii::$app->request->post('create_world') == 1) {
             return $this->redirect('index.php/world/edit');
         }
@@ -90,11 +96,15 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
+            $user = User::findIdentity(Yii::$app->user->id);
+            $user->setOnline();
             return $this->goHome();
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            $user = User::findByEmail($model->email);
+            $user->setOnline();
             return $this->goHome();
         } else {
             return $this->render('login', [
@@ -110,6 +120,8 @@ class SiteController extends Controller
      */
     public function actionLogout()
     {
+        $user = User::findIdentity(Yii::$app->user->id);
+        $user->setOnline();
         Yii::$app->user->logout();
 
         return $this->goHome();
@@ -122,6 +134,11 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
+        if (!Yii::$app->user->isGuest) {
+            $user = User::findIdentity(Yii::$app->user->id);
+            $user->setOnline();
+        }
+
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
@@ -145,6 +162,11 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
+        if (!Yii::$app->user->isGuest) {
+            $user = User::findIdentity(Yii::$app->user->id);
+            $user->setOnline();
+        }
+
         return $this->render('about');
     }
 
@@ -182,6 +204,11 @@ class SiteController extends Controller
      */
     public function actionProfile()
     {
+        if (!Yii::$app->user->isGuest) {
+            $user = User::findIdentity(Yii::$app->user->id);
+            $user->setOnline();
+        }
+
         $model = ($model = Profile::findOne(['user_id' => Yii::$app->user->id]))
             ? $model : new Profile();
         $file = ($file = Files::findOne(['id' => $model->avatar]))
@@ -200,7 +227,7 @@ class SiteController extends Controller
                         'file' => $file,
                     ]);
                 } else {
-                    if (isset($model->avatar)){
+                    if (isset($model->avatar)) {
                         unlink($model->getAvatar()->one()->path);
                     }
                     $file->file->saveAs('uploads/pictures/avatars/' . time() .

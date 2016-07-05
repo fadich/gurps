@@ -23,19 +23,19 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?= $form->field($model, 'password')->passwordInput() ?>
 
-            <div style="color:#999;margin:1em 0">
+                <div style="color:#999;margin:1em 0">
                     Если Вы забыли пароль, Вы можете
-                    <?= Html::a('восстановить его', ['site/request-password-reset']) ?>.
-            </div>
+                    <strong><?= Html::a('восстановить его', ['site/request-password-reset']) ?></strong>.
+                </div>
 
-            <div style="color:#999;margin:1em 0">
-                Если Вы не зарегистрированы, Вы можете
-                <?= Html::a('зарегистрироваться', ['site/signup']) ?>.
-            </div>
+                <div style="color:#999;margin:1em 0">
+                    Если Вы не зарегистрированы, Вы можете
+                    <strong><?= Html::a('зарегистрироваться', ['site/signup']) ?></strong>.
+                </div>
 
-            <div class="form-group">
-                <?= Html::submitButton('Войти', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-            </div>
+                <div class="form-group">
+                    <?= Html::submitButton('Войти', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                </div>
 
             <?php ActiveForm::end(); ?>
         </div>

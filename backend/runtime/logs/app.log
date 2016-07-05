@@ -336,3 +336,83 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1467567411.498
     'REQUEST_TIME' => 1467567411
 ]
+2016-07-04 13:21:08 [127.0.0.1][-][7auk5m6b54chmo99r7fvf9keb1][error][Error] Error: Call to undefined function yii\helpers\mb_strlen() in /var/www/html/gurps/vendor/yiisoft/yii2/helpers/BaseStringHelper.php:31
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/base/Security.php(412): yii\helpers\BaseStringHelper::byteLength('b613679a0814d9e...')
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/web/Request.php(1238): yii\base\Security->validateData('7auk5m6b54chmo9...', 'eac375ea0bda27f...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/web/Request.php(1214): yii\web\Request->loadCookies()
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(563): yii\web\Request->getCookies()
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(294): yii\web\User->getIdentityAndDurationFromCookie()
+#5 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(682): yii\web\User->loginByCookie()
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(188): yii\web\User->renewAuthStatus()
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/web/User.php(340): yii\web\User->getIdentity()
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/filters/AccessRule.php(149): yii\web\User->getIsGuest()
+#9 /var/www/html/gurps/vendor/yiisoft/yii2/filters/AccessRule.php(104): yii\filters\AccessRule->matchRole(Object(yii\web\User))
+#10 /var/www/html/gurps/vendor/yiisoft/yii2/filters/AccessControl.php(118): yii\filters\AccessRule->allows(Object(yii\base\InlineAction), Object(yii\web\User), Object(yii\web\Request))
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/ActionFilter.php(73): yii\filters\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#12 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#13 /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php(541): call_user_func(Array, Object(yii\base\ActionEvent))
+#14 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(269): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#15 /var/www/html/gurps/vendor/yiisoft/yii2/web/Controller.php(108): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#16 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(152): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#17 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('', Array)
+#18 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('', Array)
+#19 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#20 /var/www/html/gurps/backend/web/index.php(18): yii\base\Application->run()
+#21 {main}
+2016-07-04 13:21:08 [127.0.0.1][-][7auk5m6b54chmo99r7fvf9keb1][error][yii\base\ErrorException:1] yii\base\ErrorException: Uncaught Error: Call to undefined function yii\web\mb_strlen() in /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php:404
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->argumentsToString(Array)
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php(241): yii\base\View->renderFile('/var/www/html/g...', Array, Object(yii\web\ErrorHandler))
+#4 /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php(295): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#5 /var/www/html/gurps/vendor/yiisoft/yii2/views/errorHandler/exception.php(385): yii\web\ErrorHandler->renderCallStackItem('/var/www/html/g...', 411, 'yii\\helpers\\Bas...', 'byteLength', Array, 2)
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/base/ in /var/www/html/gurps/vendor/yiisoft/yii2/web/ErrorHandler.php:404
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-07-04 13:21:08 [127.0.0.1][-][7auk5m6b54chmo99r7fvf9keb1][info][application] $_COOKIE = [
+    'PHPSESSID' => '7auk5m6b54chmo99r7fvf9keb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/html/gurps/frontend/web/'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/html/gurps/backend/'
+    'HTTP_COOKIE' => 'PHPSESSID=7auk5m6b54chmo99r7fvf9keb1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/backend/web/index.php'
+    'REMOTE_PORT' => '48352'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/html/gurps/backend/web/'
+    'SCRIPT_NAME' => '/html/gurps/backend/web/index.php'
+    'PHP_SELF' => '/html/gurps/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1467638468.43
+    'REQUEST_TIME' => 1467638468
+]

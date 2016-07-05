@@ -2,6 +2,7 @@
 namespace common\models;
 
 use frontend\models\Profile;
+use frontend\models\Session;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -196,5 +197,43 @@ class User extends ActiveRecord implements IdentityInterface
     public function getProfile ()
     {
         return $this->hasOne(Profile::className(), ['user_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSessionTable ()
+    {
+        return $this->hasOne(Session::className(), ['user_id' => 'id']);
+    }
+
+    /**
+     * Set Online status to user
+     */
+    public function setOnline ()
+    {
+        $session = ($session = $this->getSessionTable()->one()) ? $session : new Session();
+        $session->user_id = $this->id;
+        $session->time = time();
+        $session->updateSession($session);
+    }
+
+    /**
+     * @return string
+     */
+    public function isOnline ()
+    {
+        $status = (isset($this->getSessionTable()->one()->time)) ?
+            $this->getSessionTable()->one()->time : 0;
+        $timezone = 10800;
+        if ((time() - $status) < 900){
+            return 'Online';
+        }
+        else if ((time() - $status) < 31104000) {
+            return 'Offline (последний раз заходил ' . date('d.m.Y в H:i' , $status + $timezone) . ')';
+        }
+        else {
+            return 'Offline';
+        }
     }
 }

@@ -46,6 +46,11 @@ class UsersController extends Controller
      */
     public function actionIndex()
     {
+        if (!Yii::$app->user->isGuest) {
+            $user = User::findIdentity(Yii::$app->user->id);
+            $user->setOnline();
+        }
+
         $model = new User;
 
         if (Yii::$app->request->cookies['no_user']) {
@@ -73,6 +78,11 @@ class UsersController extends Controller
      */
     public function actionUser()
     {
+        if (!Yii::$app->user->isGuest) {
+            $user = User::findIdentity(Yii::$app->user->id);
+            $user->setOnline();
+        }
+
         $model = User::findOne(['id' => Yii::$app->request->get('id')]);
 
         if ($model === null) {
