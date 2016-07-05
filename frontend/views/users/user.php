@@ -31,26 +31,16 @@ $this->params['breadcrumbs'][] = $this->title;
                     } ?>
 
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-7">
                     <h4>
-                        <p><strong>Имя:</strong></p>
+                        <p><strong><?= $model->getProfile()->one()->name ?></strong>
+                            <a style="color:#999;margin:1em 0;font-size: medium"><?= $model->isOnline(); ?></a></p>
                         <hr>
-                        <p><strong>Дата рождения:</strong></p>
+                        <p><strong>Дата рождения: </strong><?= $model->getProfile()->one()->birthday ?></p>
                         <hr>
-                        <p><strong>Пол:</strong></p>
+                        <p><strong>Пол: </strong><?= $model->getProfile()->one()->sex ?></p>
                         <hr>
-                        <p><strong>Доп. информация:</strong></p>
-                    </h4>
-                </div>
-                <div class="col-lg-4">
-                    <h4>
-                        <p><i><?php echo $model->getProfile()->one()->name ?></i><br></p>
-                        <hr>
-                        <p><i><?php echo $model->getProfile()->one()->birthday ?></i><br></p>
-                        <hr>
-                        <p><i><?php echo $model->getProfile()->one()->sex ?></i><br></p>
-                        <hr>
-                        <p><i><?php echo $model->getProfile()->one()->info ?></i><br></p>
+                        <p><strong>Доп. информация: </strong><?= $model->getProfile()->one()->info ?></p>
                     </h4>
                 </div>
             </div>
