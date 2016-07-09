@@ -74,10 +74,12 @@ $this->title = 'Миры';
 <script>
     function picked(name, avatar) {
         document.getElementById("name").innerHTML = '<strong><i>' + name + '</i></strong>';
-        document.getElementById("avatar").innerHTML = '<img id="avatar" src="' +
-            avatar + '" width="100%">&nbsp;&nbsp;&nbsp';
+        document.getElementById("avatar").innerHTML = '<img id="avatar" src="/gurps/frontend/web/' +
+            avatar + '" width="100%">' +
+            '<a href=""><img src="/gurps/frontend/views/src/images/play.png" width="20%" align="right"></a>' +
+            '&nbsp;&nbsp;&nbsp';
         document.getElementById("scenasio").innerHTML = '<?php
-            echo '<hr>Тут будут сценарии....';
+            echo '<br><hr>Тут будут сценарии....';
             ?>'
     }
 </script>

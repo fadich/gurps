@@ -25,8 +25,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ?>
             <?= $form->field($model, 'name')->textInput(['readOnly' => $checkOwner]) ?>
             <?= $form->field($model, 'description')->textarea(['readOnly' => $checkOwner]) ?>
+            <?php if (!$checkOwner) : ?>
+                <?= $form->field($file, 'file')->fileInput(['readOnly' => $checkOwner]) ?>
+            <?php endif; ?>
             <?php if ($model->user_id != null): ?>
-
                 <?= $form->field($model->getOwner()->one(), 'name')->textInput(['readOnly' => true]) ?>
             <?php endif; ?>
             <div class="form-group">
