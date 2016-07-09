@@ -12,7 +12,10 @@ isset($model->name) ? $this->title = 'Редактирование "' . $model->
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="world-edit">
-    <h1><?= Html::encode('Мир') ?></h1>
+    <?php isset($model->name) ? $str = 'Мир <i>"' . $model->name . '"</i>' :
+        $str = 'Новый мир'; ?>
+    <h1><?= $str ?></h1>
+
 
     <p><?php isset($model->name) ? $str = 'Редактирование игрового мира <i>"' . $model->name . '"</i>' :
             $str = 'Создание нового игрового мира';
@@ -24,7 +27,12 @@ $this->params['breadcrumbs'][] = $this->title;
             $checkOwner = (Yii::$app->user->id == $model->user_id || $model->user_id == null) ? false : true;
             ?>
             <?= $form->field($model, 'name')->textInput(['readOnly' => $checkOwner]) ?>
-            <?= $form->field($model, 'description')->textarea(['readOnly' => $checkOwner]) ?>
+            <?= $form->field($model, 'description')->textarea([
+                'cols' => '10',
+                'wrap' => 'hard',
+                'resize' => 'none',
+                'readOnly' => $checkOwner,
+            ]) ?>
             <?php if (!$checkOwner) : ?>
                 <?= $form->field($file, 'file')->fileInput(['readOnly' => $checkOwner]) ?>
             <?php endif; ?>

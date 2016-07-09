@@ -24,7 +24,7 @@ $this->title = 'Миры';
     ];
     $model = $model->findAll(['status' => World::STATUS_ACTIVE]);
     foreach ($model as $item):
-        $avatar = '/gurps/frontend/web/uploads/pictures/worlds/avatars/unknown_world.png';
+        $avatar = 'uploads/pictures/worlds/avatars/unknown_world.png';
         if (isset($item->file_id)) {
             $avatar = $item->getAvatar()->one()->path;
         }
