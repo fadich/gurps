@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'name' => 'id',
                             'value' => $item->id,
                         ]) ?>
-                        <a style="color:#999;margin:1em 0"><?= $item->isOnline(); ?></a>
+                        <span style="color:#999;margin:1em 0"><?= $item->isOnline(); ?></span>
                         <br>
                         <?php $avatar = $item->getProfile()->one()->getAvatar()->one();
                         if (isset($avatar->path)) {

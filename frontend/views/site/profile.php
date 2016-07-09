@@ -30,8 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     'type' => DatePicker::TYPE_INPUT,
                     'language' => 'ru',
                     'options' => [
-                        'placeholder' => '01.01.1900',
-                        'pattern' => '(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}'
+                        'placeholder' => '01.01.1930 ‒ 12.12.2009',
+                        'pattern' => '(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).(1[9][3-9][0-9]|2[0][0][0-9])'
                     ],
                     'pluginOptions' => [
                         'format' => 'dd.mm.yyyy',

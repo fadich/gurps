@@ -89,7 +89,7 @@ class UsersController extends Controller
             Yii::$app->response->cookies->add(new Cookie([
                 'name' => 'no_user',
                 'value' => true,
-//                'expire' => time() + 1,
+                'expire' => time() + 10,
             ]));
             return $this->redirect(['users/index']);
         }

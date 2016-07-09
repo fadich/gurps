@@ -12,6 +12,7 @@ use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use common\models\User;
+use yii\web\Cookie;
 
 class WorldController extends Controller
 {
@@ -51,7 +52,8 @@ class WorldController extends Controller
             $user->setOnline();
         }
 
-        $model = ($model = World::findOne(['id' => Yii::$app->request->get('id')]))
+        $model = ($model = World::findOne(['id' => Yii::$app->request->get('id'),
+            'status' => World::STATUS_ACTIVE]))
             ? $model : new World();
         $file = ($file = Files::findOne(['id' => $model->file_id]))
             ? $file : new Files();
@@ -96,6 +98,28 @@ class WorldController extends Controller
         if (Yii::$app->request->post('delete_avatar')) {
             if (!$model->deleteAvatar()) {
                 Yii::$app->session->setFlash('error', 'Ошибка удаления изображения.');
+            }
+        }
+
+        if (Yii::$app->request->post('delete')) {
+            Yii::$app->response->cookies->add(new Cookie([
+                'name' => 'worldName',
+                'value' => $model->name,
+                'expire' => time() + 10,
+            ]));
+            if (!$model->deleteWorld()){
+                Yii::$app->response->cookies->add(new Cookie([
+                    'name' => 'worldName',
+                    'value' => null,
+                ]));
+                Yii::$app->session->setFlash('error', 'Ошибка удаления мира.');
+            } else {
+                Yii::$app->response->cookies->add(new Cookie([
+                    'name' => 'worldDeleted',
+                    'value' => true,
+                    'expire' => time() + 10,
+                ]));
+                return $this->redirect('../site/index');
             }
         }
 

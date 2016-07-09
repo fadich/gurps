@@ -51,7 +51,7 @@ class World extends \yii\db\ActiveRecord
             [['name'], 'required'],
             [['file_id'], 'integer'],
             [['description'], 'string'],
-            [['name'], 'string', 'max' => 64, 'min' => 4],
+            [['name'], 'string', 'max' => 48, 'min' => 4],
             [['name'], 'unique'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
@@ -119,5 +119,12 @@ class World extends \yii\db\ActiveRecord
     public function getOwner()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id'])->one()->getProfile();
+    }
+
+    public function deleteWorld()
+    {
+        $this->name .= '-deleted' . $this->id;
+        $this->status = self::STATUS_DELETED;
+        return $this->save() ? true : false;
     }
 }

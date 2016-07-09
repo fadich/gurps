@@ -34,7 +34,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="col-lg-7">
                     <h4>
                         <p><strong><?= $model->getProfile()->one()->name ?></strong>
-                            <a style="color:#999;margin:1em 0;font-size: medium"><?= $model->isOnline(); ?></a></p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span style="color:#999;margin:1em 0;font-size: medium"><?= $model->isOnline(); ?></span>
+                        </p>
                         <hr>
                         <p><strong>Дата рождения: </strong><?= $model->getProfile()->one()->birthday ?></p>
                         <hr>

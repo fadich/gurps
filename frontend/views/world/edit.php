@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, 'name')->textInput(['readOnly' => $checkOwner]) ?>
             <?= $form->field($model, 'description')->textarea(['readOnly' => $checkOwner]) ?>
             <?php if ($model->user_id != null): ?>
-<!--                <strong>Принадлежит</strong>-->
+
                 <?= $form->field($model->getOwner()->one(), 'name')->textInput(['readOnly' => true]) ?>
             <?php endif; ?>
             <div class="form-group">
@@ -46,11 +46,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 echo '<img src="' . '/gurps/frontend/web/uploads/pictures/worlds/avatars/unknown_world.png"
                             width="480px">&nbsp;&nbsp;&nbsp;';
             }
-            if (!$checkOwner) : ?>
-                <?= $form->field($file, 'file')->fileInput() ?>
-                <?php
-                ActiveForm::end(); ?>
-
+            ActiveForm::end();
+            if (!$checkOwner) :
+                ?>
                 <?php ActiveForm::begin();
                 if ($model->file_id != null): ?>
                     <?= Html::submitButton('Удалить изображение', [
@@ -59,8 +57,41 @@ $this->params['breadcrumbs'][] = $this->title;
                         'value' => '1',
                     ]) ?>
                 <?php endif;
-            endif;
-            ActiveForm::end(); ?>
+                ActiveForm::end();
+            endif; ?>
         </div>
     </div>
+    <?php if (!$checkOwner && $model->id != null): ?>
+        <hr>
+        <div align="right" id="delete">
+            <button type="button" class="btn btn-danger" onclick="deleteWorld()">Удалить</button>
+        </div>
+        <br>
+        <?php ActiveForm::begin(); ?>
+        <div align="right" id="buttons"></div>
+        <?php ActiveForm::end();
+    endif; ?>
 </div><!-- site-world -->
+<script>
+    function deleteWorld() {
+        document.getElementById("delete").innerHTML = 'Вы уверены, что хотите удалить мир ' +
+            "<i>\"<?= $model->name ?>\"</i>?";
+        document.getElementById("buttons").innerHTML =
+            '<?= Html::submitButton('Да', [
+                'class' => 'btn btn-default',
+                'name' => 'delete',
+                'value' => '1',
+            ]) ?>' +
+            '&nbsp;' +
+            '<?= Html::button('Нет', [
+                'class' => 'btn btn-success', 'align' => 'right',
+                'onclick' => 'deleteCancel()',
+            ]) ?>';
+    }
+
+    function deleteCancel() {
+        document.getElementById("delete").innerHTML =
+            '<button type="button" class="btn btn-danger" onclick="deleteWorld()">Удалить</button>';
+        document.getElementById("buttons").innerHTML = '';
+    }
+</script>
