@@ -50,7 +50,7 @@ class SignupForm extends Model
         return [
             'email' => 'Адрес электронной почты',
             'password' => 'Пароль',
-            'rePassword' => 'Повторите пароль'
+            'rePassword' => 'Повторите пароль',
         ];
     }
 

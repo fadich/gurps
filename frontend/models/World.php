@@ -20,6 +20,10 @@ use yii\behaviors\TimestampBehavior;
  */
 class World extends \yii\db\ActiveRecord
 {
+    const STATUS_DELETED = 0;
+    const STATUS_ACTIVE = 10;
+
+
     /**
      * @inheritdoc
      */
@@ -49,6 +53,8 @@ class World extends \yii\db\ActiveRecord
             [['description'], 'string'],
             [['name'], 'string', 'max' => 64, 'min' => 4],
             [['name'], 'unique'],
+            ['status', 'default', 'value' => self::STATUS_ACTIVE],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
         ];
     }
 

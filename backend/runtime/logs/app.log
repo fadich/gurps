@@ -416,3 +416,68 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1467638468.43
     'REQUEST_TIME' => 1467638468
 ]
+2016-07-05 06:47:44 [127.0.0.1][-][jcgf865p4guj9efnpevh7jgro1][error][yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Getting unknown property: common\models\LoginForm::username in /var/www/html/gurps/vendor/yiisoft/yii2/base/Component.php:143
+Stack trace:
+#0 /var/www/html/gurps/vendor/yiisoft/yii2/helpers/BaseHtml.php(2026): yii\base\Component->__get('username')
+#1 /var/www/html/gurps/vendor/yiisoft/yii2/helpers/BaseHtml.php(1231): yii\helpers\BaseHtml::getAttributeValue(Object(common\models\LoginForm), 'username')
+#2 /var/www/html/gurps/vendor/yiisoft/yii2/helpers/BaseHtml.php(1280): yii\helpers\BaseHtml::activeInput('text', Object(common\models\LoginForm), 'username', Array)
+#3 /var/www/html/gurps/vendor/yiisoft/yii2/widgets/ActiveField.php(362): yii\helpers\BaseHtml::activeTextInput(Object(common\models\LoginForm), 'username', Array)
+#4 /var/www/html/gurps/backend/views/site/login.php(22): yii\widgets\ActiveField->textInput(Array)
+#5 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/g...')
+#6 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/g...', Array)
+#7 /var/www/html/gurps/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/g...', Array, Object(backend\controllers\SiteController))
+#8 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('login', Array, Object(backend\controllers\SiteController))
+#9 /var/www/html/gurps/backend/controllers/SiteController.php(72): yii\base\Controller->render('login', Array)
+#10 [internal function]: backend\controllers\SiteController->actionLogin()
+#11 /var/www/html/gurps/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#12 /var/www/html/gurps/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#13 /var/www/html/gurps/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('login', Array)
+#14 /var/www/html/gurps/vendor/yiisoft/yii2/web/Application.php(84): yii\base\Module->runAction('site/login', Array)
+#15 /var/www/html/gurps/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 /var/www/html/gurps/backend/web/index.php(18): yii\base\Application->run()
+#17 {main}
+2016-07-05 06:47:44 [127.0.0.1][-][jcgf865p4guj9efnpevh7jgro1][info][application] $_COOKIE = [
+    'PHPSESSID' => 'jcgf865p4guj9efnpevh7jgro1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/gurps/backend/web/'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:47.0) Gecko/20100101 Firefox/47.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.7,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=jcgf865p4guj9efnpevh7jgro1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html/'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => '/var/www/html/gurps/backend/web/index.php'
+    'REMOTE_PORT' => '49574'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/gurps/backend/web/index.php/site/login'
+    'SCRIPT_NAME' => '/gurps/backend/web/index.php'
+    'PATH_INFO' => '/site/login'
+    'PATH_TRANSLATED' => '/var/www/html/site/login'
+    'PHP_SELF' => '/gurps/backend/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1467701264.573
+    'REQUEST_TIME' => 1467701264
+]

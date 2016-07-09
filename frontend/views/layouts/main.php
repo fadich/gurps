@@ -33,7 +33,7 @@ AppAsset::register($this);
         'brandLabel' => 'Главная',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar navbar-inverse navbar-fixed-top',
 //            'style' =>
 //                'background-color: #190347;'
         ],

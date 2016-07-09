@@ -230,10 +230,10 @@ class User extends ActiveRecord implements IdentityInterface
             return 'Online';
         }
         else if ((time() - $status) < 86400) {
-            return 'Offline (последний раз заходил ' . date('в H:i' , $status + $timezone) . ')';
+            return 'Offline (был в сети ' . date('в H:i' , $status + $timezone) . ')';
         }
         else if ((time() - $status) < 31104000) {
-            return 'Offline (последний раз заходил ' . date('d.m.Y в H:i' , $status + $timezone) . ')';
+            return 'Offline (был в сети ' . date('d.m.Y в H:i' , $status + $timezone) . ')';
         }
         else {
             return 'Offline';

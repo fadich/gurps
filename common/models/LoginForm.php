@@ -11,6 +11,7 @@ class LoginForm extends Model
 {
     public $email;
     public $password;
+    public $rememberMe;
 
     private $_user;
 
@@ -26,6 +27,7 @@ class LoginForm extends Model
             ['email', 'email'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
+            ['rememberMe', 'boolean'],
         ];
     }
 
@@ -51,6 +53,7 @@ class LoginForm extends Model
         return [
             'email' => 'Адрес электронной почты',
             'password' => 'Пароль',
+            'rememberMe' => 'Запомнить меня'
         ];
     }
 
@@ -62,7 +65,7 @@ class LoginForm extends Model
     public function login()
     {
         if ($this->validate()) {
-            return Yii::$app->user->login($this->getUser(), 0);
+            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         } else {
             return false;
         }

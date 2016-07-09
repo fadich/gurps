@@ -5,6 +5,7 @@ use common\models\User;
 use frontend\models\Files;
 use frontend\models\Profile;
 use frontend\models\Session;
+use frontend\models\World;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -81,11 +82,15 @@ class SiteController extends Controller
             $user->setOnline();
         }
 
+        $model = new World();
+
         if (Yii::$app->request->post('create_world') && Yii::$app->request->post('create_world') == 1) {
             return $this->redirect('index.php/world/edit');
         }
 
-        return $this->render('index');
+        return $this->render('index', [
+            'model' => $model,
+        ]);
     }
 
     /**

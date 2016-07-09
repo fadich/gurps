@@ -26,6 +26,7 @@ class ComposerStaticInit5d0b17307df1ced3cdc6078e5ab2de0e
         ),
         'k' => 
         array (
+            'kartik\\sidenav\\' => 15,
             'kartik\\date\\' => 12,
             'kartik\\base\\' => 12,
         ),
@@ -75,6 +76,10 @@ class ComposerStaticInit5d0b17307df1ced3cdc6078e5ab2de0e
         'yii\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2',
+        ),
+        'kartik\\sidenav\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-sidenav',
         ),
         'kartik\\date\\' => 
         array (
