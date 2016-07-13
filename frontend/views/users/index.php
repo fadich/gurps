@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 $form = ActiveForm::begin(); ?>
                 <div class="row">
                     <div class="col-lg-5">
-                        <?= Html::submitButton('<h4>' . $item->getProfile()->one()->name . '</h4>', [
+                        <?= Html::submitButton('<h4 style="color:#003873;">' . $item->getProfile()->one()->name . '</h4>', [
                             'class' => 'btn btn-link',
                             'name' => 'id',
                             'value' => $item->id,

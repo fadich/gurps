@@ -28,9 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ?>
             <?= $form->field($model, 'name')->textInput(['readOnly' => $checkOwner]) ?>
             <?= $form->field($model, 'description')->textarea([
-                'cols' => '10',
+//                'rows' => '2',
+//                'cols' => '1',
                 'wrap' => 'hard',
-                'resize' => 'none',
                 'readOnly' => $checkOwner,
             ]) ?>
             <?php if (!$checkOwner) : ?>

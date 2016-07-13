@@ -30,16 +30,7 @@ $this->title = 'Миры';
         }
         $items[] = [
             'label' => $item->name,
-            'items' => [
-                [
-                    'label' => 'Выбрать',
-                    'url' => 'javascript:picked(\'' . $item->name . '\', \'' . $avatar . '\')',
-                ],
-                [
-                    'label' => 'Просмотр',
-                    'url' => Url::to(['/world/edit?id=' . $item->id]),
-                ]
-            ],
+            'url' => 'javascript:picked(\'' . $item->id . '\', \'' . $item->name . '\', \'' . $avatar . '\')',
             'icon' => '',
         ];
     endforeach; ?>
@@ -63,17 +54,19 @@ $this->title = 'Миры';
         </div>
 
         <div class="col-lg-9">
-            <h2 id="name"><i style="color:#999;margin:1em 0">Выберете мир...</i></h2>
+            <?php ActiveForm::begin(); ?>
+            <span id="name"><i style="color:#999;margin:1em 0"><h2>Выберете мир...</h2></i><hr></span>
+            <?php ActiveForm::end(); ?>
             <div id="avatar"></div>
             <div id="scenasio"></div>
         </div>
-
     </div>
 </div>
 
 <script>
-    function picked(name, avatar) {
-        document.getElementById("name").innerHTML = '<strong><i>' + name + '</i></strong>';
+    function picked(id, name, avatar) {
+        document.getElementById("name").innerHTML = '<button type="submit" class="btn btn-link" name="worldEdit" ' +
+            'value="' + id + '"><h2><i style="color:#003873;">' + name + '</i></h2></button>';
         document.getElementById("avatar").innerHTML = '<img id="avatar" src="/gurps/frontend/web/' +
             avatar + '" width="100%">' +
             '<a href=""><img src="/gurps/frontend/views/src/images/play.png" width="20%" align="right"></a>' +

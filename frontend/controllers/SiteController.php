@@ -83,6 +83,12 @@ class SiteController extends Controller
             $user->setOnline();
         }
 
+        if (Yii::$app->request->post('worldEdit') !=  null) {
+            return $this->redirect(['world/edit',
+                'id' => Yii::$app->request->post('worldEdit'),
+            ]);
+        }
+
         if (Yii::$app->request->cookies['worldDeleted']) {
             Yii::$app->session->setFlash('info', 'Мир <i>"' .
                 Yii::$app->request->cookies['worldName'] .'"</i> успешно удален.');
