@@ -15,13 +15,32 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-3" style="
+        background-color: #FFFFFF;
+        border: solid;
+        float: left;
+        border-color: #EEEEEE;">
+            Сортировка и фильтры...<br>
+            Сортировка и фильтры...<br>
+            <button>Кнопочки</button><br>
+            Сортировка и фильтры...<br>
+            Сортировка и фильтры...<br>
+            Сортировка и фильтры...<br>
+            <button>Кнопочки</button><br>
+            Сортировка и фильтры...<br>
+            Сортировка и фильтры...<br>
+            <button>Кнопочки</button><br>
+            Сортировка и фильтры...<br>
+            Сортировка и фильтры...<br>
+            Сортировка и фильтры...<br>
+        </div>
+        <div class="col-lg-9">
             <?php
             $model = $model->findAll(['status' => $model::STATUS_ACTIVE]);
             foreach ($model as $item):
                 $form = ActiveForm::begin(); ?>
                 <div class="row">
-                    <div class="col-lg-5">
+                    <div class="col-lg-6">
                         <?= Html::submitButton('<h4 style="color:#003873;">' . $item->getProfile()->one()->name . '</h4>', [
                             'class' => 'btn btn-link',
                             'name' => 'id',
@@ -39,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         } ?>
 
                     </div>
-                    <div class="col-lg-5">
+                    <div class="col-lg-4">
                         <h3>Информация</h3>
                         <h5>
                             <p>Дата рождения: <?php echo $item->getProfile()->one()->birthday ?> </p>

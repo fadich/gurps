@@ -79,41 +79,44 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                 </div>
                 <hr>
-                <div class="col-lg-4">
-                    <?php $model->created_at_date = date('d.m.Y', $model->created_at);
-                    $model->updated_at_date = date('d.m.Y', $model->updated_at); ?>
-                    <p><?= $form->field($model, 'updated_at_date')->
-                        textInput(['readOnly' => true]) ?></p>
-                    <p><?= $form->field($model, 'created_at_date')->
-                        textInput(['readOnly' => true]) ?></p>
-                    <h4><strong>Конфиденциальная информация:</strong></h4>
-                    <p><?= $form->field($model->getUser()->one(), 'email')->
-                        textInput(['readOnly' => true]) ?></p>
-                    <p><?= $form->field($model->getUser()->one(), 'auth_key')->
-                        textInput(['readOnly' => true,]) ?></p>
-                    <?php
-                    Modal::begin([
-                        'header' => '<h2>Редактирование</h2>',
-                        'toggleButton' => [
-                            'label' => 'редактировать',
-                            'class' => 'btn btn-sm btn-default',
-                        ],
-                    ]);
-                    ActiveForm::begin(); ?>
-
-                    <?= $form->field($model->getUser()->one(), 'email')->textInput(); ?>
-
-                    <?= $form->field($model->getUser()->one(), 'password')->passwordInput(); ?>
-
-                    <?= $form->field($model->getUser()->one(), 'newPassword')->passwordInput(); ?>
-
-                    <?= $form->field($model->getUser()->one(), 'rePassword')->passwordInput(); ?>
-
-                    <div class="form-group">
-                        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']); ?>
+                <div class="row">
+                    <div class="col-lg-5"><?php $model->created_at_date = date('d.m.Y', $model->created_at);
+                        $model->updated_at_date = date('d.m.Y', $model->updated_at); ?>
+                        <p><?= $form->field($model, 'updated_at_date')->
+                            textInput(['readOnly' => true]) ?></p>
+                        <p><?= $form->field($model, 'created_at_date')->
+                            textInput(['readOnly' => true]) ?></p>
                     </div>
-                    <?php ActiveForm::end();
-                    Modal::end(); ?>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-5">
+                        <p><?= $form->field($model->getUser()->one(), 'email')->
+                            textInput(['readOnly' => true]) ?></p>
+                        <p><?= $form->field($model->getUser()->one(), 'auth_key')->
+                            textInput(['readOnly' => true,]) ?></p>
+                        <p align="right"><?php Modal::begin([
+                                'header' => '<h2 align="center">Учетные данные</h2>',
+                                'toggleButton' => [
+                                    'label' => 'Редактировать учетные данные',
+                                    'class' => 'btn btn-sm btn-default',
+                                ],
+                            ]);
+                            ActiveForm::begin(); ?>
+
+                            <?= $form->field($model->getUser()->one(), 'email')->textInput(); ?>
+
+                            <?= $form->field($model->getUser()->one(), 'password')->passwordInput(); ?>
+
+                            <?= $form->field($model->getUser()->one(), 'newPassword')->passwordInput(); ?>
+
+                            <?= $form->field($model->getUser()->one(), 'rePassword')->passwordInput(); ?>
+
+                        <div class="form-group">
+                            <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']); ?>
+                        </div>
+                        <?php ActiveForm::end();
+                        Modal::end(); ?>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

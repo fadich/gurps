@@ -40,12 +40,12 @@ $this->title = 'Миры';
         <div class="col-lg-3">
             <?php
             echo SideNav::widget([
-                'type' => SideNav::TYPE_PRIMARY,
+                'type' => SideNav::TYPE_DEFAULT,
                 'class' => 'sidenav',
                 'headingOptions' => ['class' => 'head-style'],
                 'options' => [
-//                    'style' =>
-//                        'height:10%'
+                    'style' =>
+                        'background-color:#FFFFFF',
                 ],
                 'heading' => 'Список миров',
                 'items' => $items,
