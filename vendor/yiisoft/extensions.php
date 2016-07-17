@@ -93,4 +93,13 @@ return array (
       '@kartik/sidenav' => $vendorDir . '/kartik-v/yii2-widget-sidenav',
     ),
   ),
+  'chornij/yii2-zeroclipboard' => 
+  array (
+    'name' => 'chornij/yii2-zeroclipboard',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@chornij/zeroclipboard' => $vendorDir . '/chornij/yii2-zeroclipboard',
+    ),
+  ),
 );

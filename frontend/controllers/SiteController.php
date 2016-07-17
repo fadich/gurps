@@ -278,6 +278,19 @@ class SiteController extends Controller
             }
         }
 
+        if (Yii::$app->request->post('User')){
+            $user = $model->getUser()->one();
+            $user->email = Yii::$app->request->post('User')['email'];
+            if ($user->load(Yii::$app->request->post()) && $user->validate()){
+                if ($user->updateUser($user)){
+                    Yii::$app->session->setFlash('success', 'Редактирование произведено успешно.');
+                }
+            } else {
+                Yii::$app->session->setFlash('info', 'Изменения не сохранены.' .
+                    '<br>Возможно, данные введены не корректно.');
+            }
+        }
+
         return $this->render('profile', [
             'model' => $model,
             'file' => $file,

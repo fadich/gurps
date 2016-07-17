@@ -20,7 +20,7 @@ use yii\web\IdentityInterface;
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
- * @property string $password write-only password
+ * @property string $passwor write-only passwor
  *
  * @property Profile $profile
  */
@@ -29,6 +29,11 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
 
+    public $password;
+    public $newPassword;
+    public $rePassword;
+
+    private $_user;
 
     /**
      * @inheritdoc
@@ -36,6 +41,20 @@ class User extends ActiveRecord implements IdentityInterface
     public static function tableName()
     {
         return '{{%user}}';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'email' => 'Адрес электронной почты',
+            'auth_key' => 'Секретный ключ',
+            'password' => 'Пароль',
+            'newPassword' => 'Новый пароль',
+            'rePassword' => 'Повторите пароль (новый)',
+        ];
     }
 
     /**
@@ -54,9 +73,70 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
+            ['email', 'trim'],
+            ['email', 'required'],
+            ['email', 'email'],
+            ['email', 'string', 'max' => 255, 'min' => 6],
+            ['email', 'unique', 'targetClass' => '\common\models\User',
+                'message' => 'Извините, данный адрес уже занят.'],
+
+            ['password', 'required'],
+            ['password', 'string', 'min' => 6],
+            ['password', 'validatePass'],
+
+//            ['newPassword', 'required'],
+            ['newPassword', 'string', 'min' => 6],
+            ['rePassword', 'validateRePassword'],
+
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
         ];
+    }
+
+    /**
+     * @param $attribute
+     * @return bool
+     */
+    public function validateRePassword($attribute)
+    {
+        if (!$this->hasErrors()):
+            if ($this->newPassword !== $this->rePassword):
+                $this->addError($attribute, 'Пароли не совпадают.');
+                return false;
+            endif;
+        endif;
+        return true;
+    }
+
+    /**
+     * Validates the password.
+     * This method serves as the inline validation for password.
+     *
+     * @param string $attribute the attribute currently being validated
+     * @param array $params the additional name-value pairs given in the rule
+     */
+    public function validatePass($attribute, $params)
+    {
+        if (!$this->hasErrors()) {
+            $user = $this->getUser();
+            if (!$user || !$user->validatePassword($this->password)) {
+                $this->addError($attribute, 'Неверный адрес или пароль.');
+            }
+        }
+    }
+
+    /**
+     * Finds user by [[email]]
+     *
+     * @return User|null
+     */
+    protected function getUser()
+    {
+        if ($this->_user === null) {
+            $this->_user = User::findByEmail($this->email);
+        }
+
+        return $this->_user;
     }
 
     /**
@@ -116,7 +196,7 @@ class User extends ActiveRecord implements IdentityInterface
             return false;
         }
 
-        $timestamp = (int) substr($token, strrpos($token, '_') + 1);
+        $timestamp = (int)substr($token, strrpos($token, '_') + 1);
         $expire = Yii::$app->params['user.passwordResetTokenExpire'];
         return $timestamp + $expire >= time();
     }
@@ -194,7 +274,7 @@ class User extends ActiveRecord implements IdentityInterface
      * @return \yii\db\ActiveQuery
      */
 
-    public function getProfile ()
+    public function getProfile()
     {
         return $this->hasOne(Profile::className(), ['user_id' => 'id']);
     }
@@ -202,7 +282,7 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getSessionTable ()
+    public function getSessionTable()
     {
         return $this->hasOne(Session::className(), ['user_id' => 'id']);
     }
@@ -210,7 +290,7 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * Set Online status to user
      */
-    public function setOnline ()
+    public function setOnline()
     {
         $session = ($session = $this->getSessionTable()->one()) ? $session : new Session();
         $session->user_id = $this->id;
@@ -221,22 +301,41 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * @return string
      */
-    public function isOnline ()
+    public function isOnline()
     {
         $status = (isset($this->getSessionTable()->one()->time)) ?
             $this->getSessionTable()->one()->time : 0;
         $timezone = 10800;
-        if ((time() - $status) < 900){
-            return 'Online';
+        if ((time() - $status) < 600) {
+            return 'Онлайн';
+        } else if ((time() - $status) < 86400) {
+            return 'был в сети ' . date('в H:i', $status + $timezone);
+        } else if ((time() - $status) < 31104000) {
+            return 'был в сети ' . date('d.m.Y в H:i', $status + $timezone);
+        } else {
+            return 'Оффлайн';
         }
-        else if ((time() - $status) < 86400) {
-            return 'Offline (был в сети ' . date('в H:i' , $status + $timezone) . ')';
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param User $user
+     * @return bool
+     */
+    public function updateUser(User $user)
+    {
+        if(!$this->validate()){
+          return null;
         }
-        else if ((time() - $status) < 31104000) {
-            return 'Offline (был в сети ' . date('d.m.Y в H:i' , $status + $timezone) . ')';
+
+        $this->email = $user->email;
+        if (isset($user->newPassword) && strlen($user->newPassword) > 5) {
+            $this->setPassword($user->newPassword);
         }
-        else {
-            return 'Offline';
-        }
+        return $this->save() ? true : false;
     }
 }

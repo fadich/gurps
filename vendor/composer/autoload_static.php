@@ -32,6 +32,7 @@ class ComposerStaticInit5d0b17307df1ced3cdc6078e5ab2de0e
         ),
         'c' => 
         array (
+            'chornij\\zeroclipboard\\' => 22,
             'cebe\\markdown\\' => 14,
         ),
         'F' => 
@@ -88,6 +89,10 @@ class ComposerStaticInit5d0b17307df1ced3cdc6078e5ab2de0e
         'kartik\\base\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-krajee-base',
+        ),
+        'chornij\\zeroclipboard\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/chornij/yii2-zeroclipboard',
         ),
         'cebe\\markdown\\' => 
         array (

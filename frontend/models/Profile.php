@@ -6,6 +6,7 @@ use Yii;
 use yii\db\ActiveRecord;
 use yii\web\UploadedFile;
 use yii\behaviors\TimestampBehavior;
+use common\models\User;
 
 /**
  * This is the model class for table "profile".
@@ -22,6 +23,9 @@ use yii\behaviors\TimestampBehavior;
  */
 class Profile extends \yii\db\ActiveRecord
 {
+    public $updated_at_date;
+    public $created_at_date;
+
     /**
      * @inheritdoc
      */
@@ -50,7 +54,7 @@ class Profile extends \yii\db\ActiveRecord
             ['name', 'trim'],
             ['name', 'string', 'max' => 24, 'min' => 3],
 
-            ['user_id', 'integer'],
+            [['user_id', 'updated_at_date', 'created_at_date'], 'integer'],
             ['sex', 'string', 'max' => 10],
             ['birthday', 'string', 'max' => 16],
             ['avatar', 'integer'],
@@ -73,6 +77,8 @@ class Profile extends \yii\db\ActiveRecord
             'sex' => 'Пол',
             'birthday' => 'Дата рождения',
             'avatar' => '',
+            'updated_at_date' => 'Последнее обновление',
+            'created_at_date' => 'Дата создания',
 //            'file' => 'Аватар',
             'info' => 'Дополнительная информация'
         ];
@@ -133,5 +139,13 @@ class Profile extends \yii\db\ActiveRecord
     public function getAvatar ()
     {
         return $this->hasOne(Files::className(), ['id' => 'avatar']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser ()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 }
