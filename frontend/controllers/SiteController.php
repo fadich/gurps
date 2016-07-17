@@ -280,6 +280,7 @@ class SiteController extends Controller
 
         if (Yii::$app->request->post('User')){
             $user = $model->getUser()->one();
+            $user->oldEmail = $user->email;
             $user->email = Yii::$app->request->post('User')['email'];
             if ($user->load(Yii::$app->request->post()) && $user->validate()){
                 if ($user->updateUser($user)){

@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
     <div class="row">
-        <div class="col-lg-13">
+        <div class="col-lg-12">
             <?php
             $model = $model->findAll(['status' => $model::STATUS_ACTIVE]);
             foreach ($model as $item):

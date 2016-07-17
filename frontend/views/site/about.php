@@ -7,6 +7,11 @@ use yii\helpers\Html;
 $this->title = 'О GURPS';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<style>
+    p{
+        text-indent: 20px; /* Отступ первой строки в пикселах */
+    }
+</style>
 <div class="site-about">
     <div class="col-lg-13">
         <h1 class="p"><?= Html::encode($this->title) ?></h1>

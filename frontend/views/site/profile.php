@@ -80,14 +80,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <hr>
                 <div class="col-lg-4">
-                    <h4><strong>Конфиденциальная информация:</strong></h4>
-                    <p><?= $form->field($model->getUser()->one(), 'email')->
-                        textInput(['readOnly' => true]) ?></p>
                     <?php $model->created_at_date = date('d.m.Y', $model->created_at);
                     $model->updated_at_date = date('d.m.Y', $model->updated_at); ?>
                     <p><?= $form->field($model, 'updated_at_date')->
                         textInput(['readOnly' => true]) ?></p>
                     <p><?= $form->field($model, 'created_at_date')->
+                        textInput(['readOnly' => true]) ?></p>
+                    <h4><strong>Конфиденциальная информация:</strong></h4>
+                    <p><?= $form->field($model->getUser()->one(), 'email')->
                         textInput(['readOnly' => true]) ?></p>
                     <p><?= $form->field($model->getUser()->one(), 'auth_key')->
                         textInput(['readOnly' => true,]) ?></p>

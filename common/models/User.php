@@ -32,6 +32,7 @@ class User extends ActiveRecord implements IdentityInterface
     public $password;
     public $newPassword;
     public $rePassword;
+    public $oldEmail;
 
     private $_user;
 
@@ -73,6 +74,10 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
+            ['oldEmail', 'trim'],
+            ['oldEmail', 'email'],
+            ['oldEmail', 'string', 'max' => 255, 'min' => 6],
+
             ['email', 'trim'],
             ['email', 'required'],
             ['email', 'email'],
@@ -133,7 +138,7 @@ class User extends ActiveRecord implements IdentityInterface
     protected function getUser()
     {
         if ($this->_user === null) {
-            $this->_user = User::findByEmail($this->email);
+            $this->_user = User::findByEmail($this->oldEmail);
         }
 
         return $this->_user;
@@ -333,6 +338,7 @@ class User extends ActiveRecord implements IdentityInterface
         }
 
         $this->email = $user->email;
+
         if (isset($user->newPassword) && strlen($user->newPassword) > 5) {
             $this->setPassword($user->newPassword);
         }
