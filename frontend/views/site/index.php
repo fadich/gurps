@@ -45,7 +45,7 @@ $this->title = 'Миры';
                 'headingOptions' => ['class' => 'head-style'],
                 'options' => [
                     'style' =>
-                        'background-color:#FFFFFF',
+                        'background-color:#FFFFFF;',
                 ],
                 'heading' => 'Список миров',
                 'items' => $items,
@@ -54,25 +54,24 @@ $this->title = 'Миры';
         </div>
 
         <div class="col-lg-9">
-            <?php ActiveForm::begin(); ?>
             <span id="name"><i style="color:#999;margin:1em 0"><h2>Выберете мир...</h2></i><hr></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <div id="avatar"></div><br>
+            <?php ActiveForm::begin(); ?>
+            <div id="choose" align="right"></div>
             <?php ActiveForm::end(); ?>
-            <div id="avatar"></div>
-            <div id="scenasio"></div>
         </div>
     </div>
 </div>
 
 <script>
     function picked(id, name, avatar) {
-        document.getElementById("name").innerHTML = '<button type="submit" class="btn btn-link" name="worldEdit" ' +
-            'value="' + id + '"><h2><i style="color:#003873;">' + name + '</i></h2></button>';
+        document.getElementById("name").innerHTML = '<i><h2>' + name + '</h2></i><hr>';
+//        document.getElementById("choose").innerHTML = '<button type="submit" class="btn btn-lg btn-primary" ' +
+//            'name="worldEdit" value="' + id + '" style="font-size: 24px;">Выбрать</button>';
         document.getElementById("avatar").innerHTML = '<img id="avatar" src="/gurps/frontend/web/' +
             avatar + '" width="100%">' +
-            '<a href=""><img src="/gurps/frontend/views/src/images/play.png" width="20%" align="right"></a>' +
-            '&nbsp;&nbsp;&nbsp';
-        document.getElementById("scenasio").innerHTML = '<?php
-            echo '<br><hr>Тут будут сценарии....';
-            ?>'
+            '<a href="/gurps/frontend/web/index.php/world/edit?id=' + id + '"><img src="/gurps/frontend/views/src/images/play.png" width="20%" align="right"></a>' +
+            '&nbsp;&nbsp;&nbsp;';
     }
 </script>

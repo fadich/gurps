@@ -11,7 +11,7 @@ use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use common\models\User;
 
-$this->title = 'GURPS';
+//$this->title = 'GURPS';
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>

@@ -102,4 +102,13 @@ return array (
       '@chornij/zeroclipboard' => $vendorDir . '/chornij/yii2-zeroclipboard',
     ),
   ),
+  'skeeks/yii2-ckeditor' => 
+  array (
+    'name' => 'skeeks/yii2-ckeditor',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@skeeks/yii2/ckeditor' => $vendorDir . '/skeeks/yii2-ckeditor',
+    ),
+  ),
 );

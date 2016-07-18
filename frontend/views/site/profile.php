@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\date\DatePicker;
 use yii\bootstrap\Modal;
+use skeeks\yii2\ckeditor\CKEditorWidget;
+use skeeks\yii2\ckeditor\CKEditorPresets;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Profile */
@@ -25,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="col-lg-5">
                         <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-                        <?= $form->field($model, 'name') ?>
+                        <?= $form->field($model, 'name')->textInput(['pattern' => '^[0-9a-zA-ZА-Яа-яЁё\s]+$']) ?>
 
                         <?= $form->field($model, 'birthday')->widget(DatePicker::className(), [
                             'name' => 'birthday',
@@ -42,7 +44,10 @@ $this->params['breadcrumbs'][] = $this->title;
                             ]
                         ]); ?>
 
-                        <?= $form->field($model, 'info')->textarea(); ?>
+                        <?= $form->field($model, 'info')->widget(CKEditorWidget::className(), [
+                            'options' => ['rows' => 6],
+                            'preset' => CKEditorPresets::BASIC,
+                        ]) ?>
 
                         <?= $form->field($model, 'sex')->radioList([
                             'мужской' => 'мужской', 'женский' => 'женский'

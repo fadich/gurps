@@ -24,6 +24,10 @@ class ComposerStaticInit5d0b17307df1ced3cdc6078e5ab2de0e
             'yii\\bootstrap\\' => 14,
             'yii\\' => 4,
         ),
+        's' => 
+        array (
+            'skeeks\\yii2\\ckeditor\\' => 21,
+        ),
         'k' => 
         array (
             'kartik\\sidenav\\' => 15,
@@ -77,6 +81,10 @@ class ComposerStaticInit5d0b17307df1ced3cdc6078e5ab2de0e
         'yii\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2',
+        ),
+        'skeeks\\yii2\\ckeditor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/skeeks/yii2-ckeditor',
         ),
         'kartik\\sidenav\\' => 
         array (

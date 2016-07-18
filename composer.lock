@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e386b9819a58a445d1a2b8c6e858bab5",
-    "content-hash": "844aa06c447e6b343629fcef41da86f8",
+    "hash": "d9db64d7520a7967da4fdb406bfc1aab",
+    "content-hash": "85258ed1c4c92c1a08f29f7e995b9655",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -530,6 +530,52 @@
                 "yii2"
             ],
             "time": "2015-04-21 15:38:40"
+        },
+        {
+            "name": "skeeks/yii2-ckeditor",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/skeeks-semenov/yii2-ckeditor.git",
+                "reference": "b01c55df83432b9aa6129913e977a4af2c1463a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/skeeks-semenov/yii2-ckeditor/zipball/b01c55df83432b9aa6129913e977a4af2c1463a5",
+                "reference": "b01c55df83432b9aa6129913e977a4af2c1463a5",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "skeeks\\yii2\\ckeditor\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Semenov Alexander",
+                    "email": "semenov@skeeks.com"
+                },
+                {
+                    "name": "SkeekS",
+                    "email": "support@skeeks.com",
+                    "homepage": "http://www.skeeks.com"
+                }
+            ],
+            "description": "CKEditor extension for Yii2.",
+            "keywords": [
+                "CKEditor",
+                "extension",
+                "yii2"
+            ],
+            "time": "2015-11-07 17:14:06"
         },
         {
             "name": "swiftmailer/swiftmailer",

@@ -2,42 +2,76 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use skeeks\yii2\ckeditor\CKEditorWidget;
+use skeeks\yii2\ckeditor\CKEditorPresets;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\World */
 /* @var $file frontend\models\Files */
 /* @var $form ActiveForm */
 
-isset($model->name) ? $this->title = 'Редактирование "' . $model->name . '"' : $this->title = 'Новый мир';
+isset($model->name) ? $this->title = 'Мир "' . $model->name . '"' : $this->title = 'Новый мир';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<style>
+    .not-owner {
+        background-color: #f5f5f5;
+        border-radius: 5px;
+        font-size: 18px;
+        font-style: italic;
+    }
+    .not-owner:hover {
+        background-color: #ededed;
+        border-radius: 5px;
+        color: #000000;
+    }
+</style>
 <div class="world-edit">
     <?php isset($model->name) ? $str = 'Мир <i>"' . $model->name . '"</i>' :
         $str = 'Новый мир'; ?>
     <h1><?= $str ?></h1>
 
 
-    <p><?php isset($model->name) ? $str = 'Редактирование игрового мира <i>"' . $model->name . '"</i>' :
+    <p><?php isset($model->name) ? $str = 'Игровой мир <i>"' . $model->name . '"</i>' :
             $str = 'Создание нового игрового мира';
         echo $str ?>:</p>
 
     <div class="row">
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin();
-            $checkOwner = (Yii::$app->user->id == $model->user_id || $model->user_id == null) ? false : true;
-            ?>
-            <?= $form->field($model, 'name')->textInput(['readOnly' => $checkOwner]) ?>
-            <?= $form->field($model, 'description')->textarea([
-//                'rows' => '2',
-//                'cols' => '1',
-                'wrap' => 'hard',
-                'readOnly' => $checkOwner,
-            ]) ?>
+            $checkOwner = (Yii::$app->user->id == $model->user_id || $model->user_id == null) ? false : true; ?>
+
             <?php if (!$checkOwner) : ?>
+
+                <?= $form->field($model, 'name')->textInput(['readOnly' => $checkOwner]) ?>
+                <?= $form->field($model, 'description')->widget(CKEditorWidget::className(), [
+                    'options' => ['rows' => 6],
+                    'preset' => CKEditorPresets::BASIC,
+                ]) ?>
                 <?= $form->field($file, 'file')->fileInput(['readOnly' => $checkOwner]) ?>
+
+            <?php else: ?>
+                <br>
+                <p>
+                    <strong>Название: </strong>
+                    <span class="not-owner">
+                        <?= $model->name ?>
+                    </span>.
+                </p>
+                <hr>
+                <p><strong>Описание: </strong>
+                    <div class="not-owner"><br>
+                        <?= $model->description ?>
+                    </div>
+                </p>
+                <hr>
             <?php endif; ?>
             <?php if ($model->user_id != null): ?>
-                <?= $form->field($model->getOwner()->one(), 'name')->textInput(['readOnly' => true]) ?>
+                <strong>Создатель: </strong>
+                <span class="not-owner">
+                    <?= $model->getOwner()->one()->name ?>
+                </span>.
+                <hr>
             <?php endif; ?>
             <div class="form-group">
                 <?php if (!$checkOwner) : ?>

@@ -14,33 +14,18 @@ $this->title = 'Пользователи';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
+    <h1><?= Html::encode($this->title) ?></h1>
+
+    <p>Для выполнения входа, заполните, пожалуйста, следующие поля:</p>
+
     <div class="row">
-        <div class="col-lg-3" style="
-        background-color: #FFFFFF;
-        border: solid;
-        float: left;
-        border-color: #EEEEEE;">
-            Сортировка и фильтры...<br>
-            Сортировка и фильтры...<br>
-            <button>Кнопочки</button><br>
-            Сортировка и фильтры...<br>
-            Сортировка и фильтры...<br>
-            Сортировка и фильтры...<br>
-            <button>Кнопочки</button><br>
-            Сортировка и фильтры...<br>
-            Сортировка и фильтры...<br>
-            <button>Кнопочки</button><br>
-            Сортировка и фильтры...<br>
-            Сортировка и фильтры...<br>
-            Сортировка и фильтры...<br>
-        </div>
-        <div class="col-lg-9">
+        <div class="col-lg-10">
             <?php
             $model = $model->findAll(['status' => $model::STATUS_ACTIVE]);
             foreach ($model as $item):
                 $form = ActiveForm::begin(); ?>
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-5">
                         <?= Html::submitButton('<h4 style="color:#003873;">' . $item->getProfile()->one()->name . '</h4>', [
                             'class' => 'btn btn-link',
                             'name' => 'id',
@@ -58,21 +43,46 @@ $this->params['breadcrumbs'][] = $this->title;
                         } ?>
 
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <h3>Информация</h3>
                         <h5>
                             <p>Дата рождения: <?php echo $item->getProfile()->one()->birthday ?> </p>
                             <p>Доп. информация: <?php (strlen($item->getProfile()->one()->info) > 150) ?
-                                $str = trim(mb_substr($item->getProfile()->one()->info, 0, 150, "UTF-8")) . '...' :
-                                $str = $item->getProfile()->one()->info;
-                            echo $str;
-                            ?> </p>
+                                    $str = trim(mb_substr($item->getProfile()->one()->info, 0, 150, "UTF-8")) . '...' :
+                                    $str = $item->getProfile()->one()->info;
+                                echo $str;
+                                ?> </p>
                         </h5>
                     </div>
                 </div>
                 <hr>
                 <?php ActiveForm::end();
             endforeach; ?>
+        </div>
+        <div class="col-lg-2" style="
+        background-color: #FFFFFF;
+        border: solid;
+        position: fixed;
+        float: right;
+        right: 6%;
+        top: 20%;
+        border-color: #EEEEEE;">
+            Сортировка и фильтры...<br>
+            Сортировка и фильтры...<br>
+            <button>Кнопочки</button>
+            <br>
+            Сортировка и фильтры...<br>
+            Сортировка и фильтры...<br>
+            Сортировка и фильтры...<br>
+            <button>Кнопочки</button>
+            <br>
+            Сортировка и фильтры...<br>
+            Сортировка и фильтры...<br>
+            <button>Кнопочки</button>
+            <br>
+            Сортировка и фильтры...<br>
+            Сортировка и фильтры...<br>
+            Сортировка и фильтры...<br>
         </div>
     </div>
 </div>
