@@ -43,7 +43,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?php if (!$checkOwner) : ?>
 
-                <?= $form->field($model, 'name')->textInput(['readOnly' => $checkOwner]) ?>
+                <?= $form->field($model, 'name')->textInput([
+                    'readOnly' => $checkOwner,
+                    'maxlength' => 42,
+                    'pattern' => '^[0-9a-zA-ZА-Яа-яЁё\s]+$',
+                ]) ?>
                 <?= $form->field($model, 'description')->widget(CKEditorWidget::className(), [
                     'options' => ['rows' => 6],
                     'preset' => CKEditorPresets::BASIC,
@@ -55,13 +59,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 <p>
                     <strong>Название: </strong>
                     <span class="not-owner">
-                        <?= $model->name ?>
+                        &nbsp;<?= $model->name ?>&nbsp;
                     </span>.
                 </p>
                 <hr>
                 <p><strong>Описание: </strong>
-                    <div class="not-owner"><br>
-                        <?= $model->description ?>
+                    <div class="not-owner" style="min-height: 150px;">
+                    <?= $model->description ?>
                     </div>
                 </p>
                 <hr>
@@ -69,7 +73,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php if ($model->user_id != null): ?>
                 <strong>Создатель: </strong>
                 <span class="not-owner">
-                    <?= $model->getOwner()->one()->name ?>
+                    &nbsp;<?= $model->getOwner()->one()->name ?>&nbsp;
                 </span>.
                 <hr>
             <?php endif; ?>
@@ -80,15 +84,15 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
         <div class="col-lg-1"></div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <?php
             if (isset($file->path)) {
                 echo '<img src="' . '/gurps/frontend/web/' .
                     $file->path .
-                    '" width="480px">&nbsp;&nbsp;&nbsp;';
+                    '" width="548px">&nbsp;&nbsp;&nbsp;';
             } else {
                 echo '<img src="' . '/gurps/frontend/web/uploads/pictures/worlds/avatars/unknown_world.png"
-                            width="480px">&nbsp;&nbsp;&nbsp;';
+                            width="548px">&nbsp;&nbsp;&nbsp;';
             }
             ActiveForm::end();
             if (!$checkOwner) :

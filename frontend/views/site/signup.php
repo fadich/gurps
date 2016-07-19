@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?= $form->field($model, 'email') ?>
 
-            <?= $form->field($profile, 'name') ?>
+            <?= $form->field($profile, 'name')->textInput(['pattern' => '^[0-9a-zA-ZА-Яа-яЁё\s]+$']) ?>
 
             <?= $form->field($model, 'password')->passwordInput() ?>
 

@@ -12,6 +12,18 @@ $this->title = $model->getProfile()->one()->name;
 $this->params['breadcrumbs'][] = ['label' => 'Пользователи', 'url' => 'index'];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<style>
+    .info {
+        border-radius: 5px;
+        font-size: 18px;
+        font-style: italic;
+    }
+    .info:hover {
+        background-color: #ededed;
+        border-radius: 5px;
+        color: #000000;
+    }
+</style>
 <div class="user-user">
     <div class="rows">
         <div class="col-lg-13">
@@ -30,16 +42,22 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <div class="col-lg-7">
                     <h4>
-                        <p><strong><?= $model->getProfile()->one()->name ?></strong>
+                        <p><strong><span class="info"><?= $model->getProfile()->one()->name ?></span></strong>
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <span style="color:#999;margin:1em 0;font-size: medium"><?= $model->isOnline(); ?></span>
                         </p>
                         <hr>
-                        <p><strong>Дата рождения: </strong><?= $model->getProfile()->one()->birthday ?></p>
+                        <p><strong>Дата рождения: </strong>
+                            <span class="info"><?= $model->getProfile()->one()->birthday ?></span>
+                        </p>
                         <hr>
-                        <p><strong>Пол: </strong><?= $model->getProfile()->one()->sex ?></p>
+                        <p><strong>Пол: </strong>
+                            <span class="info"><?= $model->getProfile()->one()->sex ?></span>
+                        </p>
                         <hr>
-                        <p><strong>Доп. информация: </strong><?= $model->getProfile()->one()->info ?></p>
+                        <p><strong>Доп. информация: </strong>
+                            <div class="info"><?= $model->getProfile()->one()->info ?></div>
+                        </p>
                     </h4>
                 </div>
             </div>

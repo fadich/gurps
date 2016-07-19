@@ -23,6 +23,7 @@ class World extends \yii\db\ActiveRecord
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
 
+    public $search;
 
     /**
      * @inheritdoc
@@ -50,8 +51,8 @@ class World extends \yii\db\ActiveRecord
         return [
             [['name'], 'required'],
             [['file_id'], 'integer'],
-            [['description'], 'string'],
-            [['name'], 'string', 'max' => 48, 'min' => 4],
+            [['description', 'search'], 'string'],
+            [['name'], 'string', 'max' => 64, 'min' => 4],
             [['name'], 'unique'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
@@ -141,8 +142,8 @@ class World extends \yii\db\ActiveRecord
             if (isset($checkName->name) && strtolower($this->name) == strtolower($checkName->name)) {
                 $this->name .= '_' . time();
                 $checkName = self::findOne(['name' => $this->name]);
-                if (isset($checkName->name) && strtolower($this->name) == strtolower($checkName->name)) {
-                    $this->name = Yii::$app->security->generateRandomString();
+                if (isset($checkName->name) && $this->name == $checkName->name) {
+                    $this->name = Yii::$app->security->generateRandomString(18);
                 }
             }
         }

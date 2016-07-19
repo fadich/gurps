@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="user-index">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Для выполнения входа, заполните, пожалуйста, следующие поля:</p>
+    <p>Список активных пользователей:</p>
 
     <div class="row">
         <div class="col-lg-10">

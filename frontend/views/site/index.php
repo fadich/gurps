@@ -14,6 +14,57 @@ use yii\helpers\Url;
 
 $this->title = 'Миры';
 ?>
+<style>
+    .my-side-nav {
+        position: fixed;
+        width: 200px;
+        /*background-color: rgba(0, 0, 0, 0.2);*/
+        top: 83px;
+        left: 0;
+        bottom: 61px;
+        overflow: auto;
+        scrollbar-base-color: #ffeaff
+        /*overflow-y: hidden;*/
+        /*margin: auto;*/
+        overflow-x: scroll;
+    }
+
+    .my-side-nav-search {
+        position: fixed;
+        top: 51px;
+        left: 0;
+        bottom: 61px;
+        border-right: solid;
+        border-color: rgba(0, 0, 0, 0.0);
+        background-color: rgba(0, 0, 0, 0.5);
+        border-width: 3px;
+    }
+
+    .world-selected {
+        position: fixed;
+        top: 51px;
+        left: 225px;
+        bottom: 61px;
+        right: 0;
+        overflow: auto;
+        scrollbar-base-color: #ffeaff
+        /*overflow-y: hidden;*/
+        /*margin: auto;*/
+        overflow-x: scroll;
+    }
+
+    .world-selected-content {
+        width: 95%;
+        top: 51px;
+        left: 225px;
+        bottom: 61px;
+    }
+</style>
+<script>
+    $(window).scroll(function () {
+        $('#my-side-nav').css('left', originalLeft - $(this).scrollLeft());
+    });
+</script>
 
 <div class="site-index">
 
@@ -35,25 +86,8 @@ $this->title = 'Миры';
         ];
     endforeach; ?>
 
-    <div class="rows">
-
-        <div class="col-lg-3">
-            <?php
-            echo SideNav::widget([
-                'type' => SideNav::TYPE_DEFAULT,
-                'class' => 'sidenav',
-                'headingOptions' => ['class' => 'head-style'],
-                'options' => [
-                    'style' =>
-                        'background-color:#FFFFFF;',
-                ],
-                'heading' => 'Список миров',
-                'items' => $items,
-            ]);
-            ?>
-        </div>
-
-        <div class="col-lg-9">
+    <div class="world-selected">
+        <div class="world-selected-content">
             <span id="name"><i style="color:#999;margin:1em 0"><h2>Выберете мир...</h2></i><hr></span>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <div id="avatar"></div>
@@ -62,6 +96,30 @@ $this->title = 'Миры';
             <div id="choose"></div>
             <?php ActiveForm::end(); ?>
         </div>
+    </div>
+
+    <div class="my-side-nav-search">
+        <?php ActiveForm::begin(); ?>
+        <?= Html::textInput('search', null, ['maxlength' => 32, 'style' => 'width:160px;']) ?>
+        <?= Html::submitButton('<span class="glyphicon glyphicon-search"></span>', [
+            'class' => 'btn btn-sm',
+        ]) ?>
+        <?php ActiveForm::end() ?>
+    </div>
+
+    <div class="my-side-nav">
+
+        <?php echo SideNav::widget([
+            'type' => SideNav::TYPE_DEFAULT,
+            'class' => 'sidenav',
+            'headingOptions' => ['class' => 'head-style'],
+            'options' => [
+                'style' =>
+                    'background-color:#FFFFFF;',
+            ],
+            'items' => $items,
+        ]);
+        ?>
     </div>
 </div>
 
