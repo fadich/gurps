@@ -127,4 +127,28 @@ class World extends \yii\db\ActiveRecord
         $this->status = self::STATUS_DELETED;
         return $this->save() ? true : false;
     }
+
+    public function resetWorld()
+    {
+        $this->name = mb_substr($this->name, 0, $this->name - mb_strlen('-deleted' . $this->id,
+                'UTF-8'), 'UTF-8');
+
+        $checkName = self::findOne(['name' => $this->name]);
+
+        if (isset($checkName->name) && strtolower($this->name) == strtolower($checkName->name)) {
+            $this->name .= '_' . $this->id;
+            $checkName = self::findOne(['name' => $this->name]);
+            if (isset($checkName->name) && strtolower($this->name) == strtolower($checkName->name)) {
+                $this->name .= '_' . time();
+                $checkName = self::findOne(['name' => $this->name]);
+                if (isset($checkName->name) && strtolower($this->name) == strtolower($checkName->name)) {
+                    $this->name = Yii::$app->security->generateRandomString();
+                }
+            }
+        }
+
+        $this->status = self::STATUS_ACTIVE;
+
+        return $this->save() ? true : false;
+    }
 }

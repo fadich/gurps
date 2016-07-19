@@ -56,9 +56,10 @@ $this->title = 'Миры';
         <div class="col-lg-9">
             <span id="name"><i style="color:#999;margin:1em 0"><h2>Выберете мир...</h2></i><hr></span>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <div id="avatar"></div><br>
+            <div id="avatar"></div>
+            <br>
             <?php ActiveForm::begin(); ?>
-            <div id="choose" align="right"></div>
+            <div id="choose"></div>
             <?php ActiveForm::end(); ?>
         </div>
     </div>
@@ -71,7 +72,10 @@ $this->title = 'Миры';
 //            'name="worldEdit" value="' + id + '" style="font-size: 24px;">Выбрать</button>';
         document.getElementById("avatar").innerHTML = '<img id="avatar" src="/gurps/frontend/web/' +
             avatar + '" width="100%">' +
-            '<a href="/gurps/frontend/web/index.php/world/edit?id=' + id + '"><img src="/gurps/frontend/views/src/images/play.png" width="20%" align="right"></a>' +
+            '<a href="/gurps/frontend/web/index.php/world/scenario?id=' + id + '">' +
+            '<img src="/gurps/frontend/views/src/images/play.png" width="20%" align="right"></a>' +
             '&nbsp;&nbsp;&nbsp;';
+        document.getElementById("choose").innerHTML = '<button type="submit" class="btn btn-default" ' +
+            'name="worldEdit" value="' + id + '" style="font-size: 14px;">Подробнее</button>';
     }
 </script>

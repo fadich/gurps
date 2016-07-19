@@ -3,6 +3,7 @@ namespace common\models;
 
 use frontend\models\Profile;
 use frontend\models\Session;
+use frontend\models\World;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -293,6 +294,15 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
+     * @return \yii\db\ActiveQuery
+     */
+
+    public function getWorlds()
+    {
+        return $this->hasMany(World::className(), ['user_id' => 'id']);
+    }
+
+    /**
      * Set Online status to user
      */
     public function setOnline()
@@ -338,6 +348,8 @@ class User extends ActiveRecord implements IdentityInterface
         }
 
         $this->email = $user->email;
+        $this->generateAuthKey();
+
 
         if (isset($user->newPassword) && strlen($user->newPassword) > 5) {
             $this->setPassword($user->newPassword);

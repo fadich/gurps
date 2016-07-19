@@ -24,7 +24,7 @@ class WorldController extends Controller
         return [
             'access' => [
                 'class' => \yii\filters\AccessControl::className(),
-                'only' => ['edit'],
+                'only' => ['edit', 'reset'],
                 'rules' => [
                     // deny all POST requests
                     [
@@ -52,9 +52,14 @@ class WorldController extends Controller
             $user->setOnline();
         }
 
-        $model = ($model = World::findOne(['id' => Yii::$app->request->get('id'),
-            'status' => World::STATUS_ACTIVE]))
+        $model = ($model = World::findOne(['id' => Yii::$app->request->get('id')]))
             ? $model : new World();
+
+        if ($model->status === World::STATUS_DELETED) {
+            Yii::$app->session->setFlash('warning', 'Данный мир удален.');
+            return $this->redirect('/gurps/frontend/web/index.php/site/index');
+        }
+
         $file = ($file = Files::findOne(['id' => $model->file_id]))
             ? $file : new Files();
 
@@ -107,7 +112,7 @@ class WorldController extends Controller
                 'value' => $model->name,
                 'expire' => time() + 10,
             ]));
-            if (!$model->deleteWorld()){
+            if (!$model->deleteWorld()) {
                 Yii::$app->response->cookies->add(new Cookie([
                     'name' => 'worldName',
                     'value' => null,
@@ -127,6 +132,29 @@ class WorldController extends Controller
             'model' => $model,
             'file' => $file,
         ]);
+    }
+
+    public function actionReset()
+    {
+        $model = ($model = World::findOne(['id' => Yii::$app->request->get('id')])) ? $model : new World();
+
+        if ($model->id === null) {
+            Yii::$app->session->setFlash('error', 'Ошибка восстановления.');
+            return $this->goHome();
+        }
+
+        if ($model->status === World::STATUS_DELETED && $model->user_id == Yii::$app->user->id) {
+            if ($model->resetWorld()) {
+                Yii::$app->session->setFlash('success', 'Мир "' . $model->name . '" успешно восстановлен.');
+                return $this->redirect('/gurps/frontend/web/index.php/world/edit?id=' . $model->id);
+            } else {
+                Yii::$app->session->setFlash('error', 'Ошибка восстановления.');
+                return $this->goHome();
+            }
+        } else {
+            Yii::$app->session->setFlash('error', 'Ошибка восстановления.');
+            return $this->goHome();
+        }
     }
 
 }

@@ -11,6 +11,7 @@ use common\models\User;
 class ResetPasswordForm extends Model
 {
     public $password;
+    public $rePassword;
 
     /**
      * @var \common\models\User
@@ -28,11 +29,11 @@ class ResetPasswordForm extends Model
     public function __construct($token, $config = [])
     {
         if (empty($token) || !is_string($token)) {
-            throw new InvalidParamException('Password reset token cannot be blank.');
+            throw new InvalidParamException('Маркер восстановления пароля не может быть пустым.');
         }
         $this->_user = User::findByPasswordResetToken($token);
         if (!$this->_user) {
-            throw new InvalidParamException('Wrong password reset token.');
+            throw new InvalidParamException('Неверный маркер восстановления пароля.');
         }
         parent::__construct($config);
     }
@@ -45,6 +46,27 @@ class ResetPasswordForm extends Model
         return [
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+
+            ['rePassword', 'required'],
+            ['rePassword', 'validateRePassword'],
+        ];
+    }
+
+    public function validateRePassword($attribute)
+    {
+        if (!$this->hasErrors()):
+            if ($this->password !== $this->rePassword):
+                $this->addError($attribute, 'Пароли не совпадают.');
+            endif;
+        endif;
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'email' => 'Адрес электронной почты',
+            'password' => 'Пароль',
+            'rePassword' => 'Повторите пароль',
         ];
     }
 

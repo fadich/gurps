@@ -36,7 +36,8 @@ class SiteController extends Controller
 //                'only' => ['login', 'signup', 'error'],
                 'rules' => [
                     [
-                        'actions' => ['login', 'signup', 'error', 'about', 'request-password-reset'],
+                        'actions' => ['login', 'signup', 'error', 'about', 'request-password-reset',
+                            'reset-password'],
                         'allow' => true,
                     ],
                     [
@@ -305,14 +306,22 @@ class SiteController extends Controller
      */
     public function actionRequestPasswordReset()
     {
+        if (!Yii::$app->user->isGuest) {
+            $user = User::findIdentity(Yii::$app->user->id);
+            $user->setOnline();
+            return $this->goHome();
+        }
+
         $model = new PasswordResetRequestForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
-
-                return $this->goHome();
+                Yii::$app->session->setFlash('success', 'Проверьте свою электронную почту для получения
+                дальнейших инструкций.');
+                return $this->redirect('login');
             } else {
-                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
+                Yii::$app->session->setFlash('error', 'К сожалению, пароль не может быть отправлен
+                по данному адресу электронной почты.');
             }
         }
 
@@ -330,6 +339,12 @@ class SiteController extends Controller
      */
     public function actionResetPassword($token)
     {
+        if (!Yii::$app->user->isGuest) {
+            $user = User::findIdentity(Yii::$app->user->id);
+            $user->setOnline();
+            return $this->goHome();
+        }
+
         try {
             $model = new ResetPasswordForm($token);
         } catch (InvalidParamException $e) {
@@ -337,9 +352,8 @@ class SiteController extends Controller
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->session->setFlash('success', 'New password was saved.');
-
-            return $this->goHome();
+            Yii::$app->session->setFlash('success', 'Новый парль успешно сохранен.');
+            return $this->redirect('login');
         }
 
         return $this->render('resetPassword', [
