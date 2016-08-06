@@ -1,4 +1,7 @@
 <?php
+/**
+ * Показал Декстеру
+ */
 
 /* @var $this \yii\web\View */
 /* @var $content string */
