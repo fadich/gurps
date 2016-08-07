@@ -1,7 +1,7 @@
 
 composer.phar
 composer.lock
-#vendor
+vendor
 .idea/copyright/
 .idea/deployment.xml
 .idea/gurps.iml
