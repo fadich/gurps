@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     .strong:hover {
         color: #000000;
         font-size: 18px;
-        background-color: #F5F5F5;
+        background-color: rgba(255, 255, 255, 0.3);
         border-radius: 5px;
     }
 </style>
