@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?= $form->field($model, 'email')->textInput(['class' => 'input input-login']) ?>
 
-            <?= $form->field($model, 'password')->passwordInput() ?>
+            <?= $form->field($model, 'password')->passwordInput() ->textInput(['class' => 'input input-login']) ?>
 
             <?= $form->field($model, 'rememberMe')->checkbox(['checked' => true]) ?>
 

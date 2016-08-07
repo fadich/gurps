@@ -2,8 +2,25 @@
 html,
 body {
     height: 100%;
-    background-color: grey;
+    background: url("src/back_fone.jpg") no-repeat;
+    background-size: cover;
     text-align: justify;
+}
+
+.input {
+    width: 95%;
+}
+
+.input-login {
+    border: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    background-color: rgba(200, 200, 200, 0.3);
+    height: 30px;
+}
+
+.input-login:focus {
+    background-color: rgba(250, 250, 250, 0);
 }
 
 .wrap {
@@ -103,10 +120,10 @@ a.desc:after {
     padding: 8px;
 }
 
-@media(max-width:768px) {
-	.nav li > form {
-	    padding: 3px;
-	}
+@media (max-width: 768px) {
+    .nav li > form {
+        padding: 3px;
+    }
 }
 
 .nav > li > form > button:hover {
