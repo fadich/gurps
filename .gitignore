@@ -6,6 +6,7 @@ composer.json
 vendor
 frontend/runtime
 backend/runtime
+frontend/config/
 #.idea/copyright/
 #.idea/deployment.xml
 #.idea/gurps.iml
