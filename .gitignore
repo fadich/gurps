@@ -1,5 +1,10 @@
+$ cat .gitignore
+
 /composer.phar
 /composer.lock
 /vendor
-/frontend/runtime
-/backend/runtime
+vendor/
+/frontend/runtime/
+/backend/runtime/
+frontend/runtime/
+backend/runtime/
