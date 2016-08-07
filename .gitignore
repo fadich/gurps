@@ -1,10 +1,13 @@
-$ cat .gitignore
+$cat gitignore
 
-/composer.phar
-/composer.lock
-/vendor
-vendor/
-/frontend/runtime/
-/backend/runtime/
-frontend/runtime/
-backend/runtime/
+composer.phar/
+composer.lock
+vendor
+frontend/runtime
+backend/runtime
+.idea/copyright/
+.idea/deployment.xml
+.idea/gurps.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
