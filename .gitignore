@@ -6,8 +6,9 @@ composer.json
 vendor
 frontend/runtime
 backend/runtime
+frontend/config/
 #.idea/copyright/
-.idea/deployment.xml
+#.idea/deployment.xml
 #.idea/gurps.iml
 #.idea/misc.xml
 #.idea/modules.xml

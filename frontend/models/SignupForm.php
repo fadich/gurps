@@ -71,6 +71,6 @@ class SignupForm extends Model
         $user->generateAuthKey();
         $user->generatePasswordResetToken();
         
-        return $user->save() ? $user : null;
+        return $user->save() ? $user : $user;
     }
 }
