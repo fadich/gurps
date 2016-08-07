@@ -3,7 +3,8 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=gurps',
+            'dsn' => 'mysql:host=192.168.0.108
+            ;dbname=gurps',
             'username' => 'root',
             'password' => 'toor',
             'charset' => 'utf8',
