@@ -1,15 +1,17 @@
 
 composer.phar
 composer.lock
+composer.json
+.idea
 vendor
 frontend/runtime
 backend/runtime
-.idea/copyright/
+#.idea/copyright/
 .idea/deployment.xml
-.idea/gurps.iml
-.idea/misc.xml
-.idea/modules.xml
-.idea/workspace.xml
+#.idea/gurps.iml
+#.idea/misc.xml
+#.idea/modules.xml
+#.idea/workspace.xml
 #frontend/runtime/debug/57a7471415b63.data
 #frontend/runtime/debug/57a74715ef05f.data
 #frontend/runtime/debug/57a7471da94e9.data
