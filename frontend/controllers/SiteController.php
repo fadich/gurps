@@ -206,12 +206,16 @@ class SiteController extends Controller
         $model = new SignupForm();
         $profile = new Profile();
         if ($model->load(Yii::$app->request->post()) && $profile->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                $profile->user_id = $user->id;
-                if ($profile->initProfile($profile)) {
-                    if (Yii::$app->user->login($user, 3600 * 10)) {
-                        return $this->goHome();
+            if ($model->validate() && $profile->validate()) {
+                if ($user = $model->signup()) {
+                    $profile->user_id = $user->id;
+                    if ($profile->initProfile($profile)) {
+                        if (Yii::$app->user->login($user, 0)) {
+                            return $this->goHome();
+                        }
                     }
+                } else {
+                    Yii::$app->session->setFlash('error', 'Ошибка регистрации.');
                 }
             }
         }
