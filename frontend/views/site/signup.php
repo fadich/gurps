@@ -21,13 +21,23 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
 
-            <?= $form->field($model, 'email') ?>
+            <?= $form->field($model, 'email')->textInput([
+                'class' => 'input input-login',
+                'type' => 'mail',
+            ]) ?>
 
-            <?= $form->field($profile, 'name')->textInput(['pattern' => '^[0-9a-zA-ZА-Яа-яЁё\s]+$']) ?>
+            <?= $form->field($profile, 'name')->textInput([
+                'pattern' => '^[0-9a-zA-ZА-Яа-яЁё\s]+$',
+                'class' => 'input input-login',
+            ]) ?>
 
-            <?= $form->field($model, 'password')->passwordInput() ?>
+            <?= $form->field($model, 'password')->passwordInput([
+                'class' => 'input input-login'
+            ]) ?>
 
-            <?= $form->field($model, 'rePassword')->passwordInput() ?>
+            <?= $form->field($model, 'rePassword')->passwordInput([
+                'class' => 'input input-login',
+            ]) ?>
 
             <div class="form-group">
                 <?= Html::submitButton('Зарегистрироваться', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>

@@ -21,7 +21,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'request-password-reset-form']); ?>
 
-                <?= $form->field($model, 'email') ?>
+                <?= $form->field($model, 'email')->textInput([
+                    'class' => 'input input-login',
+                    'type' => 'mail',
+                ]) ?>
 
                 <div class="form-group">
                     <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary']) ?>
