@@ -207,21 +207,17 @@ class SiteController extends Controller
         $profile = new Profile();
         if ($model->load(Yii::$app->request->post()) && $profile->load(Yii::$app->request->post())) {
             if ($model->validate() && $profile->validate()) {
-                $user = new User();
-                if ($user->signup($model)) {
-                    if (Yii::$app->user->login($user, 0)) {
-                        $profile->user_id = Yii::$app->user->id;
-                        if ($profile->initProfile($profile)) {
-                            if (!Yii::$app->user->isGuest) {
-                                $user = User::findIdentity(Yii::$app->user->id);
-                                $user->setOnline();
-                                return $this->goHome();
-                            }
+                $user = $model->signup();
+                if (Yii::$app->user->login($user, 0)) {
+                    $profile->user_id = Yii::$app->user->id;
+                    if ($profile->initProfile($profile)) {
+                        if (!Yii::$app->user->isGuest) {
+                            $user = User::findIdentity(Yii::$app->user->id);
+                            $user->setOnline();
                             return $this->goHome();
                         }
+                        return $this->goHome();
                     }
-                } else {
-                    Yii::$app->session->setFlash('error', 'Ошибка регистрации.');
                 }
             }
         }

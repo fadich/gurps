@@ -12,6 +12,7 @@ class SignupForm extends Model
     public $email;
     public $password;
     public $rePassword;
+    public $userId;
 
 
     /**
@@ -66,13 +67,23 @@ class SignupForm extends Model
             return null;
         }
         $user = new User();
-        $user->email = $this->email;
-        $user->setPassword($this->password);
-        $user->generateAuthKey();
-        $user->generatePasswordResetToken();
+//        $user->email = $this->email;
+//        $user->setPassword($this->password);
+//        $user->generateAuthKey();
+//        $user->generatePasswordResetToken();
 //        $user->created_at = time();
 //        $user->updated_at = time();
-
-        return $user->save() ? $user : false;
+        $user->db->createCommand("INSERT INTO user " .
+            "(email, auth_key, password_hash, created_at, updated_at) VALUES ".
+            "(:email, :auth_key, :password_hash, :created_at, :updated_at)")
+            ->bindValues([
+                ':email' => $this->email,
+                ':auth_key' => \Yii::$app->security->generateRandomString(),
+                ':password_hash' => \Yii::$app->security->generatePasswordHash($this->password),
+                ':created_at' => time(),
+                ':updated_at' => time(),
+            ])->execute();
+        $user = User::findByEmail($this->email);
+        return $user;
     }
 }
