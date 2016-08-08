@@ -61,7 +61,30 @@ $this->params['breadcrumbs'][] = $this->title;
             endforeach; ?>
         </div>
         <div class="div-size-users-index">
-            <input> </input> <button><span class="glyphicon glyphicon-search"></span></button>
+            <div>
+                <p><b>Поиск</b></p>
+                <input> </input> <button><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+            <hr>
+            <div>
+                <p><b>Показать:</b></p>
+                    <input type="radio" name="option" value="a1" checked>Всех пользователей<Br>
+                    <input type="radio" name="option" value="a2">Только Online<Br>
+                    <input type="radio" name="option" value="a3" >Только Offline<Br>
+            </div>
+            <hr>
+            <div>
+                <p><b>Показать пользователей:</b></p>
+                <input type="radio" name="option1" value="a3">Только с фотографией<Br>
+                <input type="radio" name="option1" value="a3" >Только без фотографией<Br>
+            </div>
+            <hr>
+            <div>
+                <p><b>Отсортировать по:</b></p>
+                <input type="radio" name="option2" value="a1">Дате регистрации<Br>
+                <input type="radio" name="option2" value="a2">Алфавиту<Br>
+                <input type="radio" name="option2" value="a3" >Имени<Br>
+            </div>
         </div>
     </div>
 </div>
