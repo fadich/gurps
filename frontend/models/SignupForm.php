@@ -64,13 +64,12 @@ class SignupForm extends Model
         if (!$this->validate()) {
             return null;
         }
-        
         $user = new User();
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->generatePasswordResetToken();
         
-        return $user->save() ? $user : $user;
+        return $user->save() ? $user : null;
     }
 }

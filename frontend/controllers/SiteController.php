@@ -84,7 +84,7 @@ class SiteController extends Controller
             $user->setOnline();
         }
 
-        if (Yii::$app->request->post('worldEdit') !=  null) {
+        if (Yii::$app->request->post('worldEdit') != null) {
             return $this->redirect(['world/edit',
                 'id' => Yii::$app->request->post('worldEdit'),
             ]);
@@ -92,7 +92,7 @@ class SiteController extends Controller
 
         if (Yii::$app->request->cookies['worldDeleted']) {
             Yii::$app->session->setFlash('info', 'Мир <i>"' .
-                Yii::$app->request->cookies['worldName'] .'"</i> успешно удален.');
+                Yii::$app->request->cookies['worldName'] . '"</i> успешно удален.');
             Yii::$app->response->cookies->add(new Cookie([
                 'name' => 'worldDeleted',
                 'value' => null,
@@ -208,9 +208,14 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $profile->load(Yii::$app->request->post())) {
             if ($model->validate() && $profile->validate()) {
                 if ($user = $model->signup()) {
-                    $profile->user_id = $user->id;
-                    if ($profile->initProfile($profile)) {
-                        if (Yii::$app->user->login($user, 0)) {
+                    if (Yii::$app->user->login($user, 0)) {
+                        $profile->user_id = Yii::$app->user->id;
+                        if ($profile->initProfile($profile)) {
+                            if (!Yii::$app->user->isGuest) {
+                                $user = User::findIdentity(Yii::$app->user->id);
+                                $user->setOnline();
+                                return $this->goHome();
+                            }
                             return $this->goHome();
                         }
                     }
@@ -283,12 +288,12 @@ class SiteController extends Controller
             }
         }
 
-        if (Yii::$app->request->post('User')){
+        if (Yii::$app->request->post('User')) {
             $user = $model->getUser()->one();
             $user->oldEmail = $user->email;
             $user->email = Yii::$app->request->post('User')['email'];
-            if ($user->load(Yii::$app->request->post()) && $user->validate()){
-                if ($user->updateUser($user)){
+            if ($user->load(Yii::$app->request->post()) && $user->validate()) {
+                if ($user->updateUser($user)) {
                     Yii::$app->session->setFlash('success', 'Редактирование произведено успешно.');
                 }
             } else {
