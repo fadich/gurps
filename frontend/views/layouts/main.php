@@ -36,9 +36,9 @@ AppAsset::register($this);
         'brandLabel' => 'Главная',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar navbar-inverse navbar-fixed-top',
+            'class' => 'nav-color nav-text navbar navbar-inverse navbar-fixed-top',
 //            'style' =>
-//                'background-color: #190347;'
+//                'background-color: rgba(0, 0, 0, 0.8);'
         ],
     ]);
     $menuItems = [
@@ -81,7 +81,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; GURPS <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
