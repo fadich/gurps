@@ -61,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
             endforeach; ?>
         </div>
         <div class="div-size-users-index">
-            <input> </input> <button class="button-users-index"></button>
+            <input> </input> <button><span class="glyphicon glyphicon-search"></span></button>
         </div>
     </div>
 </div>
