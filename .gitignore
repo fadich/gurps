@@ -4,9 +4,11 @@ composer.lock
 composer.json
 .idea
 vendor
-frontend/runtime
-backend/runtime
+frontend/runtime/
+backend/runtime/
 frontend/config/
+common/config/
+backend/config/
 #.idea/copyright/
 #.idea/deployment.xml
 #.idea/gurps.iml
