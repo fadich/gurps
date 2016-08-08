@@ -131,10 +131,10 @@ a.desc:after {
 }
 
 .nav-color {
-    background-color: rgba(0 ,0 ,0, 0.6) ;
+    background-color: rgba(0 ,0 ,0, 0.78) ;
 }
 
 .nav-text {
     font-size: 100%;
-    font-weight: 900;
+    font-weight: 700;
 }
