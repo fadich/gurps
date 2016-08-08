@@ -3,6 +3,7 @@ namespace common\models;
 
 use frontend\models\Profile;
 use frontend\models\Session;
+use frontend\models\SignupForm;
 use frontend\models\World;
 use Yii;
 use yii\base\NotSupportedException;
@@ -21,7 +22,7 @@ use yii\web\IdentityInterface;
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
- * @property string $passwor write-only passwor
+ * @property string $password write-only password
  *
  * @property Profile $profile
  */
@@ -52,7 +53,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             'email' => 'Адрес электронной почты',
-            'auth_key' => 'Секретный ключ',
+            'auth_key' => 'Пользовательский ключ',
             'password' => 'Пароль',
             'newPassword' => 'Новый пароль',
             'rePassword' => 'Повторите пароль (новый)',
@@ -257,7 +258,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function generateAuthKey()
     {
-        $this->auth_key = Yii::$app->security->generateRandomString();
+        $this->auth_key = Yii::$app->security->generateRandomString(32);
     }
 
     /**
@@ -349,7 +350,6 @@ class User extends ActiveRecord implements IdentityInterface
 
         $this->email = $user->email;
         $this->generateAuthKey();
-
 
         if (isset($user->newPassword) && strlen($user->newPassword) > 5) {
             $this->setPassword($user->newPassword);

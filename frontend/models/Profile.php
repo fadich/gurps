@@ -93,10 +93,8 @@ class Profile extends \yii\db\ActiveRecord
         if (!$this->validate()) {
             return null;
         }
-
         $profile->name = $this->name;
-
-        return $profile->save() ? $profile : false;
+        return $profile->save() ? $profile : null;
     }
 
     /**
@@ -109,7 +107,6 @@ class Profile extends \yii\db\ActiveRecord
         if (!$this->validate()) {
             return null;
         }
-
         $profile->user_id = Yii::$app->user->id;
         $profile->name = $this->name;
         $profile->sex = $this->sex;

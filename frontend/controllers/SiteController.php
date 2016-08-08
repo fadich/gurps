@@ -207,7 +207,8 @@ class SiteController extends Controller
         $profile = new Profile();
         if ($model->load(Yii::$app->request->post()) && $profile->load(Yii::$app->request->post())) {
             if ($model->validate() && $profile->validate()) {
-                if ($user = $model->signup()) {
+                $user = new User();
+                if ($user->signup($model)) {
                     if (Yii::$app->user->login($user, 0)) {
                         $profile->user_id = Yii::$app->user->id;
                         if ($profile->initProfile($profile)) {
