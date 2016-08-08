@@ -38,7 +38,7 @@ AppAsset::register($this);
         'options' => [
             'class' => 'nav-color nav-text navbar navbar-inverse navbar-fixed-top',
 //            'style' =>
-//                'background-color: #190347;'
+//                'background-color: rgba(0, 0, 0, 0.8);'
         ],
     ]);
     $menuItems = [
