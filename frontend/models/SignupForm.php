@@ -36,6 +36,7 @@ class SignupForm extends Model
         ];
     }
 
+    
     public function validateRePassword($attribute)
     {
         if (!$this->hasErrors()):
@@ -69,7 +70,9 @@ class SignupForm extends Model
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->generatePasswordResetToken();
-        
-        return $user->save() ? $user : null;
+//        $user->created_at = time();
+//        $user->updated_at = time();
+
+        return $user->save() ? $user : false;
     }
 }
