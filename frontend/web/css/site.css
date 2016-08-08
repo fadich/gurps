@@ -15,12 +15,12 @@ body {
     border: solid;
     border-width: 1px;
     border-radius: 3px;
-    background-color: rgba(200, 200, 200, 0);
+    background-color: rgba(0, 0, 0, 0.02);
     height: 30px;
 }
 
 .input-login:focus {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgb(255, 255, 255);
 }
 
 .wrap {
@@ -128,4 +128,12 @@ a.desc:after {
 
 .nav > li > form > button:hover {
     text-decoration: none;
+}
+
+.nav-color {
+    background-color: rgba(0 ,0 ,0, 0.2) ;
+}
+
+.nav-text {
+    font-size: 120%;
 }
