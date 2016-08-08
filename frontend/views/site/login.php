@@ -19,9 +19,13 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-            <?= $form->field($model, 'email')->textInput(['class' => 'input input-login']) ?>
+            <?= $form->field($model, 'email')->textInput([
+                'class' => 'input input-login',
+                ]) ?>
 
-            <?= $form->field($model, 'password')->passwordInput() ->textInput(['class' => 'input input-login']) ?>
+            <?= $form->field($model, 'password')->passwordInput([
+                'class' => 'input input-login',
+            ]) ?>
 
             <?= $form->field($model, 'rememberMe')->checkbox(['checked' => true]) ?>
 

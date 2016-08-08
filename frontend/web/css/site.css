@@ -23,6 +23,22 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
+.button-users-index {
+    background: url("src/Лупа.png");
+    width: 32px;
+    height: 32px;
+}
+
+.div-size-users-index {
+    padding-left: 60vw;
+    position: fixed;
+    width: 50%;
+}
+
+.input-users-index {
+
+}
+
 .wrap {
     min-height: 100%;
     height: auto;
@@ -137,4 +153,8 @@ a.desc:after {
 .nav-text {
     font-size: 100%;
     font-weight: 500;
+}
+
+.table-users-index {
+    background-color: rgba(0, 0, 0, 0.04);
 }

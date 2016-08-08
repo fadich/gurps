@@ -79,9 +79,9 @@ AppAsset::register($this);
     </div>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; GURPS <?= date('Y') ?></p>
+<footer class="footer footer-size">
+    <div class="container footer-size">
+        <p class="pull-left ">&copy; GURPS <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>

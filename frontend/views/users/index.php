@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <span style="color:#999;margin:1em 0"><?= $item->isOnline(); ?></span>
                         <br>
                         <?php $avatar = $item->getProfile()->one() ? $item->getProfile()->one()->getAvatar()->one() :
-                        '/gurps/frontend/web/uploads/pictures/avatars/no_avatar.png' ;
+                            '/gurps/frontend/web/uploads/pictures/avatars/no_avatar.png';
                         if (isset($avatar->path)) {
                             echo '<img src="' . '/gurps/frontend/web/' . $avatar->path .
                                 '" width="160px">&nbsp;&nbsp;&nbsp;';
@@ -60,30 +60,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php ActiveForm::end();
             endforeach; ?>
         </div>
-        <div class="col-lg-2" style="
-        background-color: #FFFFFF;
-        border: solid;
-        position: fixed;
-        float: right;
-        right: 6%;
-        top: 20%;
-        border-color: #EEEEEE;">
-            Сортировка и фильтры...<br>
-            Сортировка и фильтры...<br>
-            <button>Кнопочки</button>
-            <br>
-            Сортировка и фильтры...<br>
-            Сортировка и фильтры...<br>
-            Сортировка и фильтры...<br>
-            <button>Кнопочки</button>
-            <br>
-            Сортировка и фильтры...<br>
-            Сортировка и фильтры...<br>
-            <button>Кнопочки</button>
-            <br>
-            Сортировка и фильтры...<br>
-            Сортировка и фильтры...<br>
-            Сортировка и фильтры...<br>
+        <div class="div-size-users-index">
+            <input> </input> <button class="button-users-index"></button>
         </div>
     </div>
 </div>
