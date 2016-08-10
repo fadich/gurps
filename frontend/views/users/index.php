@@ -71,22 +71,22 @@ $this->params['breadcrumbs'][] = $this->title;
     <hr>
     <div>
         <p><b>Показать:</b></p>
-        <input type="radio" name="option" value="a1" checked>Всех пользователей<Br>
-        <input type="radio" name="option" value="a2">Только Online<Br>
-        <input type="radio" name="option" value="a3">Только Offline<Br>
+        <input type="radio" name="option" value="a1" checked>Всех пользователей<br>
+        <input type="radio" name="option" value="a2">Только Online<br>
+        <input type="radio" name="option" value="a3">Только Offline<br>
     </div>
     <hr>
     <div>
-        <input type="checkbox" name="option1" value="a3">Только с фотографией<Br>
+        <input type="checkbox" name="option1" value="a3">Только с фотографией<br>
     </div>
     <hr>
     <div>
         <p><b>Отсортировать по:</b></p>
-        <p><input type="radio" name="option2" value="a1">Дате регистрации<Br> <button><span class="glyphicon glyphicon-search"></span></button> <button><span class="glyphicon glyphicon-search"></button></p>
-        <input type="radio" name="option2" value="a3">Имени<Br>
-        <input type="radio" name="option2" value="a3">По кол-во созданих миров<Br>
-        <input type="radio" name="option2" value="a3">По кол-во созданныйх персонажей<Br>
-        <input type="radio" name="option2" value="a3">Имени<Br>
+        <p><input type="radio" name="option2" value="a1">Дате регистрации <button><span class="glyphicon glyphicon-search"></span></button> <button><span class="glyphicon glyphicon-search"></button></p>
+        <input type="radio" name="option2" value="a3">Имени<button><span class="glyphicon glyphicon-search"></span></button> <button><span class="glyphicon glyphicon-search"></button></p>
+        <input type="radio" name="option2" value="a3">По кол-во созданих миров<button><span class="glyphicon glyphicon-search"></span></button> <button><span class="glyphicon glyphicon-search"></button></p>
+        <input type="radio" name="option2" value="a3">По кол-во созданныйх персонажей<button><span class="glyphicon glyphicon-search"></span></button> <button><span class="glyphicon glyphicon-search"></button></p>
+        <input type="radio" name="option2" value="a3">Имени<button><span class="glyphicon glyphicon-search"></span></button> <button><span class="glyphicon glyphicon-search"></button></p>
     </div>
 </div>
 </div>
