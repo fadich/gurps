@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <br>
                         &nbsp;&nbsp;&nbsp;&nbsp;Для новичков в данной игре рекомендуем ознакомиться с правилами
                         игры GURPS. Для ознакомления с правиласми нажмите
-                        <a href="/gurps/frontend/views/src/rules/GURPS_Basic_RU.pdf" target="_blank"> здесь</a>.
+                        <a href="/src/rules/GURPS_Basic_RU.pdf" target="_blank"> здесь</a>.
                         <br>&nbsp;
                     </p>
                 </div>
@@ -52,8 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <p>
                         Данная разработка нацелена на облегчение ведения игры, а также упрощение
                         выполнения некоторой работы игрока или мастера, такой как: бросок кубика, запись событий в
-                        журнал,
-                        создание НИП (генератор НИП) и т.д.
+                        журнал, создание НИП (генератор НИП) и т.д.
                     </p>
                 </div>
                 <!--                <hr>-->
