@@ -128,10 +128,9 @@ $this->title = 'Миры';
         document.getElementById("name").innerHTML = '<i><h2>' + name + '</h2></i><hr>';
 //        document.getElementById("choose").innerHTML = '<button type="submit" class="btn btn-lg btn-primary" ' +
 //            'name="worldEdit" value="' + id + '" style="font-size: 24px;">Выбрать</button>';
-        document.getElementById("avatar").innerHTML = '<img id="avatar" src="/gurps/frontend/web/' +
-            avatar + '" width="100%">' +
-            '<a href="/gurps/frontend/web/index.php/world/scenario?id=' + id + '">' +
-            '<img src="/gurps/frontend/views/src/images/play.png" width="20%" align="right"></a>' +
+        document.getElementById("avatar").innerHTML = '<img id="avatar" src="/' +
+            avatar + '" width="100%">' + '<a href="/world/scenario?id=' + id + '">' +
+            '<img src="/src/images/play.png" width="20%" align="right"></a>' +
             '&nbsp;&nbsp;&nbsp;';
         document.getElementById("choose").innerHTML = '<button type="submit" class="btn btn-default" ' +
             'name="worldEdit" value="' + id + '" style="font-size: 14px;">Подробнее</button>';

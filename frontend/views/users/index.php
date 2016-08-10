@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?php $avatar = $item->getProfile()->one() ? $item->getProfile()->one()->getAvatar()->one() :
                             '/uploads/pictures/avatars/no_avatar.png';
                         if (isset($avatar->path)) {
-                            echo '<img src="' . '/' . $avatar->path .
+                            echo '<img src="/' . $avatar->path .
                                 '" width="160px">&nbsp;&nbsp;&nbsp;';
                         } else {
                             echo '<img src="' . '/uploads/pictures/avatars/no_avatar.png"

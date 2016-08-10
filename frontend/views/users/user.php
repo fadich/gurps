@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
         font-size: 18px;
         font-style: italic;
     }
+
     .info:hover {
         background-color: #ededed;
         border-radius: 5px;
@@ -31,10 +32,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="col-lg-5">
                     <?php
                     if (isset($model->getProfile()->one()->getAvatar()->one()->path)) {
-                        echo '<img src="' . $model->getProfile()->one()->getAvatar()->one()->path .
+                        echo '<img src="/' . $model->getProfile()->one()->getAvatar()->one()->path .
                             '" width="308px">&nbsp;&nbsp;&nbsp;';
                     } else {
-                        echo '<img src="' . 'uploads/pictures/avatars/no_avatar.png"
+                        echo '<img src="' . '/uploads/pictures/avatars/no_avatar.png"
                             width="308px">&nbsp;&nbsp;&nbsp;';
                     } ?>
 
@@ -55,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         </p>
                         <hr>
                         <p><strong>Доп. информация: </strong>
-                            <div class="info"><?= $model->getProfile()->one()->info ?></div>
+                        <div class="info"><?= $model->getProfile()->one()->info ?></div>
                         </p>
                     </h4>
                 </div>
@@ -100,32 +101,38 @@ $this->params['breadcrumbs'][] = $this->title;
     function showWorlds() {
         document.getElementById("worlds").innerHTML = '<?php
             $worlds = $model->getWorlds()->all();
-            $deleted = false;
-            foreach ($worlds as $world) {
-                if ($world->status == \frontend\models\World::STATUS_ACTIVE) {
-                    echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;'
-                        . '<a href="/index.php/world/edit?id=' . $world->id . '">' .
-                        $world->name . '</a>;<br>';
-                } else {
-                    $deleted = true;
-                }
-
-            }
-            if ($deleted) {
-                echo '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Удаленные:<br>';
+            if ($worlds) {
+                $deleted = false;
                 foreach ($worlds as $world) {
-                    if ($world->status == \frontend\models\World::STATUS_DELETED) {
-                        echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;' .
-                            mb_substr($world->name, 0, $world->name - mb_strlen('-deleted' . $world->id,
-                                    'UTF-8'), 'UTF-8') . ';';
-                        if ($world->user_id == Yii::$app->user->id) {
-                            echo '&nbsp;&nbsp;&nbsp;&nbsp;(' .
-                                Html::a('Восстановить', '/gurps/frontend/web/index.php/world/reset?id=' . $world->id) .
-                                ')';
+                    if ($world->status == \frontend\models\World::STATUS_ACTIVE) {
+                        echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;'
+                            . '<a href="/index.php/world/edit?id=' . $world->id . '">' .
+                            $world->name . '</a>;<br>';
+                    } else {
+                        $deleted = true;
+                    }
+
+                }
+                if ($deleted) {
+                    echo '<br>&nbsp;&nbsp;&nbsp;&nbsp;Удаленные:<br>';
+                    if ($worlds) {
+                        foreach ($worlds as $world) {
+                            if ($world->status == \frontend\models\World::STATUS_DELETED) {
+                                echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;' .
+                                    mb_substr($world->name, 0, $world->name - mb_strlen('-deleted' . $world->id,
+                                            'UTF-8'), 'UTF-8') . ';';
+                                if ($world->user_id == Yii::$app->user->id) {
+                                    echo '&nbsp;&nbsp;&nbsp;&nbsp;(' .
+                                        Html::a('Восстановить', '/index.php/world/reset?id=' . $world->id) .
+                                        ')';
+                                }
+                                echo '<br>';
+                            }
                         }
-                        echo '<br>';
                     }
                 }
+            } else {
+                echo '&nbsp;&nbsp;&nbsp;&nbsp;Пользователь не создал ни одного мира...';
             }
             ?>';
 

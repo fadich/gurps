@@ -87,11 +87,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-lg-4">
             <?php
             if (isset($file->path)) {
-                echo '<img src="' . '/gurps/frontend/web/' .
-                    $file->path .
-                    '" width="548px">&nbsp;&nbsp;&nbsp;';
+                echo '<img src="/' . $file->path . '" width="548px">&nbsp;&nbsp;&nbsp;';
             } else {
-                echo '<img src="' . '/gurps/frontend/web/uploads/pictures/worlds/avatars/unknown_world.png"
+                echo '<img src="' . '/uploads/pictures/worlds/avatars/unknown_world.png"
                             width="548px">&nbsp;&nbsp;&nbsp;';
             }
             ActiveForm::end();

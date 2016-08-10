@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <br>
                         &nbsp;&nbsp;&nbsp;&nbsp;Для новичков в данной игре рекомендуем ознакомиться с правилами
                         игры GURPS. Для ознакомления с правиласми нажмите
-                        <a href="/gurps/frontend/views/src/rules/GURPS_Basic_RU.pdf" target="_blank"> здесь</a>.
+                        <a href="/src/rules/GURPS_Basic_RU.pdf" target="_blank"> здесь</a>.
                         <br>&nbsp;
                     </p>
                 </div>
