@@ -20,11 +20,11 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php $form = ActiveForm::begin(['id' => 'reset-password-form']); ?>
 
             <?= $form->field($model, 'password')->passwordInput([
-                'class' => 'input input-login',
+                'class' => 'input input-login input-border',
             ]) ?>
 
             <?= $form->field($model, 'rePassword')->passwordInput([
-                'class' => 'input input-login',
+                'class' => 'input input-login input-border',
             ]) ?>
 
             <div class="form-group">

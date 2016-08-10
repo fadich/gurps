@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php $form = ActiveForm::begin(['id' => 'request-password-reset-form']); ?>
 
                 <?= $form->field($model, 'email')->textInput([
-                    'class' => 'input input-login',
+                    'class' => 'input input-login input-border',
                     'type' => 'mail',
                 ]) ?>
 
