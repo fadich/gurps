@@ -65,28 +65,54 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="div-size-users-index">
     <div>
         <p><b>Поиск</b></p>
-        <input> </input>
+        <input class="drop-down-list-user-search"> </input>
         <button><span class="glyphicon glyphicon-search"></span></button>
     </div>
     <hr>
     <div>
-        <p><b>Показать:</b></p>
+        <p c><b>Сортировка по:</b></p>
+        <?= Html::dropDownList('dasdas', 'das', [
+            '1' => 'дате регистрации',
+            '2' => 'имени',
+            '3' => 'по кол-во созданих миров',
+            '4' => 'по кол-во созданныйх персонажей',
+        ],
+            [
+                'class' => 'drop-down-list-user-sort',
+                'title' => 'Выберете атрибут для сортировки...',
+            ]); ?>
+        <button><span class="button-users-sort glyphicon glyphicon-arrow-up"></span></button>
+        <button><span class="button-users-sort glyphicon glyphicon-arrow-down"></button>
+<!--        <p>-&nbsp;&nbsp;&nbsp;&nbsp;дате регистрации-->
+<!--            <button><span class="glyphicon glyphicon-arrow-up"></span></button>-->
+<!--            <button><span class="glyphicon glyphicon-search"></button>-->
+<!--        <p>-&nbsp;&nbsp;&nbsp;&nbsp;имени-->
+<!--            <button><span class="glyphicon glyphicon-arrow-up"></span></button>-->
+<!--            <button><span class="glyphicon glyphicon-search"></button>-->
+<!--        </p>-->
+<!--        <p>-&nbsp;&nbsp;&nbsp;&nbsp;по кол-во созданих миров-->
+<!--            <button><span class="glyphicon glyphicon-arrow-up"></span></button>-->
+<!--            <button><span class="glyphicon glyphicon-search"></button>-->
+<!--        </p>-->
+<!--        <p>-&nbsp;&nbsp;&nbsp;&nbsp;по кол-во созданныйх персонажей-->
+<!--            <button><span class="glyphicon glyphicon-arrow-up"></span></button>-->
+<!--            <button><span class="glyphicon glyphicon-search"></button>-->
+<!--        </p>-->
+<!--        <p>-&nbsp;&nbsp;&nbsp;&nbsp;имени-->
+<!--            <button class="btn btn-link"><span class="glyphicon glyphicon-arrow-up"></span></button>-->
+<!--            <button><span class="glyphicon glyphicon-search"></button>-->
+<!--        </p>-->
+    </div>
+    <hr>
+    <div>
+        <p><b>Отображение:</b></p>
         <input type="radio" name="option" value="a1" checked>Всех пользователей<br>
         <input type="radio" name="option" value="a2">Только Online<br>
         <input type="radio" name="option" value="a3">Только Offline<br>
     </div>
-    <hr>
+    <br>
     <div>
         <input type="checkbox" name="option1" value="a3">Только с фотографией<br>
-    </div>
-    <hr>
-    <div>
-        <p><b>Отсортировать по:</b></p>
-        <p><input type="radio" name="option2" value="a1">Дате регистрации <button><span class="glyphicon glyphicon-search"></span></button> <button><span class="glyphicon glyphicon-search"></button></p>
-        <input type="radio" name="option2" value="a3">Имени<button><span class="glyphicon glyphicon-search"></span></button> <button><span class="glyphicon glyphicon-search"></button></p>
-        <input type="radio" name="option2" value="a3">По кол-во созданих миров<button><span class="glyphicon glyphicon-search"></span></button> <button><span class="glyphicon glyphicon-search"></button></p>
-        <input type="radio" name="option2" value="a3">По кол-во созданныйх персонажей<button><span class="glyphicon glyphicon-search"></span></button> <button><span class="glyphicon glyphicon-search"></button></p>
-        <input type="radio" name="option2" value="a3">Имени<button><span class="glyphicon glyphicon-search"></span></button> <button><span class="glyphicon glyphicon-search"></button></p>
     </div>
 </div>
 </div>
