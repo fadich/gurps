@@ -77,7 +77,7 @@ $this->title = 'Миры';
     foreach ($model as $item):
         $avatar = 'uploads/pictures/worlds/avatars/unknown_world.png';
         if (isset($item->file_id)) {
-            $avatar = $item->getAvatar()->one()->path;
+            $avatar = '/' . $item->getAvatar()->one()->path;
         }
         $items[] = [
             'label' => $item->name,
