@@ -34,12 +34,12 @@ $this->params['breadcrumbs'][] = $this->title;
                         <span style="color:#999;margin:1em 0"><?= $item->isOnline(); ?></span>
                         <br>
                         <?php $avatar = $item->getProfile()->one() ? $item->getProfile()->one()->getAvatar()->one() :
-                            '/gurps/frontend/web/uploads/pictures/avatars/no_avatar.png';
+                            '/uploads/pictures/avatars/no_avatar.png';
                         if (isset($avatar->path)) {
-                            echo '<img src="' . '/gurps/frontend/web/' . $avatar->path .
+                            echo '<img src="' . '/' . $avatar->path .
                                 '" width="160px">&nbsp;&nbsp;&nbsp;';
                         } else {
-                            echo '<img src="' . '/gurps/frontend/web/uploads/pictures/avatars/no_avatar.png"
+                            echo '<img src="' . '/uploads/pictures/avatars/no_avatar.png"
                             width="160px">&nbsp;&nbsp;&nbsp;';
                         } ?>
 

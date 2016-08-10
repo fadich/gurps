@@ -31,11 +31,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="col-lg-5">
                     <?php
                     if (isset($model->getProfile()->one()->getAvatar()->one()->path)) {
-                        echo '<img src="' . '/gurps/frontend/web/' .
-                            $model->getProfile()->one()->getAvatar()->one()->path .
+                        echo '<img src="' . $model->getProfile()->one()->getAvatar()->one()->path .
                             '" width="308px">&nbsp;&nbsp;&nbsp;';
                     } else {
-                        echo '<img src="' . '/gurps/frontend/web/uploads/pictures/avatars/no_avatar.png"
+                        echo '<img src="' . 'uploads/pictures/avatars/no_avatar.png"
                             width="308px">&nbsp;&nbsp;&nbsp;';
                     } ?>
 
@@ -105,7 +104,7 @@ $this->params['breadcrumbs'][] = $this->title;
             foreach ($worlds as $world) {
                 if ($world->status == \frontend\models\World::STATUS_ACTIVE) {
                     echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;'
-                        . '<a href="/gurps/frontend/web/index.php/world/edit?id=' . $world->id . '">' .
+                        . '<a href="/index.php/world/edit?id=' . $world->id . '">' .
                         $world->name . '</a>;<br>';
                 } else {
                     $deleted = true;

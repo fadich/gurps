@@ -63,10 +63,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="col-lg-3">
                         <?php
                         if (isset($model->getAvatar()->one()->path)) {
-                            echo '<img src="' . '/gurps/frontend/web/' . $model->getAvatar()->one()->path .
+                            echo '<img src="' . Yii::getAlias('@webroot') . '/' . $model->getAvatar()->one()->path .
                                 '" width="308px">&nbsp;&nbsp;&nbsp;';
                         } else {
-                            echo '<img src="' . '/gurps/frontend/web/uploads/pictures/avatars/no_avatar.png"
+                            echo '<img src="' . Yii::getAlias('@webroot') . '/uploads/pictures/avatars/no_avatar.png"
                             width="308px">&nbsp;&nbsp;&nbsp;';
                         } ?>
 
