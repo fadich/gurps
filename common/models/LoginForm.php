@@ -23,7 +23,8 @@ class LoginForm extends Model
     {
         return [
             // email and password are both required
-            [['email', 'password'], 'required'],
+            ['email', 'required', 'message' => 'Необходимо ввести адрес электронной почты.'],
+            ['password', 'required', 'message' => 'Необходимо ввести пароль.'],
             ['email', 'email'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
@@ -43,7 +44,7 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Неверный адрес или пароль.');
+                $this->addError($attribute, 'Неверный адрес электронной почты или пароль.');
             }
         }
     }
@@ -51,8 +52,8 @@ class LoginForm extends Model
     public function attributeLabels()
     {
         return [
-            'email' => 'Адрес электронной почты',
-            'password' => 'Пароль',
+            'email' => '',
+            'password' => '',
             'rememberMe' => 'Запомнить меня'
         ];
     }
