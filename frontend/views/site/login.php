@@ -21,13 +21,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?= $form->field($model, 'email')->textInput([
                 'class' => 'input input-login',
+                'placeholder' => 'Адрес электронной почты',
                 ]) ?>
 
             <?= $form->field($model, 'password')->passwordInput([
                 'class' => 'input input-login',
+                'placeholder' => 'Пароль',
             ]) ?>
 
-            <?= $form->field($model, 'rememberMe')->checkbox(['checked' => true]) ?>
+            <?= $form->field($model, 'rememberMe')->checkbox([
+                    'checked' => true
+            ]) ?>
 
                 <div style="color:#999;margin:1em 0">
                     Если Вы забыли пароль, Вы можете
