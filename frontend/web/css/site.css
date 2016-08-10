@@ -34,7 +34,7 @@ textarea:focus, input:focus{
     border-left: 0;
     border-bottom-color: rgb(0, 0, 0);
 }
-}
+
 
 .input-login:focus {
     background: rgb(255, 255, 255);
@@ -60,7 +60,8 @@ textarea:focus, input:focus{
     background: rgba(10, 255, 10, 0.045);
     border-top: 0;
     border-right: 0;
-    border-left: 0
+    border-left: 0;
+    outline: none;
 }
 
 .div-size-users-index {
@@ -83,6 +84,7 @@ textarea:focus, input:focus{
 
 .drop-down-list-user-search:focus {
     background: rgba(10, 255, 10, 0.045);
+    outline: none;
 }
 .button-users-sort {
     background: rgba(0, 0, 0, 0);
