@@ -25,7 +25,7 @@ class LoginForm extends Model
             // email and password are both required
             ['email', 'required', 'message' => 'Необходимо ввести адрес электронной почты.'],
             ['password', 'required', 'message' => 'Необходимо ввести пароль.'],
-            ['email', 'email'],
+            ['email', 'email', 'message' => 'Значение поля не является правильным email адресом'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
             ['rememberMe', 'boolean'],

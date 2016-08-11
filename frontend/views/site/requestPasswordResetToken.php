@@ -24,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'email')->textInput([
                     'class' => 'input input-login input-border',
                     'type' => 'mail',
+                    'placeholder' => 'Адрес электронной почты',
                 ]) ?>
 
                 <div class="form-group">

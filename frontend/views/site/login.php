@@ -22,6 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, 'email')->textInput([
                 'class' => 'input input-login input-border',
                 'placeholder' => 'Адрес электронной почты',
+                'id' => 'id',
                 ]) ?>
 
             <?= $form->field($model, 'password')->passwordInput([
@@ -51,3 +52,9 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+
+<script>
+    $( document ).ready(function() {
+        alert('dsadsa');
+    });
+</script>
