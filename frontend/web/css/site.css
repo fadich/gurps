@@ -71,19 +71,19 @@ button:focus{
     position: absolute;
     position: fixed;
     max-height: 60vh;
-    min-width: 400px;
-    padding-left: 30px;
+    max-width: 400px;
+    padding: 30px;
     background: rgba(0, 0, 0, 0.02);
-    overflow-x: auto;
-    overflow-y: auto;
+    overflow: hidden;
 }
 .div-size-users-index:hover {
+    overflow: auto;
     background: rgba(255, 255, 255, 0.8);
 }
 
 .div-button-hide {
     top: 130px;
-    right: 5vw;
+    right: 6vw;
     position: absolute;
     position: fixed;
     height: 32px;

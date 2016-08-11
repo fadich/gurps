@@ -143,7 +143,7 @@ $this->params['breadcrumbs'][] = $this->title;
             $('#span-icon').attr('class', 'glyphicon glyphicon-chevron-down');
         } else {
             $('#ddl').slideDown();
-            $('#ddl-header').css("min-width", "400px").css("height", "20px").css("background", "rgba(0, 0, 0, 0.0)");
+            $('#ddl-header').css("background", "rgba(0, 0, 0, 0.0)");
             $('#span-icon').attr('class', 'glyphicon glyphicon-chevron-up');
         }
     }
