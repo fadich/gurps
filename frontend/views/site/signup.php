@@ -24,19 +24,23 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, 'email')->textInput([
                 'class' => 'input input-login input-border',
                 'type' => 'mail',
+                'placeholder' => 'Адрес электронной почты',
             ]) ?>
 
             <?= $form->field($profile, 'name')->textInput([
-                'pattern' => '^[0-9a-zA-ZА-Яа-яЁё\s]+$',
+//                'pattern' => '^[0-9a-zA-ZА-Яа-яЁё\s]+$',
                 'class' => 'input input-login input-border',
+                'placeholder' => 'Имя пользователя',
             ]) ?>
 
             <?= $form->field($model, 'password')->passwordInput([
-                'class' => 'input input-login input-border'
+                'class' => 'input input-login input-border',
+                'placeholder' => 'Пароль',
             ]) ?>
 
             <?= $form->field($model, 'rePassword')->passwordInput([
                 'class' => 'input input-login input-border',
+                'placeholder' => 'Повторите пароль',
             ]) ?>
 
             <div class="form-group">
