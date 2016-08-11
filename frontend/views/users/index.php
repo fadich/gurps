@@ -133,7 +133,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 </div>
 <div class="div-button-hide" id="ddl-header">
-    <button type="button" class="btn btn-link" id="btn-hide-user-index" onclick="hide()"><span id="span-icon" class="glyphicon glyphicon-chevron-up"></span></button>
+    <button  type="button" class="button-hide btn btn-link" id="btn-hide-user-index" onclick="hide()"><span id="span-icon" class="glyphicon glyphicon-chevron-up"></span></button>
 </div>
 <script>
     function hide() {
