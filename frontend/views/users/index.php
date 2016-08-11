@@ -76,6 +76,7 @@ $this->params['breadcrumbs'][] = $this->title;
             '2' => 'имени',
             '3' => 'по кол-во созданих миров',
             '4' => 'по кол-во созданныйх персонажей',
+            '5' => 'по кол-во созданныйх сценариев',
         ],
             [
                 'class' => 'drop-down-list-user-sort',
@@ -112,8 +113,25 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <br>
     <div>
-        <input type="checkbox" name="option1" value="a3">Только с фотографией<br>
+        <input type="checkbox" name="option1" value="a1">Только с фотографией<br>
     </div>
+    <br>
+    <div>
+        <input type="radio" name="option2" value="a1" checked>Отключить фильтр<br>
+    </div>
+    <div>
+        <input type="radio" name="option2" value="a2">Всех мастеров<br>
+    </div>
+    <div>
+        <input type="radio" name="option2" value="a3">Всех игроков<br>
+    </div>
+    <div>
+        <input type="radio" name="option2" value="a3">Не является мастером не в одном из сценариев<br>
+    </div>
+    <div>
+        <input type="radio" name="option2" value="a3">Не является игроком не в одном из сценариев<br>
+    </div>
+    <br>
 </div>
 </div>
 
