@@ -33,7 +33,7 @@ class PasswordResetRequestForm extends Model
     public function attributeLabels()
     {
         return [
-            'email' => 'Адрес электронной почты'
+            'email' => ''
         ];
     }
 

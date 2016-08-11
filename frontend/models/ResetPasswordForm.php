@@ -64,9 +64,9 @@ class ResetPasswordForm extends Model
     public function attributeLabels()
     {
         return [
-            'email' => 'Адрес электронной почты',
-            'password' => 'Пароль',
-            'rePassword' => 'Повторите пароль',
+            'email' => '',
+            'password' => '',
+            'rePassword' => '',
         ];
     }
 
