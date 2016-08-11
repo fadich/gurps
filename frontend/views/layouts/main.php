@@ -78,8 +78,7 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 </div>
-
-<footer class="footer">
+<footer class="footer column">
     <div class="container">
         <p class="pull-left ">&copy; GURPS <?= date('Y') ?></p>
 

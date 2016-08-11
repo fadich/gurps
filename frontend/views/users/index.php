@@ -131,7 +131,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <div>
         <input type="radio" name="option2" value="a3">Не является игроком не в одном из сценариев<br>
     </div>
-    <br>
 </div>
 </div>
 

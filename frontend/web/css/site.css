@@ -65,12 +65,13 @@ textarea:focus, input:focus{
 
 .div-size-users-index {
     top: 18vh;
-    padding-left: 10px;
     right: 5vw;
     position: absolute;
     position: fixed;
-    width: 400px;
+    height: 50vh;
+    width: 25vw;
     background: rgba(0, 0, 0, 0.02);
+    overflow: auto;
 }
 
 .input-users-index {
@@ -108,6 +109,7 @@ textarea:focus, input:focus{
     background: rgb(255, 255, 255);
     border-top: 1px solid #ddd;
     padding-top: 20px;
+    top: 45px;
     padding-bottom: 9px;
 }
 
