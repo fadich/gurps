@@ -98,7 +98,7 @@ button:focus{
 .button-hide:active {
     outline: none;
 }
-}
+
 .div-button-hide > button {
     color: black;
     outline: none;
