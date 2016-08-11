@@ -56,7 +56,6 @@ textarea:focus, input:focus{
 }
 
 .drop-down-list-user-sort:focus {
-    background: rgba(10, 255, 10, 0.045);
     border-top: 0;
     border-right: 0;
     border-left: 0;
@@ -84,7 +83,6 @@ textarea:focus, input:focus{
 }
 
 .drop-down-list-user-search:focus {
-    background: rgba(10, 255, 10, 0.045);
     outline: none;
 }
 .button-users-sort {
