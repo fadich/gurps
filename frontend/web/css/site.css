@@ -63,12 +63,12 @@ textarea:focus, input:focus{
 }
 
 .div-size-users-index {
-    top: 18vh;
+    top: 130px;
     right: 5vw;
     position: absolute;
     position: fixed;
-    height: 50vh;
-    width: 25vw;
+    height: 70vh;
+    min-width: 400px;
     background: rgba(0, 0, 0, 0.02);
     overflow: auto;
 }
