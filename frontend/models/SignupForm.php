@@ -25,7 +25,11 @@ class SignupForm extends Model
             ['email', 'trim'],
             ['email', 'required', 'message' => 'Необходимо ввести адрес электронной почты.'],
             ['email', 'email', 'message' => 'Значение поля не является правильным email адресом'],
-            ['email', 'string', 'max' => 255, 'min' => 6],
+            [
+                'email', 'string', 'max' => 255, 'min' => 6,
+                'tooShort' => 'Адрес электронной почты должен содержать не менее 3-х символов',
+                'tooLong' => 'Адрес электронной почты должен содержать не более 255-х символов',
+            ],
             ['email', 'unique', 'targetClass' => '\common\models\User',
                 'message' => 'Извините, данный адрес уже занят.'],
 

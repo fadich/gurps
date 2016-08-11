@@ -21,10 +21,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?= $form->field($model, 'password')->passwordInput([
                 'class' => 'input input-login input-border',
+                'placeholder' => 'Пароль',
             ]) ?>
 
             <?= $form->field($model, 'rePassword')->passwordInput([
                 'class' => 'input input-login input-border',
+                'placeholder' => 'Повторите пароль',
             ]) ?>
 
             <div class="form-group">

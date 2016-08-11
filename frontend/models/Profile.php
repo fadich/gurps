@@ -52,14 +52,23 @@ class Profile extends \yii\db\ActiveRecord
         return [
             ['name', 'required', 'message' => 'Необходимо ввести имя пользовтеля.'],
             ['name', 'trim'],
-            ['name', 'string', 'max' => 24, 'min' => 3, 'message' => '"Имя пользователя" может содержать от 3-х до 24-х символов'],
-            ['name', 'match', 'pattern' => '/[a-zA-Zа-яА-Я0-9_-]+/',
-                'message' => 'Имя состоит из букв латинского или русского алфавитов, дифисов, подчеркиваний или апострофов.'],
+            [
+                'name', 'string', 'min' => 3, 'max' => 24,
+                'tooShort' => 'Имя пользователя должно содержать не менее 3-х символов',
+                'tooLong' => 'Имя пользователя должно содержать не более 24-х символов',
+            ],
+            [
+                'name', 'match', 'pattern' => '/[a-zA-Zа-яА-Я0-9_-]+/',
+                'message' => 'Имя состоит из букв латинского или русского алфавитов, дифисов, подчеркиваний или апострофов.'
+            ],
 
             [['user_id', 'updated_at_date', 'created_at_date'], 'integer'],
+
             ['sex', 'string', 'max' => 10],
             ['sex', 'in', 'range' => ['мужской', 'женский']],
-            ['birthday', 'string', 'max' => 16],
+
+            ['birthday', 'string', 'max' => 16, 'message' => 'Неверный формат даты'],
+            
             ['avatar', 'integer'],
             ['info', 'trim'],
             ['info', 'string', 'max' => 1024],
