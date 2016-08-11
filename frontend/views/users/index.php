@@ -62,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
-<div class="div-size-users-index">
+<div class="div-size-users-index" id="ddl">
     <div>
         <p><b>Поиск</b></p>
         <input class="drop-down-list-user-search"> </input>
@@ -82,8 +82,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => 'drop-down-list-user-sort',
                 'title' => 'Выберете атрибут для сортировки...',
             ]); ?>
-        <button><span class="button-users-sort glyphicon glyphicon-arrow-up"></span></button>
-        <button><span class="button-users-sort glyphicon glyphicon-arrow-down"></button>
+        <input type="radio" name="sort" value="asc" checked><span class="button-users-sort glyphicon glyphicon-arrow-up"></span>
+        <input type="radio" name="sort" value="desc"><span class="button-users-sort glyphicon glyphicon-arrow-down"></span>
 <!--        <p>-&nbsp;&nbsp;&nbsp;&nbsp;дате регистрации-->
 <!--            <button><span class="glyphicon glyphicon-arrow-up"></span></button>-->
 <!--            <button><span class="glyphicon glyphicon-search"></button>-->
@@ -132,5 +132,20 @@ $this->params['breadcrumbs'][] = $this->title;
         <input type="radio" name="option2" value="a3">Не является игроком не в одном из сценариев<br>
     </div>
 </div>
+<div class="div-button-hide" id="ddl-header">
+    <button type="button" class="btn btn-link" id="btn-hide-user-index" onclick="hide()"><span id="span-icon" class="glyphicon glyphicon-chevron-up"></span></button>
 </div>
+<script>
+    function hide() {
+        if ($('#span-icon').attr('class') == 'glyphicon glyphicon-chevron-up') {
+            $('#ddl').slideUp();
+            $('#ddl-header').css("background", "rgba(0, 0, 0, 0.02)");
+            $('#span-icon').attr('class', 'glyphicon glyphicon-chevron-down');
+        } else {
+            $('#ddl').slideDown();
+            $('#ddl-header').css("min-width", "400px").css("height", "20px").css("background", "rgba(0, 0, 0, 0.0)");
+            $('#span-icon').attr('class', 'glyphicon glyphicon-chevron-up');
+        }
+    }
+</script>
 
