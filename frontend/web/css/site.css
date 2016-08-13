@@ -139,7 +139,7 @@ button:focus{
 }
 
 .footer {
-    background: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0.35);
     border-top: 1px solid #ddd;
     padding-top: 20px;
     top: 45px;

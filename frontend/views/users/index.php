@@ -32,9 +32,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         <span style="color:#999;margin:1em 0"><?= $model->isOnline($user['status']) ?></span>
                         <br>
                         <?php $avatar = $user['avatar'] ? $user['avatar'] :
-                            '/uploads/pictures/avatars/no_avatar.png'; ?>
-                        <?= $avatar ? '<img src="' . $avatar . '" width="160px">&nbsp;&nbsp;&nbsp;' :
-                            '<img src="uploads/pictures/avatars/no_avatar.png" width="160px">&nbsp;&nbsp;&nbsp;'; ?>
+                            'uploads/pictures/avatars/no_avatar.png'; ?>
+                        <?= '<img src="/' . $avatar . '" width="160px">&nbsp;&nbsp;&nbsp;' ?>
                     </div>
                     <div class="col-lg-6">
                         <h3>Информация</h3>
