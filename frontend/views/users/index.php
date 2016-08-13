@@ -58,7 +58,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <button><span class="glyphicon glyphicon-search"></span></button>
         </div>
         <hr>
-        <div>
             <p c><b>Сортировка по:</b></p>
             <?= Html::dropDownList('order', Yii::$app->request->get('order') ?? 'name', [
                 'name' => 'имени',
