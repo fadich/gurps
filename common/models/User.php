@@ -35,6 +35,8 @@ class User extends ActiveRecord implements IdentityInterface
     public $newPassword;
     public $rePassword;
     public $oldEmail;
+    public $order;
+    public $sort;
 
     private $_user;
 
@@ -363,19 +365,28 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function getAllUsers()
     {
-        $order = 'name';
-        $sort = 'asc';
+        $orderFilter = [
+            'name',
+            'date',
+            'worlds',
+        ];
+        $sortFilter = [
+            'asc',
+            'desc',
+        ];
+        $this->order = (in_array($order = \Yii::$app->request->get('order'), $orderFilter)) ? $order : 'name';
+        $this->sort = (in_array($sort = \Yii::$app->request->get('sort'), $sortFilter)) ? $sort : 'asc';
         \Yii::$app->db->createCommand("SET SQL_MODE = ' '")->execute();
         $users = \Yii::$app->db->createCommand(
             "SELECT 
                 user.id AS id,
                 profile.name AS name,
-                user.created_at AS created_at,
+                user.created_at AS date,
                 profile.birthday AS birthday,
                 profile.info AS info,
                 files.path AS avatar,
                 session.time AS status,
-                count(world.id) AS worlds_created
+                count(world.id) AS worlds
             FROM user
             LEFT JOIN profile ON user.id = profile.user_id
             LEFT JOIN files ON profile.avatar = files.id
@@ -384,7 +395,7 @@ class User extends ActiveRecord implements IdentityInterface
             WHERE user.status = :status " .
             // AND avatar > 0
             " GROUP BY user.id
-            ORDER BY " . $order . " " . $sort
+            ORDER BY " . $this->order . " " . $this->sort
         )->bindValues([
             ':status' => self::STATUS_ACTIVE,
         ])->queryAll();
