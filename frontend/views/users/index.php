@@ -52,77 +52,85 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 </div>
 <div class="div-size-users-index" id="ddl">
-    <div>
-        <p><b>Поиск</b></p>
-        <input class="drop-down-list-user-search"> </input>
-        <button><span class="glyphicon glyphicon-search"></span></button>
-    </div>
-    <hr>
-    <div>
-        <p c><b>Сортировка по:</b></p>
-        <?= Html::dropDownList('dasdas', 'das', [
-            '1' => 'дате регистрации',
-            '2' => 'имени',
-            '3' => 'по кол-во созданих миров',
-            '4' => 'по кол-во созданныйх персонажей',
-            '5' => 'по кол-во созданныйх сценариев',
-        ],
-            [
-                'class' => 'drop-down-list-user-sort',
-                'title' => 'Выберете атрибут для сортировки...',
-            ]); ?>
-        <input type="radio" name="sort" value="asc" checked><span class="button-users-sort glyphicon glyphicon-arrow-up"></span>
-        <input type="radio" name="sort" value="desc"><span class="button-users-sort glyphicon glyphicon-arrow-down"></span>
-<!--        <p>-&nbsp;&nbsp;&nbsp;&nbsp;дате регистрации-->
-<!--            <button><span class="glyphicon glyphicon-arrow-up"></span></button>-->
-<!--            <button><span class="glyphicon glyphicon-search"></button>-->
-<!--        <p>-&nbsp;&nbsp;&nbsp;&nbsp;имени-->
-<!--            <button><span class="glyphicon glyphicon-arrow-up"></span></button>-->
-<!--            <button><span class="glyphicon glyphicon-search"></button>-->
-<!--        </p>-->
-<!--        <p>-&nbsp;&nbsp;&nbsp;&nbsp;по кол-во созданих миров-->
-<!--            <button><span class="glyphicon glyphicon-arrow-up"></span></button>-->
-<!--            <button><span class="glyphicon glyphicon-search"></button>-->
-<!--        </p>-->
-<!--        <p>-&nbsp;&nbsp;&nbsp;&nbsp;по кол-во созданныйх персонажей-->
-<!--            <button><span class="glyphicon glyphicon-arrow-up"></span></button>-->
-<!--            <button><span class="glyphicon glyphicon-search"></button>-->
-<!--        </p>-->
-<!--        <p>-&nbsp;&nbsp;&nbsp;&nbsp;имени-->
-<!--            <button class="btn btn-link"><span class="glyphicon glyphicon-arrow-up"></span></button>-->
-<!--            <button><span class="glyphicon glyphicon-search"></button>-->
-<!--        </p>-->
-    </div>
-    <hr>
-    <div>
-        <p><b>Отображение:</b></p>
-        <input type="radio" name="option" value="a1" checked>Всех пользователей<br>
-        <input type="radio" name="option" value="a2">Только Online<br>
-        <input type="radio" name="option" value="a3">Только Offline<br>
-    </div>
-    <br>
-    <div>
-        <input type="checkbox" name="option1" value="a1">Только с фотографией<br>
-    </div>
-    <br>
-    <div>
-        <input type="radio" name="option2" value="a1" checked>Отключить фильтр<br>
-    </div>
-    <div>
-        <input type="radio" name="option2" value="a2">Всех мастеров<br>
-    </div>
-    <div>
-        <input type="radio" name="option2" value="a3">Всех игроков<br>
-    </div>
-    <div>
-        <input type="radio" name="option2" value="a3">Не является мастером не в одном из сценариев<br>
-    </div>
-    <div>
-        <input type="radio" name="option2" value="a3">Не является игроком не в одном из сценариев<br>
-    </div>
+    <form>
+        <div>
+            <input placeholder="Поиск" class="drop-down-list-user-search"> </input>
+            <button><span class="glyphicon glyphicon-search"></span></button>
+        </div>
+        <hr>
+        <div>
+            <p c><b>Сортировка по:</b></p>
+            <?= Html::dropDownList('order', Yii::$app->request->get('order') ?? 'name', [
+                'name' => 'имени',
+                'datе' => 'дате регистрации',
+                'worlds' => 'по кол-ву созданих миров',
+                'scenarios' => 'по кол-ву созданныйх сценариев',
+                'characters' => 'по кол-ву созданныйх персонажей',
+            ],
+                [
+                    'class' => 'drop-down-list-user-sort',
+                    'title' => 'Выберете атрибут для сортировки...',
+                ]); ?>
+            <button type="radio" class="<?= Yii::$app->request->get('sort') == 'desc' ? 'desc' : 'asc' ?>" name="sort"
+                    value="<?= Yii::$app->request->get('sort') == 'desc' ? 'asc' : 'desc' ?>" id="search" onload="search()">
+                <span class="button-users-sort glyphicon glyphicon-arrow-up" id="sort"></span>
+            </button>
+
+            <!--        <button type="radio" name="sort" value="desc" title="По убыванию" disabled><span class="button-users-sort glyphicon glyphicon-arrow-down"></span></button>-->
+
+            <!--        <p>-&nbsp;&nbsp;&nbsp;&nbsp;дате регистрации-->
+            <!--            <button><span class="glyphicon glyphicon-arrow-up"></span></button>-->
+            <!--            <button><span class="glyphicon glyphicon-search"></button>-->
+            <!--        <p>-&nbsp;&nbsp;&nbsp;&nbsp;имени-->
+            <!--            <button><span class="glyphicon glyphicon-arrow-up"></span></button>-->
+            <!--            <button><span class="glyphicon glyphicon-search"></button>-->
+            <!--        </p>-->
+            <!--        <p>-&nbsp;&nbsp;&nbsp;&nbsp;по кол-во созданих миров-->
+            <!--            <button><span class="glyphicon glyphicon-arrow-up"></span></button>-->
+            <!--            <button><span class="glyphicon glyphicon-search"></button>-->
+            <!--        </p>-->
+            <!--        <p>-&nbsp;&nbsp;&nbsp;&nbsp;по кол-во созданныйх персонажей-->
+            <!--            <button><span class="glyphicon glyphicon-arrow-up"></span></button>-->
+            <!--            <button><span class="glyphicon glyphicon-search"></button>-->
+            <!--        </p>-->
+            <!--        <p>-&nbsp;&nbsp;&nbsp;&nbsp;имени-->
+            <!--            <button class="btn btn-link"><span class="glyphicon glyphicon-arrow-up"></span></button>-->
+            <!--            <button><span class="glyphicon glyphicon-search"></button>-->
+            <!--        </p>-->
+
+            <hr>
+            <div>
+                <p><b>Отображение:</b></p>
+                <input type="radio" name="option" value="a1" checked>Всех пользователей<br>
+                <input type="radio" name="option" value="a2">Только Online<br>
+                <input type="radio" name="option" value="a3">Только Offline<br>
+            </div>
+            <br>
+            <div>
+                <input type="checkbox" name="option1" value="a1">Только с фотографией<br>
+            </div>
+            <br>
+            <div>
+                <input type="radio" name="option2" value="a1" checked>Отключить фильтр<br>
+            </div>
+            <div>
+                <input type="radio" name="option2" value="a2">Всех мастеров<br>
+            </div>
+            <div>
+                <input type="radio" name="option2" value="a3">Всех игроков<br>
+            </div>
+            <div>
+                <input type="radio" name="option2" value="a3">Не является мастером не в одном из сценариев<br>
+            </div>
+            <div>
+                <input type="radio" name="option2" value="a3">Не является игроком не в одном из сценариев<br>
+            </div>
+    </form>
+</div>
 </div>
 <div class="div-button-hide" id="ddl-header">
-    <button  type="button" class="button-hide btn btn-link" id="btn-hide-user-index" onclick="hide()"><span id="span-icon" class="glyphicon glyphicon-chevron-up"></span></button>
+    <button type="button" class="button-hide btn btn-link" id="btn-hide-user-index" onclick="hide()"><span
+            id="span-icon" class="glyphicon glyphicon-chevron-up"></span></button>
 </div>
 <script>
     function hide() {
@@ -134,6 +142,15 @@ $this->params['breadcrumbs'][] = $this->title;
             $('#ddl').slideDown();
             $('#ddl-header').css("background", "rgba(0, 0, 0, 0.0)");
             $('#span-icon').attr('class', 'glyphicon glyphicon-chevron-up');
+        }
+    }
+    function search() {
+        if ($('#search').attr('class') == 'desc') {
+            $('title').text('По убыванию');
+            $('#sort').attr('class', 'glyphicon glyphicon-arrow-down');
+        } else {
+            $('title').text('По возрастанию');
+            $('#sort').attr('class', 'glyphicon glyphicon-arrow-up');
         }
     }
 </script>
