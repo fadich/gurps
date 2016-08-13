@@ -20,9 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-lg-10">
-            <?php
-            $model = $model->findAll(['status' => $model::STATUS_ACTIVE]);
-            foreach ($model as $item):
+            <?php foreach ($model as $item):
                 $form = ActiveForm::begin(); ?>
                 <div class="row">
                     <div class="col-lg-5">

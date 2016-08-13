@@ -51,7 +51,7 @@ class UsersController extends Controller
             $user->setOnline();
         }
 
-        $model = new User;
+        $model = User::findAll(['status' => User::STATUS_ACTIVE]);
 
         if (Yii::$app->request->cookies['no_user']) {
             Yii::$app->session->setFlash('error', 'Пользователь не найден.');
