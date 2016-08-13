@@ -63,6 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::dropDownList('order', $model->order, [
                 'name' => 'имени',
                 'date' => 'дате регистрации',
+                'status' => 'online',
                 'worlds' => 'по кол-ву созданих миров',
                 'scenarios' => 'по кол-ву созданныйх сценариев',
                 'characters' => 'по кол-ву созданныйх персонажей',
@@ -147,11 +148,9 @@ $this->params['breadcrumbs'][] = $this->title;
     }
     function search() {
         if ($('#search').attr('class') == 'desc') {
-            $('title').text('По убыванию');
-            $('#sort').attr('class', 'glyphicon glyphicon-arrow-down');
+            $('#sort').attr('class', 'glyphicon glyphicon-arrow-down').attr('title', 'Нажмите для сортировки по возрастанию');
         } else {
-            $('title').text('По возрастанию');
-            $('#sort').attr('class', 'glyphicon glyphicon-arrow-up');
+            $('#sort').attr('class', 'glyphicon glyphicon-arrow-up').attr('title', 'Нажмите для сортировки по убыванию');
         }
     }
 </script>
