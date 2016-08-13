@@ -58,8 +58,9 @@ $this->params['breadcrumbs'][] = $this->title;
             <button><span class="glyphicon glyphicon-search"></span></button>
         </div>
         <hr>
-            <p c><b>Сортировка по:</b></p>
-            <?= Html::dropDownList('order', Yii::$app->request->get('order') ?? 'name', [
+        <div>
+            <p><b>Сортировка по:</b></p>
+            <?= Html::dropDownList('order', $model->order, [
                 'name' => 'имени',
                 'date' => 'дате регистрации',
                 'worlds' => 'по кол-ву созданих миров',
@@ -70,8 +71,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     'class' => 'drop-down-list-user-sort',
                     'title' => 'Выберете атрибут для сортировки...',
                 ]); ?>
-            <button type="radio" class="<?= Yii::$app->request->get('sort') == 'desc' ? 'desc' : 'asc' ?>" name="sort"
-                    value="<?= Yii::$app->request->get('sort') == 'desc' ? 'asc' : 'desc' ?>" id="search" onload="search()">
+            <button type="radio" class="<?= $model->sort ?>" name="sort"
+                    value="<?= $model->sort == 'desc' ? 'asc' : 'desc' ?>" id="search" onload="search()">
                 <span class="button-users-sort glyphicon glyphicon-arrow-up" id="sort"></span>
             </button>
 
