@@ -78,6 +78,7 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 </div>
+
 <footer class="footer column">
     <div class="container">
         <p class="pull-left ">&copy; GURPS <?= date('Y') ?></p>
@@ -85,7 +86,6 @@ AppAsset::register($this);
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
-
 <?php $this->endBody() ?>
 </body>
 </html>
