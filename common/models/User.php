@@ -315,12 +315,16 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
+     * @param null $time
      * @return string
      */
-    public function isOnline()
+    public function isOnline($time = null)
     {
-        $status = (isset($this->getSessionTable()->one()->time)) ?
-            $this->getSessionTable()->one()->time : 0;
+        if ($time === null) {
+            $status = $this->getSessionTable()->one()->time ?? 0;
+        } else {
+            $status = $time;
+        }
         $timezone = 10800;
         if ((time() - $status) < 600) {
             return 'Онлайн';
@@ -344,8 +348,8 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function updateUser(User $user)
     {
-        if(!$this->validate()){
-          return null;
+        if (!$this->validate()) {
+            return null;
         }
 
         $this->email = $user->email;
@@ -355,5 +359,35 @@ class User extends ActiveRecord implements IdentityInterface
             $this->setPassword($user->newPassword);
         }
         return $this->save() ? true : false;
+    }
+
+    public function getAllUsers()
+    {
+        $order = 'name';
+        $sort = 'asc';
+        \Yii::$app->db->createCommand("SET SQL_MODE = ' '")->execute();
+        $users = \Yii::$app->db->createCommand(
+            "SELECT 
+                user.id AS id,
+                profile.name AS name,
+                user.created_at AS created_at,
+                profile.birthday AS birthday,
+                profile.info AS info,
+                files.path AS avatar,
+                session.time AS status,
+                count(world.id) AS worlds_created
+            FROM user
+            LEFT JOIN profile ON user.id = profile.user_id
+            LEFT JOIN files ON profile.avatar = files.id
+            LEFT JOIN session ON user.id = session.user_id
+            LEFT JOIN world ON user.id = world.user_id
+            WHERE user.status = :status " .
+            // AND avatar > 0
+            " GROUP BY user.id
+            ORDER BY " . $order . " " . $sort
+        )->bindValues([
+            ':status' => self::STATUS_ACTIVE,
+        ])->queryAll();
+        return $users;
     }
 }
