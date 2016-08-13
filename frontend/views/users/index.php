@@ -20,37 +20,28 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-lg-10">
-            <?php foreach ($model as $item):
+            <?php foreach ($model->getAllUsers() as $user):
                 $form = ActiveForm::begin(); ?>
                 <div class="row">
                     <div class="col-lg-5">
-                        <?= Html::submitButton('<h4 style="color:#003873;">' . $item->getProfile()->one()->name . '</h4>', [
+                        <?= Html::submitButton('<h4 style="color:#003873;">' . $user['name'] . '</h4>', [
                             'class' => 'btn btn-link',
                             'name' => 'id',
-                            'value' => $item->id,
+                            'value' => $user['id'],
                         ]) ?>
-                        <span style="color:#999;margin:1em 0"><?= $item->isOnline(); ?></span>
+                        <span style="color:#999;margin:1em 0"><?= $model->isOnline($user['status']) ?></span>
                         <br>
-                        <?php $avatar = $item->getProfile()->one() ? $item->getProfile()->one()->getAvatar()->one() :
-                            '/uploads/pictures/avatars/no_avatar.png';
-                        if (isset($avatar->path)) {
-                            echo '<img src="/' . $avatar->path .
-                                '" width="160px">&nbsp;&nbsp;&nbsp;';
-                        } else {
-                            echo '<img src="' . '/uploads/pictures/avatars/no_avatar.png"
-                            width="160px">&nbsp;&nbsp;&nbsp;';
-                        } ?>
-
+                        <?php $avatar = $user['avatar'] ? $user['avatar'] :
+                            '/uploads/pictures/avatars/no_avatar.png'; ?>
+                        <?= $avatar ? '<img src="' . $avatar . '" width="160px">&nbsp;&nbsp;&nbsp;' :
+                            '<img src="uploads/pictures/avatars/no_avatar.png" width="160px">&nbsp;&nbsp;&nbsp;'; ?>
                     </div>
                     <div class="col-lg-6">
                         <h3>Информация</h3>
                         <h5>
-                            <p>Дата рождения: <?php echo $item->getProfile()->one()->birthday ?> </p>
-                            <p>Доп. информация: <?php (strlen($item->getProfile()->one()->info) > 150) ?
-                                    $str = trim(mb_substr($item->getProfile()->one()->info, 0, 150, "UTF-8")) . '...' :
-                                    $str = $item->getProfile()->one()->info;
-                                echo $str;
-                                ?> </p>
+                            <p>Дата рождения: <?= $user['birthday'] ?> </p>
+                            <p>Доп. информация: <?= $str = (strlen($user['info']) > 150) ?
+                                    trim(mb_substr($user['info'], 0, 150, "UTF-8")) . '...' : $user['info']; ?> </p>
                         </h5>
                     </div>
                 </div>
