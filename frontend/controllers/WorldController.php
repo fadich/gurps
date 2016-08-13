@@ -131,7 +131,7 @@ class WorldController extends Controller
         if ($model->status === World::STATUS_DELETED && $model->user_id == Yii::$app->user->id) {
             if ($model->resetWorld()) {
                 Yii::$app->session->setFlash('success', 'Мир "' . $model->name . '" успешно восстановлен.');
-                return $this->redirect('/world/edit.html?id=' . $model->id);
+                return $this->redirect('/world/edit?id=' . $model->id);
             } else {
                 Yii::$app->session->setFlash('error', 'Ошибка восстановления.');
                 return $this->goHome();

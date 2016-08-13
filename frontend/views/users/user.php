@@ -97,7 +97,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <?= mb_substr($world->name, 0, $world->name - mb_strlen('-deleted' . $world->id,
                                                 'UTF-8'), 'UTF-8') . ';'; ?>
                                     <?php if ($world->user_id == Yii::$app->user->id) { ?>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;(<?= Html::a('Восстановить', '/index.php/world/reset.html?id=' . $world->id) ?>);
+                                        &nbsp;&nbsp;&nbsp;&nbsp;(<?= Html::a('Восстановить', '/index.php/world/reset?id=' . $world->id) ?>);
                                     <?php } ?>
                                     <br>
                                 <?php }
