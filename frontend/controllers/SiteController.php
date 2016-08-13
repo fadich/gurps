@@ -18,7 +18,6 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\web\UploadedFile;
-use yii\web\Cookie;
 
 /**
  * Site controller
@@ -90,23 +89,10 @@ class SiteController extends Controller
             ]);
         }
 
-        if (Yii::$app->request->cookies['worldDeleted']) {
-            Yii::$app->session->setFlash('info', 'Мир <i>"' .
-                Yii::$app->request->cookies['worldName'] . '"</i> успешно удален.');
-            Yii::$app->response->cookies->add(new Cookie([
-                'name' => 'worldDeleted',
-                'value' => null,
-            ]));
-            Yii::$app->response->cookies->add(new Cookie([
-                'name' => 'worldName',
-                'value' => null,
-            ]));
-        }
-
         $model = new World();
 
         if (Yii::$app->request->post('create_world') && Yii::$app->request->post('create_world') == 1) {
-            return $this->redirect('index.php/world/edit');
+            return $this->redirect('/world/edit');
         }
 
         return $this->render('index', [

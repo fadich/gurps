@@ -79,7 +79,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php endif; ?>
             <div class="form-group">
                 <?php if (!$checkOwner) : ?>
-                    <?= Html::submitButton('Редактировать', ['class' => 'btn btn-primary']) ?>
+                    <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
                 <?php endif; ?>
             </div>
         </div>

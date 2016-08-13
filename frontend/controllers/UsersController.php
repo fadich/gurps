@@ -7,7 +7,6 @@ use yii\filters\VerbFilter;
 use common\models\User;
 use Yii;
 use yii\helpers\Url;
-use yii\web\Cookie;
 use yii\web\Session;
 use yii\rest\Controller;
 
@@ -52,15 +51,7 @@ class UsersController extends Controller
         }
 
         $model = new User();
-
-        if (Yii::$app->request->cookies['no_user']) {
-            Yii::$app->session->setFlash('error', 'Пользователь не найден.');
-            Yii::$app->response->cookies->add(new Cookie([
-                'name' => 'no_user',
-                'value' => null,
-            ]));
-        }
-
+        
         if (Yii::$app->request->post('id')) {
             return $this->redirect(['user',
                 'id' => Yii::$app->request->post('id'),
@@ -86,11 +77,7 @@ class UsersController extends Controller
         $model = User::findOne(['id' => Yii::$app->request->get('id')]);
 
         if ($model === null) {
-            Yii::$app->response->cookies->add(new Cookie([
-                'name' => 'no_user',
-                'value' => true,
-                'expire' => time() + 10,
-            ]));
+            Yii::$app->session->setFlash('error', 'Пользователь не найден.');
             return $this->redirect(['users/index']);
         }
         return $this->render('user', [

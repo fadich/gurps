@@ -68,13 +68,46 @@ $this->params['breadcrumbs'][] = $this->title;
             <div style="background-color: #F0f0f0;border-radius: 5px;">
                 <h5>&nbsp;&nbsp;
                     <span id="showWorld"><button class="btn btn-link" onclick="showWorlds()">
-                            <span class="glyphicon glyphicon-plus"></span>
+                            <span id="show-worlds" class="glyphicon glyphicon-plus"></span>
                         </button>
                     </span>
                     Созданные миры
                 </h5>
             </div>
-            <div id="worlds"></div>
+            <div id="worlds" hidden>
+                <?php $worlds = $model->getWorlds()->all();
+                if ($worlds) {
+                    $deleted = false;
+                    foreach ($worlds as $world) {
+                        if ($world->status == \frontend\models\World::STATUS_ACTIVE) { ?>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="/index.php/world/edit?id=<?= $world->id ?>">
+                                <?= $world->name ?></a>;<br>
+                        <?php } else {
+                            $deleted = true;
+                        }
+
+                    }
+                    if ($deleted) { ?>
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;Удаленные:<br>
+                        <?php if ($worlds) {
+                            foreach ($worlds as $world) {
+                                if ($world->status == \frontend\models\World::STATUS_DELETED) { ?>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <?= mb_substr($world->name, 0, $world->name - mb_strlen('-deleted' . $world->id,
+                                                'UTF-8'), 'UTF-8') . ';'; ?>
+                                    <?php if ($world->user_id == Yii::$app->user->id) { ?>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;(<?= Html::a('Восстановить', '/index.php/world/reset.html?id=' . $world->id) ?>);
+                                    <?php } ?>
+                                    <br>
+                                <?php }
+                            }
+                        }
+                    }
+                } else { ?>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Пользователь не создал ни одного мира...'
+                <?php } ?>
+            </div>
         </div>
         <div class="col-lg-12">
             <a></a>
@@ -99,52 +132,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <script>
     function showWorlds() {
-        document.getElementById("worlds").innerHTML = '<?php
-            $worlds = $model->getWorlds()->all();
-            if ($worlds) {
-                $deleted = false;
-                foreach ($worlds as $world) {
-                    if ($world->status == \frontend\models\World::STATUS_ACTIVE) {
-                        echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;'
-                            . '<a href="/index.php/world/edit?id=' . $world->id . '">' .
-                            $world->name . '</a>;<br>';
-                    } else {
-                        $deleted = true;
-                    }
-
-                }
-                if ($deleted) {
-                    echo '<br>&nbsp;&nbsp;&nbsp;&nbsp;Удаленные:<br>';
-                    if ($worlds) {
-                        foreach ($worlds as $world) {
-                            if ($world->status == \frontend\models\World::STATUS_DELETED) {
-                                echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;' .
-                                    mb_substr($world->name, 0, $world->name - mb_strlen('-deleted' . $world->id,
-                                            'UTF-8'), 'UTF-8') . ';';
-                                if ($world->user_id == Yii::$app->user->id) {
-                                    echo '&nbsp;&nbsp;&nbsp;&nbsp;(' .
-                                        Html::a('Восстановить', '/index.php/world/reset?id=' . $world->id) .
-                                        ')';
-                                }
-                                echo '<br>';
-                            }
-                        }
-                    }
-                }
-            } else {
-                echo '&nbsp;&nbsp;&nbsp;&nbsp;Пользователь не создал ни одного мира...';
-            }
-            ?>';
-
-        document.getElementById("showWorld").innerHTML = '<button class="btn btn-link" ' +
-            'onclick="hideWorlds()">' +
-            '<span class="glyphicon glyphicon-minus"></span></button>';
-    }
-    function hideWorlds() {
-        document.getElementById("worlds").innerHTML = '';
-
-        document.getElementById("showWorld").innerHTML = '<button class="btn btn-link" ' +
-            'onclick="showWorlds()">' +
-            '<span class="glyphicon glyphicon-plus"></span></button>';
+        if ($('#show-worlds').attr('class') == 'glyphicon glyphicon-plus') {
+            $("#worlds").slideDown();
+            $('#show-worlds').attr('class', 'glyphicon glyphicon-minus');
+        } else {
+            $("#worlds").slideUp();
+            $('#show-worlds').attr('class', 'glyphicon glyphicon-plus');
+        }
     }
 </script>

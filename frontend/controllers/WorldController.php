@@ -12,7 +12,6 @@ use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use common\models\User;
-use yii\web\Cookie;
 
 class WorldController extends Controller
 {
@@ -57,7 +56,7 @@ class WorldController extends Controller
 
         if ($model->status === World::STATUS_DELETED) {
             Yii::$app->session->setFlash('warning', 'Данный мир удален.');
-            return $this->redirect('/gurps/frontend/web/index.php/site/index');
+            return $this->redirect('/');
         }
 
         $file = ($file = Files::findOne(['id' => $model->file_id]))
@@ -107,24 +106,10 @@ class WorldController extends Controller
         }
 
         if (Yii::$app->request->post('delete')) {
-            Yii::$app->response->cookies->add(new Cookie([
-                'name' => 'worldName',
-                'value' => $model->name,
-                'expire' => time() + 10,
-            ]));
             if (!$model->deleteWorld()) {
-                Yii::$app->response->cookies->add(new Cookie([
-                    'name' => 'worldName',
-                    'value' => null,
-                ]));
                 Yii::$app->session->setFlash('error', 'Ошибка удаления мира.');
             } else {
-                Yii::$app->response->cookies->add(new Cookie([
-                    'name' => 'worldDeleted',
-                    'value' => true,
-                    'expire' => time() + 10,
-                ]));
-                return $this->redirect('../site/index');
+                return $this->redirect('/');
             }
         }
 
@@ -146,7 +131,7 @@ class WorldController extends Controller
         if ($model->status === World::STATUS_DELETED && $model->user_id == Yii::$app->user->id) {
             if ($model->resetWorld()) {
                 Yii::$app->session->setFlash('success', 'Мир "' . $model->name . '" успешно восстановлен.');
-                return $this->redirect('/gurps/frontend/web/index.php/world/edit?id=' . $model->id);
+                return $this->redirect('/world/edit.html?id=' . $model->id);
             } else {
                 Yii::$app->session->setFlash('error', 'Ошибка восстановления.');
                 return $this->goHome();
