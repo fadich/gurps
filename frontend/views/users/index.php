@@ -71,7 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <p c><b>Сортировка по:</b></p>
             <?= Html::dropDownList('order', Yii::$app->request->get('order') ?? 'name', [
                 'name' => 'имени',
-                'datе' => 'дате регистрации',
+                'date' => 'дате регистрации',
                 'worlds' => 'по кол-ву созданих миров',
                 'scenarios' => 'по кол-ву созданныйх сценариев',
                 'characters' => 'по кол-ву созданныйх персонажей',
