@@ -53,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="div-size-users-index" id="ddl">
     <form>
         <div>
-            <input placeholder="Поиск" class="drop-down-list-user-search"> </input>
+            <input placeholder="Поиск" class="drop-down-list-user-search">
             <button><span class="glyphicon glyphicon-search"></span></button>
         </div>
         <hr>
@@ -128,11 +128,19 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </form>
 </div>
-</div>
+
 <div class="div-button-hide" id="ddl-header">
     <button type="button" class="button-hide btn btn-link" id="btn-hide-user-index" onclick="hide()"><span
             id="span-icon" class="glyphicon glyphicon-chevron-up"></span></button>
 </div>
+
+<?php echo '<pre>' ?>
+<?php var_dump($_SERVER["HTTP_X_REAL_IP"]) ?>
+<?php var_dump($_SERVER["HTTP_USER_AGENT"]) ?>
+<?php var_dump($_SERVER["HTTP_ACCEPT_LANGUAGE"]) ?>
+<?php var_dump($_SERVER["QUERY_STRING"]) ?>
+<?php var_dump($_SERVER["REQUEST_TIME_FLOAT"]) ?>
+
 <script>
     function hide() {
         if ($('#span-icon').attr('class') == 'glyphicon glyphicon-chevron-up') {

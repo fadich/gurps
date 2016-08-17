@@ -115,6 +115,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            $model->logUserSession();
             $user = User::findByEmail($model->email);
             $user->setOnline();
             return $this->goHome();

@@ -2,6 +2,7 @@
 namespace common\models;
 
 use Yii;
+use yii\base\ErrorException;
 use yii\base\Model;
 
 /**
@@ -69,6 +70,25 @@ class LoginForm extends Model
             return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         } else {
             return false;
+        }
+    }
+    
+    public function logUserSession()
+    {
+        try {
+            \Yii::$app->db->createCommand(
+                "INSERT INTO gr_user_session_info (`user_id`, `time`, `ip_address`, `soft`, `language`, `query`) 
+                 VALUES (:user_id, :time, :ip_address, :soft, :language, :query)"
+            )->bindValues([
+                ':user_id' => \Yii::$app->user->identity->getId(),
+                ':time' => time(),
+                ':ip_address' => $_SERVER['HTTP_X_REAL_IP'],
+                ':soft' => $_SERVER['HTTP_USER_AGENT'],
+                ':language' => $_SERVER['HTTP_ACCEPT_LANGUAGE'],
+                ':query' => $_SERVER['QUERY_STRING'],
+            ])->execute();
+        } catch (ErrorException $e) {
+            echo 'Произошла ошибка' . $e;
         }
     }
 
