@@ -327,13 +327,13 @@ class User extends ActiveRecord implements IdentityInterface
         } else {
             $status = $time;
         }
-        $timezone = 10800;
+//        $timezone = 0;
         if ((time() - $status) < 600) {
             return 'Онлайн';
         } else if ((time() - $status) < 86400) {
-            return 'был в сети ' . date('в H:i', $status + $timezone);
+            return 'был в сети ' . date('в H:i', $status);
         } else if ((time() - $status) < 31104000) {
-            return 'был в сети ' . date('d.m.Y в H:i', $status + $timezone);
+            return 'был в сети ' . date('d.m.Y в H:i', $status);
         } else {
             return 'Оффлайн';
         }
@@ -392,12 +392,13 @@ class User extends ActiveRecord implements IdentityInterface
             LEFT JOIN files ON profile.avatar = files.id
             LEFT JOIN session ON user.id = session.user_id
             LEFT JOIN world ON user.id = world.user_id
-            WHERE user.status = :status " .
+            WHERE user.status = :status AND world.status = :world_status" .
             // AND avatar > 0
             " GROUP BY user.id
             ORDER BY " . $this->order . " " . $this->sort
         )->bindValues([
             ':status' => self::STATUS_ACTIVE,
+            'world_status' => World::STATUS_ACTIVE,
         ])->queryAll();
         return $users;
     }

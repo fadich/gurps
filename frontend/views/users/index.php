@@ -133,14 +133,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <button type="button" class="button-hide btn btn-link" id="btn-hide-user-index" onclick="hide()"><span
             id="span-icon" class="glyphicon glyphicon-chevron-up"></span></button>
 </div>
-
-<?php echo '<pre>' ?>
-<?php var_dump($_SERVER["HTTP_X_REAL_IP"]) ?>
-<?php var_dump($_SERVER["HTTP_USER_AGENT"]) ?>
-<?php var_dump($_SERVER["HTTP_ACCEPT_LANGUAGE"]) ?>
-<?php var_dump($_SERVER["QUERY_STRING"]) ?>
-<?php var_dump($_SERVER["REQUEST_TIME_FLOAT"]) ?>
-
 <script>
     function hide() {
         if ($('#span-icon').attr('class') == 'glyphicon glyphicon-chevron-up') {
