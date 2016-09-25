@@ -377,23 +377,23 @@ class User extends ActiveRecord implements IdentityInterface
         \Yii::$app->db->createCommand("SET SQL_MODE = ' '")->execute();
         $users = \Yii::$app->db->createCommand(
             "SELECT 
-                user.id AS id,
-                profile.name AS name,
-                user.created_at AS date,
-                profile.birthday AS birthday,
-                profile.info AS info,
-                files.path AS avatar,
-                session.time AS status,
-                count(world.id) AS worlds
-            FROM user
-            LEFT JOIN profile ON user.id = profile.user_id
-            LEFT JOIN files ON profile.avatar = files.id
-            LEFT JOIN session ON user.id = session.user_id
-            LEFT JOIN world ON user.id = world.user_id
-            WHERE user.status = :status AND world.status = :world_status" .
+                 user.id AS id,
+                 profile.name AS name,
+                 user.created_at AS date,
+                 profile.birthday AS birthday,
+                 profile.info AS info,
+                 files.path AS avatar,
+                 session.time AS status,
+                 count(world.id) AS worlds
+             FROM user
+             LEFT JOIN profile ON user.id = profile.user_id
+             LEFT JOIN files ON profile.avatar = files.id
+             LEFT JOIN session ON user.id = session.user_id
+             LEFT JOIN world ON user.id = world.user_id
+             WHERE user.status = :status AND world.status = :world_status" .
             // AND avatar > 0
             " GROUP BY user.id
-            ORDER BY " . $this->order . " " . $this->sort
+             ORDER BY " . $this->order . " " . $this->sort
         )->bindValues([
             ':status' => self::STATUS_ACTIVE,
             'world_status' => World::STATUS_ACTIVE,
