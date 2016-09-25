@@ -353,10 +353,8 @@ class User extends ActiveRecord implements IdentityInterface
         if (!$this->validate()) {
             return null;
         }
-
         $this->email = $user->email;
         $this->generateAuthKey();
-
         if (isset($user->newPassword) && strlen($user->newPassword) > 5) {
             $this->setPassword($user->newPassword);
         }
