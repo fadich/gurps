@@ -57,7 +57,7 @@ class Files extends \yii\db\ActiveRecord
 
     /**
      * @param Files $file
-     * @return Files|null
+     * @return Files|false
      */
     public function updateFile($file)
     {

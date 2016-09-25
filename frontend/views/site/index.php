@@ -14,125 +14,75 @@ use yii\helpers\Url;
 
 $this->title = 'Миры';
 ?>
+
 <style>
-    .my-side-nav {
-        position: fixed;
-        width: 200px;
-        /*background-color: rgba(0, 0, 0, 0.2);*/
-        top: 83px;
-        left: 0;
-        bottom: 61px;
+    .index-div {
+        top: 20vh;
+        position: absolute;
+        bottom: 6.4vh;
+        height: 73%;
+        width: 59.3%;
         overflow: auto;
-        scrollbar-base-color: #ffeaff
-        /*overflow-y: hidden;*/
-        /*margin: auto;*/
-        overflow-x: scroll;
+        border-left: 2px;
+        background: rgba(220, 220, 220, 0.5);
     }
 
-    .my-side-nav-search {
-        position: fixed;
-        top: 51px;
-        left: 0;
-        bottom: 61px;
-        border-right: solid;
-        border-color: rgba(0, 0, 0, 0.0);
-        background-color: rgba(0, 0, 0, 0.5);
-        border-width: 3px;
+    .bred {
+        padding-left: 10%;
     }
 
-    .world-selected {
-        position: fixed;
-        top: 51px;
-        left: 225px;
-        bottom: 61px;
-        right: 0;
-        overflow: auto;
-        scrollbar-base-color: #ffeaff
-        /*overflow-y: hidden;*/
-        /*margin: auto;*/
-        overflow-x: scroll;
+    .search-div {
+        background: rgba(0, 220, 220, 0.9);
     }
 
-    .world-selected-content {
-        width: 95%;
-        top: 51px;
-        left: 225px;
-        bottom: 61px;
+    .search-index {
+        height: 30px;
+        width: 250px;
+        top: 250px;
+        border-top: 0;
+        border-right: 0;
+        border-left: 0;
+        border-bottom: 2px solid rgb(0, 0, 0);
+        background: rgba(255, 255, 255, 0);
+        transition: 0.4s;
+    }
+
+    .search-index:focus {
+        width: 400px;
+        transition: 0.7s;
+    }
+
+    .round {
+        margin-left: 90%;
+        width: 70px;
+        height: 70px;
+        border-radius: 60px; /* Радиус скругления */
+        border: 3px solid green; /* Параметры рамки */
+        box-shadow: 0 0 2px #666; /* Параметры тени */
+    }
+
+    .table {
+        width: 90%;
+        text-align: center;
     }
 </style>
-<script>
-    $(window).scroll(function () {
-        $('#my-side-nav').css('left', originalLeft - $(this).scrollLeft());
-    });
-</script>
 
-<div class="site-index">
-
-    <?php $items[] = [
-        'url' => Url::to(['/world/edit']),
-        'label' => 'Создать',
-        'icon' => 'plus',
-    ];
-    $model = $model->findAll(['status' => World::STATUS_ACTIVE]);
-    foreach ($model as $item):
-        $avatar = 'uploads/pictures/worlds/avatars/unknown_world.png';
-        if (isset($item->file_id)) {
-            $avatar = $item->getAvatar()->one()->path;
-        }
-        $items[] = [
-            'label' => $item->name,
-            'url' => 'javascript:picked(\'' . $item->id . '\', \'' . $item->name . '\', \'' . $avatar . '\')',
-            'icon' => '',
-        ];
-    endforeach; ?>
-
-    <div class="world-selected">
-        <div class="world-selected-content">
-            <span id="name"><i style="color:#999;margin:1em 0"><h2>Выберете мир...</h2></i><hr></span>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <div id="avatar"></div>
-            <br>
-            <?php ActiveForm::begin(); ?>
-            <div id="choose"></div>
-            <?php ActiveForm::end(); ?>
-        </div>
-    </div>
-
-    <div class="my-side-nav-search">
-        <?php ActiveForm::begin(); ?>
-        <?= Html::textInput('search', null, ['maxlength' => 32, 'style' => 'width:160px;']) ?>
-        <?= Html::submitButton('<span class="glyphicon glyphicon-search"></span>', [
-            'class' => 'btn btn-sm',
-        ]) ?>
-        <?php ActiveForm::end() ?>
-    </div>
-
-    <div class="my-side-nav">
-
-        <?php echo SideNav::widget([
-            'type' => SideNav::TYPE_DEFAULT,
-            'class' => 'sidenav',
-            'headingOptions' => ['class' => 'head-style'],
-            'options' => [
-                'style' =>
-                    'background-color:#FFFFFF;',
-            ],
-            'items' => $items,
-        ]);
-        ?>
+<div><h1><i>Выберете мир...</i></h1></div>
+<div class="search-div">
+    <div style="position: fixed">
+        <input onclick="input()" placeholder="Поиск" class="search-index blok transition"> </input>
     </div>
 </div>
+<div class="index-div">
+    <hr>
+    <?php for ($i = 0; $i < 50; $i++): ?>
+        <table class="table">
+            <tr>
+                <td height="50px" width="60%" align="left"><h2>Мир какой-то</h2></td>
+                <td height="50px" width="10%"><img src="http://media-cache-ec0.pinimg.com/736x/9a/45/72/9a45729d3404bccd07a3281e8b3a12ec.jpg" class="round"> </td>
+            </tr>
+        </table>
+        <hr style="100%">
+    <?php endfor; ?>
 
-<script>
-    function picked(id, name, avatar) {
-        document.getElementById("name").innerHTML = '<i><h2>' + name + '</h2></i><hr>';
-//        document.getElementById("choose").innerHTML = '<button type="submit" class="btn btn-lg btn-primary" ' +
-//            'name="worldEdit" value="' + id + '" style="font-size: 24px;">Выбрать</button>';
-        document.getElementById("avatar").innerHTML = '<img id="avatar" src="/' +
-            avatar + '" width="100%">' + '<a href="/world/scenario?id=' + id + '">' +
-            '<img src="/src/images/play.png" width="20%" align="right"></a>' +
-            '&nbsp;&nbsp;&nbsp;';
-        document.getElementById("choose").innerHTML = '<button type="submit" class="btn btn-default" ' +
-            'name="worldEdit" value="' + id + '" style="font-size: 14px;">Подробнее</button>';
-    }
-</script>
+</div>
