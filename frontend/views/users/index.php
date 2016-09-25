@@ -23,9 +23,10 @@ $sort   = $model->sort;
 <div class="div-button-hide" id="ddl-header">
     <p>Параметры сортировки</p>
     <button type="button" class="button-hide btn btn-link" id="btn-hide-user-index" onclick="hide()"><span
-            id="span-icon" class="glyphicon glyphicon-chevron-up"></span></button>
+            id="span-icon" class="glyphicon
+            <?= \Yii::$app->request->get() ? 'glyphicon-chevron-down' : 'glyphicon-chevron-up' ?>"></span></button>
 </div>
-<div class="div-size-users-index" id="ddl" hidden="hidden">
+<div class="div-size-users-index" id="ddl"<?= \Yii::$app->request->get() ? '' : 'hidden' ?>>
     <form>
         <div class="row">
             <div class="col-lg-4">
