@@ -54,11 +54,11 @@ class User extends ActiveRecord implements IdentityInterface
     public function attributeLabels()
     {
         return [
-            'email' => 'Адрес электронной почты',
-            'auth_key' => 'Пользовательский ключ',
-            'password' => 'Пароль',
-            'newPassword' => 'Новый пароль',
-            'rePassword' => 'Повторите пароль (новый)',
+            'email'         => 'Адрес электронной почты',
+            'auth_key'      => 'Пользовательский ключ',
+            'password'      => 'Пароль',
+            'newPassword'   => 'Новый пароль',
+            'rePassword'    => 'Повторите пароль (новый)',
         ];
     }
 
@@ -92,10 +92,9 @@ class User extends ActiveRecord implements IdentityInterface
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
             ['password', 'validatePass'],
-
-            ['newPassword', 'required'],
-            ['newPassword', 'string', 'min' => 6],
-            ['rePassword', 'validateRePassword'],
+            
+            [['newPassword', 'rePassword'], 'string', 'min' => 6],
+            ['newPassword',  'validateRePassword'],
 
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
@@ -310,9 +309,9 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function setOnline()
     {
-        $session = ($session = $this->getSessionTable()->one()) ? $session : new Session();
-        $session->user_id = $this->id;
-        $session->time = time();
+        $session            = ($session = $this->getSessionTable()->one()) ? $session : new Session();
+        $session->user_id   = $this->id;
+        $session->time      = time();
         $session->updateSession($session);
     }
 
@@ -330,9 +329,9 @@ class User extends ActiveRecord implements IdentityInterface
 //        $timezone = 0;
         if ((time() - $status) < 600) {
             return 'Онлайн';
-        } else if ((time() - $status) < 86400) {
+        } elseif ((time() - $status) < 86400) {
             return 'был в сети ' . date('в H:i', $status);
-        } else if ((time() - $status) < 31104000) {
+        } elseif ((time() - $status) < 31104000) {
             return 'был в сети ' . date('d.m.Y в H:i', $status);
         } else {
             return 'Оффлайн';
@@ -355,13 +354,13 @@ class User extends ActiveRecord implements IdentityInterface
         }
         $this->email = $user->email;
         $this->generateAuthKey();
-        if (isset($user->newPassword) && strlen($user->newPassword) > 5) {
+        if ($user->newPassword !== null && strlen($user->newPassword) > 5 && $user->newPassword === $this->rePassword) {
             $this->setPassword($user->newPassword);
         }
         return $this->save() ? true : false;
     }
 
-    public function getAllUsers()
+    public function getUsers($order = 'name', $sort = 'asc')
     {
         $orderFilter = [
             'name',
@@ -372,32 +371,37 @@ class User extends ActiveRecord implements IdentityInterface
             'asc',
             'desc',
         ];
-        $this->order = (in_array($order = \Yii::$app->request->get('order'), $orderFilter)) ? $order : 'name';
-        $this->sort = (in_array($sort = \Yii::$app->request->get('sort'), $sortFilter)) ? $sort : 'asc';
+        $order    = (in_array($order, $orderFilter)) ? $order : 'name';
+        $sort     = (in_array($sort,  $sortFilter))  ? $sort  : 'asc';
         \Yii::$app->db->createCommand("SET SQL_MODE = ' '")->execute();
-        $users = \Yii::$app->db->createCommand(
-            "SELECT 
-                 user.id AS id,
-                 profile.name AS name,
-                 user.created_at AS date,
-                 profile.birthday AS birthday,
-                 profile.info AS info,
-                 files.path AS avatar,
-                 session.time AS status,
-                 count(world.id) AS worlds
-             FROM user
-             LEFT JOIN profile ON user.id = profile.user_id
-             LEFT JOIN files ON profile.avatar = files.id
-             LEFT JOIN session ON user.id = session.user_id
-             LEFT JOIN world ON user.id = world.user_id
-             WHERE user.status = :status AND world.status = :world_status" .
-            // AND avatar > 0
-            " GROUP BY user.id
-             ORDER BY " . $this->order . " " . $this->sort
-        )->bindValues([
-            ':status' => self::STATUS_ACTIVE,
-            'world_status' => World::STATUS_ACTIVE,
-        ])->queryAll();
-        return $users;
+        try {
+            $users = \Yii::$app->db->createCommand(
+                "SELECT 
+                   us.id             AS id,
+                   pr.name           AS name,
+                   us.created_at     AS date,
+                   pr.birthday       AS birthday,
+                   pr.info           AS info,
+                   fl.path           AS avatar,
+                   sn.time           AS status,
+                   count(wd.id)      AS worlds
+                 FROM user           us
+                 LEFT JOIN profile   pr ON us.id     = pr.user_id
+                 LEFT JOIN files     fl ON pr.avatar = fl.id
+                 LEFT JOIN session   sn ON us.id     = sn.user_id
+                 LEFT JOIN world     wd ON us.id     = wd.user_id
+                 WHERE us.status = :status AND wd.status = :world_status /* AND avatar > 0 */
+                 GROUP BY us.id
+                 ORDER BY {$order} {$sort}"
+            )->bindValues([
+                ':status'       => self::STATUS_ACTIVE,
+                'world_status'  => World::STATUS_ACTIVE,
+            ])->queryAll();
+            $this->sort         = $sort === 'asc' ? 'desc' : 'asc';
+            $this->order        = $order;
+            return $users;
+        } catch (\Exception $e) {
+            throw $e;
+        }
     }
 }
