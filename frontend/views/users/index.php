@@ -102,7 +102,7 @@ $sort  = $model->sort;
                             'name' => 'id',
                             'value' => $user['id'],
                         ]) ?>
-                        <span style="color:#<?= $model->isOnline() ? '5F5' : '999' ?>;
+                        <span style="color:#<?= $model->isOnline((int)$user['status']) ? '4C4' : '999' ?>;
                                      margin:1em 0"><?= $model->getStatusStr($user['status']) ?></span>
                         <br>
                         <?php $avatar = $user['avatar'] ? $user['avatar'] :

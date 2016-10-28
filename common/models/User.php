@@ -338,9 +338,9 @@ class User extends ActiveRecord implements IdentityInterface
         }
     }
 
-    public function isOnline()
+    public function isOnline(int $time = 0)
     {
-        return (time() - (int)$this->getSessionTable()->time) < 600;
+        return (time() - ($time ? $time : (int)$this->getSessionTable()->time)) < 600;
     }
 
     public function getEmail()

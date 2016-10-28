@@ -15,12 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     .lineh{
         line-height: 26px;
     }
-
-    .strong:hover {
+    .strong {
         color: #000000;
-        font-size: 18px;
-        background-color: rgba(255, 255, 255, 0.3);
-        border-radius: 5px;
     }
 </style>
 <div class="site-about">
