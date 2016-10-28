@@ -7,9 +7,9 @@ use yii\widgets\ActiveForm;
 /* @var $model common\models\User */
 /* @var $form ActiveForm */
 
-
-$this->title = $model->getProfile()->one()->name;
-$this->params['breadcrumbs'][] = ['label' => 'Пользователи', 'url' => 'index'];
+$profile = $model->getProfile();
+$this->title = $profile->name;
+$this->params['breadcrumbs'][] = ['label' => 'Пользователи', 'url' => '/users'];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <style>
@@ -31,8 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="rows">
                 <div class="col-lg-5">
                     <?php
-                    if (isset($model->getProfile()->one()->getAvatar()->one()->path)) {
-                        echo '<img src="/' . $model->getProfile()->one()->getAvatar()->one()->path .
+                    if (isset($profile->getAvatar()->path)) {
+                        echo '<img src="/' . $profile->getAvatar()->path .
                             '" width="308px">&nbsp;&nbsp;&nbsp;';
                     } else {
                         echo '<img src="' . '/uploads/pictures/avatars/no_avatar.png"
@@ -42,21 +42,22 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <div class="col-lg-7">
                     <h4>
-                        <p><strong><span class="info"><?= $model->getProfile()->one()->name ?></span></strong>
+                        <p><strong><span class="info"><?= $profile->name ?></span></strong>
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <span style="color:#999;margin:1em 0;font-size: medium"><?= $model->isOnline(); ?></span>
+                            <span style="color:#<?= $model->isOnline() ? '4C4' : '999' ?>;
+                                         margin:1em 0;font-size: medium"><?= $model->getStatusStr(); ?></span>
                         </p>
                         <hr>
                         <p><strong>Дата рождения: </strong>
-                            <span class="info"><?= $model->getProfile()->one()->birthday ?></span>
+                            <span class="info"><?= $profile->birthday ?></span>
                         </p>
                         <hr>
                         <p><strong>Пол: </strong>
-                            <span class="info"><?= $model->getProfile()->one()->sex ?></span>
+                            <span class="info"><?= $profile->sex ?></span>
                         </p>
                         <hr>
                         <p><strong>Доп. информация: </strong>
-                        <div class="info"><?= $model->getProfile()->one()->info ?></div>
+                        <div class="info"><?= $profile->info ?></div>
                         </p>
                     </h4>
                 </div>
@@ -75,13 +76,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 </h5>
             </div>
             <div id="worlds" hidden>
-                <?php $worlds = $model->getWorlds()->all();
+                <?php $worlds = $model->getWorlds();
                 if ($worlds) {
                     $deleted = false;
                     foreach ($worlds as $world) {
                         if ($world->status == \frontend\models\World::STATUS_ACTIVE) { ?>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="/index.php/world/edit?id=<?= $world->id ?>">
+                                <a href="/index.php/world/edit/<?= $world->id ?>">
                                 <?= $world->name ?></a>;<br>
                         <?php } else {
                             $deleted = true;
@@ -97,7 +98,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <?= mb_substr($world->name, 0, $world->name - mb_strlen('-deleted' . $world->id,
                                                 'UTF-8'), 'UTF-8') . ';'; ?>
                                     <?php if ($world->user_id == Yii::$app->user->id) { ?>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;(<?= Html::a('Восстановить', '/index.php/world/reset?id=' . $world->id) ?>);
+                                        &nbsp;&nbsp;&nbsp;&nbsp;(<?= Html::a('Восстановить', '/world/reset/' . $world->id) ?>);
                                     <?php } ?>
                                     <br>
                                 <?php }

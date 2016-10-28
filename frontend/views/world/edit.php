@@ -73,7 +73,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php if ($model->user_id != null): ?>
                 <strong>Создатель: </strong>
                 <span class="not-owner">
-                    &nbsp;<?= $model->getOwner()->one()->name ?>&nbsp;
+                    &nbsp;<?= $model->getOwner()->name ?>&nbsp;
                 </span>.
                 <hr>
             <?php endif; ?>

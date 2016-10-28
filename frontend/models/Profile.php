@@ -147,7 +147,7 @@ class Profile extends \yii\db\ActiveRecord
 
     public function getAvatar ()
     {
-        return $this->hasOne(Files::className(), ['id' => 'avatar']);
+        return $this->hasOne(Files::className(), ['id' => 'avatar'])->one();
     }
 
     /**
@@ -155,6 +155,6 @@ class Profile extends \yii\db\ActiveRecord
      */
     public function getUser ()
     {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(User::className(), ['id' => 'user_id'])->one();
     }
 }

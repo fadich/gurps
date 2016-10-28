@@ -38,6 +38,15 @@ class UsersController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        if (!Yii::$app->user->isGuest) {
+            $user = User::findIdentity(Yii::$app->user->id);
+            $user->setOnline();
+        }
+        return parent::beforeAction($action);
+    }
+    
     /**
      * display all users
      *
@@ -45,17 +54,10 @@ class UsersController extends Controller
      */
     public function actionIndex()
     {
-        if (!Yii::$app->user->isGuest) {
-            $user = User::findIdentity(Yii::$app->user->id);
-            $user->setOnline();
-        }
-
         $model = new User();
         
-        if (Yii::$app->request->post('id')) {
-            return $this->redirect(['user',
-                'id' => Yii::$app->request->post('id'),
-            ]);
+        if ($id = Yii::$app->request->post('id')) {
+            return $this->redirect(['users/user/' . $id,]);
         }
         return $this->render('index', [
             'model' => $model,
@@ -69,11 +71,6 @@ class UsersController extends Controller
      */
     public function actionUser()
     {
-        if (!Yii::$app->user->isGuest) {
-            $user = User::findIdentity(Yii::$app->user->id);
-            $user->setOnline();
-        }
-
         $model = User::findOne(['id' => Yii::$app->request->get('id')]);
 
         if ($model === null) {

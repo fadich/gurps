@@ -41,16 +41,20 @@ class WorldController extends Controller
         ];
     }
 
-    /**
-     * @return mixed
-     */
-    public function actionEdit()
+    public function beforeAction($action)
     {
         if (!Yii::$app->user->isGuest) {
             $user = User::findIdentity(Yii::$app->user->id);
             $user->setOnline();
         }
+        return parent::beforeAction($action);
+    }
 
+    /**
+     * @return mixed
+     */
+    public function actionEdit()
+    {
         $model = ($model = World::findOne(['id' => Yii::$app->request->get('id')]))
             ? $model : new World();
 

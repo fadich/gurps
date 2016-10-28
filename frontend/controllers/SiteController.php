@@ -71,6 +71,15 @@ class SiteController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        if (!Yii::$app->user->isGuest) {
+            $user = User::findIdentity(Yii::$app->user->id);
+            $user->setOnline();
+        }
+        return parent::beforeAction($action);
+    }
+
     /**
      * Displays homepage.
      *
@@ -78,11 +87,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        if (!Yii::$app->user->isGuest) {
-            $user = User::findIdentity(Yii::$app->user->id);
-            $user->setOnline();
-        }
-
         if (Yii::$app->request->post('worldEdit') != null) {
             return $this->redirect(['world/edit',
                 'id' => Yii::$app->request->post('worldEdit'),
@@ -107,12 +111,6 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        if (!Yii::$app->user->isGuest) {
-            $user = User::findIdentity(Yii::$app->user->id);
-            $user->setOnline();
-            return $this->goHome();
-        }
-
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             $model->logUserSession();
@@ -133,10 +131,7 @@ class SiteController extends Controller
      */
     public function actionLogout()
     {
-        $user = User::findIdentity(Yii::$app->user->id);
-        $user->setOnline();
         Yii::$app->user->logout();
-
         return $this->goHome();
     }
 
@@ -147,11 +142,6 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
-        if (!Yii::$app->user->isGuest) {
-            $user = User::findIdentity(Yii::$app->user->id);
-            $user->setOnline();
-        }
-
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
@@ -175,11 +165,6 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        if (!Yii::$app->user->isGuest) {
-            $user = User::findIdentity(Yii::$app->user->id);
-            $user->setOnline();
-        }
-
         return $this->render('about');
     }
 
@@ -223,11 +208,6 @@ class SiteController extends Controller
      */
     public function actionProfile()
     {
-        if (!Yii::$app->user->isGuest) {
-            $user = User::findIdentity(Yii::$app->user->id);
-            $user->setOnline();
-        }
-
         $model = ($model = Profile::findOne(['user_id' => Yii::$app->user->id]))
             ? $model : new Profile();
         $file = ($file = Files::findOne(['id' => $model->avatar]))
@@ -247,7 +227,7 @@ class SiteController extends Controller
                     ]);
                 } else {
                     if (isset($model->avatar)) {
-                        unlink($model->getAvatar()->one()->path);
+                        unlink($model->getAvatar()->path);
                     }
                     $file->file->saveAs('uploads/pictures/avatars/' . time() .
                         str_replace('\'', '', (str_replace('"', '', str_replace(' ', '_', $model->name)))) .
@@ -273,7 +253,7 @@ class SiteController extends Controller
         }
 
         if (Yii::$app->request->post('User')) {
-            $user = $model->getUser()->one();
+            $user = $model->getUser();
             $user->oldEmail = $user->email;
             $user->email = Yii::$app->request->post('User')['email'];
             if ($user->load(Yii::$app->request->post()) && $user->validate()) {
@@ -299,12 +279,6 @@ class SiteController extends Controller
      */
     public function actionRequestPasswordReset()
     {
-        if (!Yii::$app->user->isGuest) {
-            $user = User::findIdentity(Yii::$app->user->id);
-            $user->setOnline();
-            return $this->goHome();
-        }
-
         $model = new PasswordResetRequestForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
@@ -332,12 +306,6 @@ class SiteController extends Controller
      */
     public function actionResetPassword($token)
     {
-        if (!Yii::$app->user->isGuest) {
-            $user = User::findIdentity(Yii::$app->user->id);
-            $user->setOnline();
-            return $this->goHome();
-        }
-
         try {
             $model = new ResetPasswordForm($token);
         } catch (InvalidParamException $e) {

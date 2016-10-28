@@ -13,9 +13,9 @@ use yii\widgets\DetailView;
 $this->title = 'Пользователи';
 $this->params['breadcrumbs'][] = $this->title;
 
-$users =  $model->getUsers(\Yii::$app->request->get('order'), \Yii::$app->request->get('sort'));
-$order  = $model->order;
-$sort   = $model->sort;
+$users = $model->getUsers(\Yii::$app->request->get('order'), \Yii::$app->request->get('sort'));
+$order = $model->order;
+$sort  = $model->sort;
 
 ?>
 <!--     Users sort panel       -->
@@ -102,7 +102,8 @@ $sort   = $model->sort;
                             'name' => 'id',
                             'value' => $user['id'],
                         ]) ?>
-                        <span style="color:#999;margin:1em 0"><?= $model->isOnline($user['status']) ?></span>
+                        <span style="color:#<?= $model->isOnline() ? '5F5' : '999' ?>;
+                                     margin:1em 0"><?= $model->getStatusStr($user['status']) ?></span>
                         <br>
                         <?php $avatar = $user['avatar'] ? $user['avatar'] :
                             'uploads/pictures/avatars/no_avatar.png'; ?>

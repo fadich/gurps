@@ -12,6 +12,7 @@ use skeeks\yii2\ckeditor\CKEditorPresets;
 /* @var $file frontend\models\Files */
 /* @var $form ActiveForm */
 
+$user = $model->getUser();
 $this->title = 'Профиль';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -62,8 +63,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="col-lg-1"></div>
                     <div class="col-lg-3">
                         <?php
-                        if (isset($model->getAvatar()->one()->path)) {
-                            echo '<img src="/' . $model->getAvatar()->one()->path .
+                        if (isset($model->getAvatar()->path)) {
+                            echo '<img src="/' . $model->getAvatar()->path .
                                 '" width="308px">&nbsp;&nbsp;&nbsp;';
                         } else {
                             echo '<img src="' . '/uploads/pictures/avatars/no_avatar.png"
@@ -94,9 +95,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                     <div class="col-lg-1"></div>
                     <div class="col-lg-5">
-                        <p><?= $form->field($model->getUser()->one(), 'email')->
+                        <p><?= $form->field($user, 'email')->
                             textInput(['readOnly' => true]) ?></p>
-                        <p><?= $form->field($model->getUser()->one(), 'auth_key')->
+                        <p><?= $form->field($user, 'auth_key')->
                             textInput(['readOnly' => true,]) ?></p>
                         <p align="right"><?php Modal::begin([
                                 'header' => '<h2 align="center">Учетные данные</h2>',
@@ -107,13 +108,13 @@ $this->params['breadcrumbs'][] = $this->title;
                             ]);
                             ActiveForm::begin(); ?>
 
-                            <?= $form->field($model->getUser()->one(), 'email')->textInput(); ?>
+                            <?= $form->field($user, 'email')->textInput(); ?>
 
-                            <?= $form->field($model->getUser()->one(), 'password')->passwordInput(); ?>
+                            <?= $form->field($user, 'password')->passwordInput(); ?>
 
-                            <?= $form->field($model->getUser()->one(), 'newPassword')->passwordInput(); ?>
+                            <?= $form->field($user, 'newPassword')->passwordInput(); ?>
 
-                            <?= $form->field($model->getUser()->one(), 'rePassword')->passwordInput(); ?>
+                            <?= $form->field($user, 'rePassword')->passwordInput(); ?>
 
                         <div class="form-group">
                             <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']); ?>

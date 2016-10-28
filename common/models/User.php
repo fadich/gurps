@@ -284,7 +284,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function getProfile()
     {
-        return $this->hasOne(Profile::className(), ['user_id' => 'id']);
+        return $this->hasOne(Profile::className(), ['user_id' => 'id'])->one();
     }
 
     /**
@@ -292,7 +292,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function getSessionTable()
     {
-        return $this->hasOne(Session::className(), ['user_id' => 'id']);
+        return $this->hasOne(Session::className(), ['user_id' => 'id'])->one();
     }
 
     /**
@@ -301,7 +301,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function getWorlds()
     {
-        return $this->hasMany(World::className(), ['user_id' => 'id']);
+        return $this->hasMany(World::className(), ['user_id' => 'id'])->all();
     }
 
     /**
@@ -309,7 +309,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function setOnline()
     {
-        $session            = ($session = $this->getSessionTable()->one()) ? $session : new Session();
+        $session            = ($session = $this->getSessionTable()) ? $session : new Session();
         $session->user_id   = $this->id;
         $session->time      = time();
         $session->updateSession($session);
@@ -319,10 +319,10 @@ class User extends ActiveRecord implements IdentityInterface
      * @param null $time
      * @return string
      */
-    public function isOnline($time = null)
+    public function getStatusStr($time = null)
     {
         if ($time === null) {
-            $status = $this->getSessionTable()->one()->time ?? 0;
+            $status = $this->getSessionTable()->time ?? 0;
         } else {
             $status = $time;
         }
@@ -336,6 +336,11 @@ class User extends ActiveRecord implements IdentityInterface
         } else {
             return 'Оффлайн';
         }
+    }
+
+    public function isOnline()
+    {
+        return (time() - (int)$this->getSessionTable()->time) < 600;
     }
 
     public function getEmail()
